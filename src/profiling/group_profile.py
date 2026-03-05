@@ -1,0 +1,307 @@
+﻿from __future__ import annotations
+
+import re
+from collections import defaultdict
+from typing import Dict, List, Tuple
+
+
+class GroupProfiler:
+    """
+    Aggregate message-level decisions into group-level evidence and victim/suspect lists.
+
+    Key upgrades:
+    - Victim detection no longer depends on a single LLM vote.
+    - Multi-signal scoring (LLM vote + lexical cues + behavior cues + PII behavior).
+    - Evidence is first stored raw, then assigned to suspect/victim buckets by final user labels.
+    """
+
+    def __init__(self):
+        self.stats = {
+            "total_msgs": 0,
+            "all_evidence": [],
+        }
+        self._seen_evidence = set()
+
+        self.user_stats: Dict[str, Dict] = defaultdict(
+            lambda: {
+                "msg_count": 0,
+                "votes": {"scammer": 0, "victim": 0, "other": 0},
+                "victim_signal": 0,
+                "scammer_signal": 0,
+                "pii_count": 0,
+                "bank_card_posts": 0,
+            }
+        )
+
+        self.victim_keywords = [
+            "被骗",
+            "骗子",
+            "还钱",
+            "没到账",
+            "没到帐",
+            "求助",
+            "救命",
+            "报警",
+            "报案",
+            "拉黑",
+            "退钱",
+            "投诉",
+            "维权",
+        ]
+        self.scammer_keywords = [
+            "卡号",
+            "户名",
+            "下发",
+            "接单",
+            "进场",
+            "收款",
+            "转完",
+            "截图",
+            "汇率",
+            "速度",
+            "继续",
+            "踢",
+            "敏感词",
+            "洗钱",
+            "通道",
+            "码商",
+            "跑分",
+        ]
+
+    @staticmethod
+    def _normalize_role(role: str) -> str:
+        role = str(role or "other").strip().lower()
+        if role in {"scammer", "victim", "other"}:
+            return role
+        return "other"
+
+    @staticmethod
+    def _is_system_user(username: str) -> bool:
+        return str(username or "").strip().lower() == "system"
+
+    @staticmethod
+    def _is_noise_user(username: str) -> bool:
+        u = str(username or "").strip().lower()
+        return u in {"unknown", "unknown_user", "unknownuser"} or u.startswith("unknown")
+
+    @staticmethod
+    def _label_from_key(key: str) -> str:
+        k = str(key or "").lower()
+        if "phone" in k or "mobile" in k:
+            return "手机号"
+        if "id" in k:
+            return "身份证"
+        if "bank" in k:
+            return "银行卡"
+        if "mail" in k:
+            return "邮箱"
+        return "其他"
+
+    @staticmethod
+    def _has_long_number(text: str) -> bool:
+        return bool(re.search(r"(?<!\d)\d{15,19}(?!\d)", text or ""))
+
+    def _update_behavior_signals(self, username: str, text: str):
+        rec = self.user_stats[username]
+        if not text:
+            return
+
+        victim_hit = any(k in text for k in self.victim_keywords)
+        scammer_hit = any(k in text for k in self.scammer_keywords)
+
+        # Long numeric account-like string is usually a scammer-side operation signal
+        if self._has_long_number(text):
+            scammer_hit = True
+
+        if victim_hit:
+            rec["victim_signal"] += 1
+        if scammer_hit:
+            rec["scammer_signal"] += 1
+
+    def update(self, message: Dict):
+        self.stats["total_msgs"] += 1
+
+        username = message.get("username")
+        text = str(message.get("text", "") or "")
+
+        if not username or self._is_system_user(username):
+            return
+
+        rec = self.user_stats[username]
+        rec["msg_count"] += 1
+
+        llm_res = message.get("llm_decision", {}) if isinstance(message.get("llm_decision", {}), dict) else {}
+        role = self._normalize_role(llm_res.get("role", "other"))
+        rec["votes"][role] = rec["votes"].get(role, 0) + 1
+
+        self._update_behavior_signals(username, text)
+
+        pii_details = message.get("pii_details", {})
+        if not isinstance(pii_details, dict):
+            pii_details = {}
+
+        for key, values in pii_details.items():
+            if not isinstance(values, list):
+                continue
+
+            label = self._label_from_key(key)
+            for val in values:
+                content = str(val or "").strip()
+                if not content:
+                    continue
+
+                rec["pii_count"] += 1
+                if label == "银行卡":
+                    rec["bank_card_posts"] += 1
+
+                dedupe_key = (username, label, content)
+                if dedupe_key in self._seen_evidence:
+                    continue
+                self._seen_evidence.add(dedupe_key)
+
+                self.stats["all_evidence"].append(
+                    {
+                        "type": label,
+                        "content": content,
+                        "owner": username,
+                        "context": text[:60],
+                    }
+                )
+
+    def _user_scores(self, username: str, network_stats: Dict) -> Tuple[float, float]:
+        rec = self.user_stats.get(username, {})
+        votes = rec.get("votes", {})
+
+        v_votes = votes.get("victim", 0)
+        s_votes = votes.get("scammer", 0)
+        victim_signal = rec.get("victim_signal", 0)
+        scammer_signal = rec.get("scammer_signal", 0)
+        bank_posts = rec.get("bank_card_posts", 0)
+
+        pr = float(network_stats.get(username, {}).get("pagerank", 0.0) or 0.0)
+
+        victim_score = (
+            1.6 * victim_signal
+            + 1.1 * v_votes
+            - 1.1 * s_votes
+            - 0.8 * scammer_signal
+            - 0.9 * bank_posts
+            + (0.2 if pr < 0.08 else 0.0)
+        )
+
+        scammer_score = (
+            1.4 * s_votes
+            + 1.1 * scammer_signal
+            + 1.2 * bank_posts
+            - 0.7 * victim_signal
+            + (0.2 if pr >= 0.08 else 0.0)
+        )
+
+        return victim_score, scammer_score
+
+    def _classify_users(self, network_stats: Dict):
+        victim_scores = {}
+        scammer_scores = {}
+        victims = set()
+        suspects = set()
+
+        for username in self.user_stats.keys():
+            victim_score, scammer_score = self._user_scores(username, network_stats)
+            victim_scores[username] = victim_score
+            scammer_scores[username] = scammer_score
+
+            rec = self.user_stats[username]
+            v_votes = rec["votes"].get("victim", 0)
+            s_votes = rec["votes"].get("scammer", 0)
+            victim_signal = rec.get("victim_signal", 0)
+            bank_posts = rec.get("bank_card_posts", 0)
+
+            has_hard_scammer_behavior = bank_posts > 0 or rec.get("scammer_signal", 0) >= 2
+
+            # Suspect label requires both high score and hard behavior evidence.
+            if has_hard_scammer_behavior and scammer_score >= max(2.2, victim_score + 0.8):
+                suspects.add(username)
+                continue
+
+            # Victim needs explicit cue or stable vote trend, with no hard scammer evidence.
+            has_victim_cue = victim_signal > 0 or v_votes >= 2 or (v_votes > s_votes and rec.get("msg_count", 0) >= 3)
+            if not has_hard_scammer_behavior and has_victim_cue and victim_score >= 1.0:
+                victims.add(username)
+                continue
+
+            # Rescue rule: explicit victim cues should outweigh noisy LLM single-message drifts.
+            if victim_signal >= 2 and bank_posts == 0:
+                victims.add(username)
+
+        # Hard filters against false positives.
+        cleaned_victims = set()
+        for username in victims:
+            rec = self.user_stats[username]
+            if username in suspects:
+                continue
+            if self._is_noise_user(username) and rec.get("victim_signal", 0) == 0:
+                continue
+            if rec.get("bank_card_posts", 0) > 0 and rec.get("victim_signal", 0) == 0:
+                continue
+            cleaned_victims.add(username)
+
+        return cleaned_victims, suspects, victim_scores, scammer_scores
+
+    @staticmethod
+    def _format_evidence(evidence_list: List[Dict]) -> str:
+        if not evidence_list:
+            return "未发现相关数据"
+        lines = []
+        for e in evidence_list:
+            lines.append(f"- [{e['type']}] {e['content']}（发布者: {e['owner']}，语境: {e['context']}）")
+        return "\n".join(lines)
+
+    def get_summary_context(self, network_stats, influence_threshold=0.1):
+        victims, suspects, victim_scores, _ = self._classify_users(network_stats)
+
+        suspect_assets = []
+        victim_leaks = []
+
+        for e in self.stats["all_evidence"]:
+            owner = e["owner"]
+            if owner in suspects:
+                suspect_assets.append(e)
+                continue
+            if owner in victims:
+                victim_leaks.append(e)
+                continue
+
+            # Fallback assignment: cards are usually operation assets unless owner has victim cues.
+            rec = self.user_stats.get(owner, {})
+            if e["type"] == "银行卡" and rec.get("victim_signal", 0) == 0:
+                suspect_assets.append(e)
+            else:
+                victim_leaks.append(e)
+
+        # Victim ranking: score first, then low influence, then msg count.
+        ranked_victims = sorted(
+            list(victims),
+            key=lambda u: (
+                victim_scores.get(u, 0.0),
+                -float(network_stats.get(u, {}).get("pagerank", 0.0) or 0.0),
+                self.user_stats.get(u, {}).get("msg_count", 0),
+            ),
+            reverse=True,
+        )
+
+        # Slight influence guardrail for large groups; keep explicit victim-cue users.
+        final_victims = []
+        for u in ranked_victims:
+            pr = float(network_stats.get(u, {}).get("pagerank", 0.0) or 0.0)
+            has_explicit_victim_cue = self.user_stats[u].get("victim_signal", 0) > 0
+            if pr < influence_threshold or has_explicit_victim_cue:
+                final_victims.append(u)
+
+        return {
+            "msg_count": self.stats["total_msgs"],
+            "suspect_assets": suspect_assets,
+            "victim_leaks": victim_leaks,
+            "suspect_assets_str": self._format_evidence(suspect_assets),
+            "victim_leaks_str": self._format_evidence(victim_leaks),
+            "victim_list": final_victims,
+        }
