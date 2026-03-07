@@ -1,0 +1,1616 @@
+[
+    {
+        "username": "Group_Leader_A",
+        "text": "今天汇率7.5，新来的车队报备，速度。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "fraud",
+            "trade"
+        ],
+        "l1_risk_score": 80,
+        "l1_evidence": [
+            "命中敏感话题: fraud",
+            "命中敏感话题: trade",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "high",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "报备",
+            "车队",
+            "新来",
+            "汇率",
+            "速度"
+        ],
+        "token_count": 11,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "新来的车队报备，速度可能涉及诈骗或非法交易"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "卡号准备好了：6217001210088884321 户名：张三 银行：工行",
+        "has_pii": true,
+        "pii_details": {
+            "extracted_bank_card": [
+                "6217001210088884321"
+            ]
+        },
+        "preliminary_topics": [],
+        "l1_risk_score": 20,
+        "l1_evidence": [
+            "命中隐私信息(1项): ['extracted_bank_card']",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "户名",
+            "准备",
+            "银行"
+        ],
+        "token_count": 14,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "询问银行卡信息并提供个人信息"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_001",
+        "text": "收到，一车准备进场。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "进场",
+            "收到",
+            "准备"
+        ],
+        "token_count": 6,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "未明确意图，但涉及敏感话题可能有风险"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.0750771847858414,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_002",
+        "text": "二车也好了，查收刚才的50000。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "查收"
+        ],
+        "token_count": 9,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "诈骗，谎称二车已修好并要求转账50000元"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.07387429213053469,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "收到，下发完成。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "下发",
+            "收到",
+            "完成"
+        ],
+        "token_count": 5,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "信息确认，可能涉及财务信息泄露"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "别在群里发敏感词，用暗语。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "暗语"
+        ],
+        "token_count": 9,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "未发现明显恶意行为或敏感信息泄露"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "新业务：私聊我拿手机号，回款快。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "回款",
+            "手机号",
+            "业务"
+        ],
+        "token_count": 11,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "通过私聊获取手机号以快速回款"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Help_Me_Please",
+        "text": "客服在吗？我刚才转的3000块怎么没到账？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "没到",
+            "客服"
+        ],
+        "token_count": 14,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "我刚才转的3000块怎么没到账？"
+        },
+        "user_profile": {
+            "msg_count": 5,
+            "pagerank": 0.09066572169513341,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "系统维护，等半小时。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "系统维护"
+        ],
+        "token_count": 5,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "私聊获取手机号以加快回款"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Help_Me_Please",
+        "text": "半小时了，你们是不是骗子？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "fraud"
+        ],
+        "l1_risk_score": 50,
+        "l1_evidence": [
+            "命中敏感话题: fraud"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "骗子"
+        ],
+        "token_count": 7,
+        "l2_risk_score": 30,
+        "l2_evidence": [
+            "NLP识别高危词汇: ['骗子']",
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "客服在吗？我刚才转的3000块怎么没到账？"
+        },
+        "user_profile": {
+            "msg_count": 5,
+            "pagerank": 0.09066572169513341,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "再乱叫直接踢了。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "乱叫"
+        ],
+        "token_count": 6,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "要求群成员不要在群里发敏感词，用暗语，暗示可能涉及诈骗或非法活动。"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Help_Me_Please",
+        "text": "我钱都没了！这是我生活费！你们还我钱！",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "没了",
+            "生活费"
+        ],
+        "token_count": 16,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "我钱都没了！这是我生活费！你们还我钱！"
+        },
+        "user_profile": {
+            "msg_count": 5,
+            "pagerank": 0.09066572169513341,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Help_Me_Please",
+        "text": "我的联系电话是13812345678，刚才转给那个张三的卡了。",
+        "has_pii": true,
+        "pii_details": {
+            "extracted_mobile_cn": [
+                "13812345678"
+            ]
+        },
+        "preliminary_topics": [],
+        "l1_risk_score": 20,
+        "l1_evidence": [
+            "命中隐私信息(1项): ['extracted_mobile_cn']"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "转给"
+        ],
+        "token_count": 14,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "我刚才转的3000块怎么没到账？"
+        },
+        "user_profile": {
+            "msg_count": 5,
+            "pagerank": 0.09066572169513341,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "这种傻子真多，下一个。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "傻子"
+        ],
+        "token_count": 8,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "要求他人转款并威胁踢出群聊"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Student_Xiao",
+        "text": "你好，我是来兼职跑分的，需要交押金吗？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "fraud",
+            "social"
+        ],
+        "l1_risk_score": 60,
+        "l1_evidence": [
+            "命中敏感话题: fraud",
+            "命中敏感话题: social",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "押金",
+            "兼职",
+            "需要"
+        ],
+        "token_count": 15,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "victim",
+            "intent": "询问是否需要交押金以进行跑分活动"
+        },
+        "user_profile": {
+            "msg_count": 4,
+            "pagerank": 0.08734298069823004,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "私聊发身份证照片，交500押金入场。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "押金",
+            "入场",
+            "身份证",
+            "照片"
+        ],
+        "token_count": 10,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "通过私聊发身份证照片并要求交押金以获取利益"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Student_Xiao",
+        "text": "好的，我地址是上海市黄浦区南京路100号，这就发你。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "地址"
+        ],
+        "token_count": 17,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "试图通过提供地址骗取他人信任，以获取押金。"
+        },
+        "user_profile": {
+            "msg_count": 4,
+            "pagerank": 0.08734298069823004,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "卡号：6222021001007777666，转完截图。",
+        "has_pii": true,
+        "pii_details": {
+            "extracted_bank_card": [
+                "6222021001007777666"
+            ]
+        },
+        "preliminary_topics": [],
+        "l1_risk_score": 20,
+        "l1_evidence": [
+            "命中隐私信息(1项): ['extracted_bank_card']",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "转完",
+            "截图"
+        ],
+        "token_count": 7,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "转账并截图，疑似诈骗行为"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Student_Xiao",
+        "text": "转了，怎么把我拉黑了？喂？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 12,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "为什么把我拉黑了？"
+        },
+        "user_profile": {
+            "msg_count": 4,
+            "pagerank": 0.08734298069823004,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "签到",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "签到"
+        ],
+        "token_count": 1,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "签到/噪声消息"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "滴滴",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "滴滴"
+        ],
+        "token_count": 1,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "签到/噪声消息"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_001",
+        "text": "三车进场，金额100000。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "进场",
+            "金额"
+        ],
+        "token_count": 7,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "试图骗取押金以入场"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.0750771847858414,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "收到，速度很快。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "收到",
+            "速度"
+        ],
+        "token_count": 5,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "诱导对方提供手机号以获取回款，存在诈骗风险。"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Help_Me_Please",
+        "text": "我要报警了！你们这群骗子！",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "fraud"
+        ],
+        "l1_risk_score": 50,
+        "l1_evidence": [
+            "命中敏感话题: fraud",
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "骗子",
+            "报警"
+        ],
+        "token_count": 8,
+        "l2_risk_score": 30,
+        "l2_evidence": [
+            "NLP识别高危词汇: ['骗子']"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "victim",
+            "intent": "我钱都没了！这是我生活费！你们还我钱！"
+        },
+        "user_profile": {
+            "msg_count": 5,
+            "pagerank": 0.09066572169513341,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "报警？你也是参与非法洗钱，看警察抓谁。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "洗钱",
+            "报警",
+            "警察",
+            "参与"
+        ],
+        "token_count": 14,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "我要报警了！你们这群骗子！"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "把这人踢了。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 6,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "要踢人，可能涉及诈骗或骚扰行为"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "system",
+        "text": "Help_Me_Please 已被移除群组",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "群组",
+            "移除"
+        ],
+        "token_count": 10,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "system_message"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.05283286084756671,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "继续接单，卡号私聊 Finance_Master。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "继续"
+        ],
+        "token_count": 10,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "通过私聊获取银行卡信息并进行非法洗钱活动"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_003",
+        "text": "还有位置吗？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "位置",
+            "还有"
+        ],
+        "token_count": 4,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "我的联系电话是13812345678，刚才转给那个张三的卡了。"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.04951011985066334,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "有，来。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 4,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "试图进行非法洗钱活动，疑似诈骗。"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "卡号：6217003940055551234，这是新卡。",
+        "has_pii": true,
+        "pii_details": {
+            "extracted_bank_card": [
+                "6217003940055551234"
+            ]
+        },
+        "preliminary_topics": [],
+        "l1_risk_score": 20,
+        "l1_evidence": [
+            "命中隐私信息(1项): ['extracted_bank_card']",
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 7,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "试图通过提供银行卡信息获取利益"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Scammer_B",
+        "text": "低价出各种实名手机卡，联系我。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "手机卡",
+            "实名",
+            "低价",
+            "联系"
+        ],
+        "token_count": 9,
+        "l2_risk_score": 30,
+        "l2_evidence": [
+            "NLP识别高危词汇: ['实名']"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "低价出各种实名手机卡，联系我"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.05222646242220548,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "靠谱吗？",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 4,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有疑问/质询语气 (Victim特征)"
+        ],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "询问卡号是否靠谱"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Scammer_B",
+        "text": "看我朋友圈反馈，顺丰包邮。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "朋友圈",
+            "反馈"
+        ],
+        "token_count": 8,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "低价出各种实名手机卡，联系我。"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.05222646242220548,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_002",
+        "text": "汇报，刚才那单10万已清。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 9,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "低价出各种实名手机卡，联系我。"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.07387429213053469,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "不错，Finance_Master 记一下账。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 10,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "低价出各种实名手机卡，联系我。"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Student_Xiao",
+        "text": "我真的报警了，我同学说这是诈骗。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_victim"
+        ],
+        "l1_role_clue": "potential_victim",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "诈骗",
+            "报警",
+            "同学"
+        ],
+        "token_count": 12,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "victim",
+            "intent": "我真的报警了，我同学说这是诈骗。"
+        },
+        "user_profile": {
+            "msg_count": 4,
+            "pagerank": 0.08734298069823004,
+            "mentioned_count": 4,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "滚。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [
+            "正则身份倾向: potential_aggressor"
+        ],
+        "l1_role_clue": "potential_aggressor",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [
+            "带有指令/管理语气 (Aggressor特征)"
+        ],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "暗示他人踢出群聊以达到某种目的"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "system",
+        "text": "Student_Xiao 已被移除群组",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "群组",
+            "移除"
+        ],
+        "token_count": 8,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "system_message"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.05283286084756671,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "最近反诈查得严，大家都用静默相机拍照。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "反诈",
+            "拍照",
+            "大家"
+        ],
+        "token_count": 11,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "低价出各种实名手机卡，联系我。"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "明白。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "未明确意图，信息不足以判断角色和风险。"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "今天行情一般啊。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "行情"
+        ],
+        "token_count": 5,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "询问行情情况"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "大单在晚上。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "大单"
+        ],
+        "token_count": 4,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "medium",
+            "role": "scammer",
+            "intent": "大单在晚上，可能涉及诈骗活动。"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Finance_Master",
+        "text": "再发一遍卡：621000555599998888",
+        "has_pii": true,
+        "pii_details": {
+            "extracted_bank_card": [
+                "621000555599998888"
+            ]
+        },
+        "preliminary_topics": [],
+        "l1_risk_score": 20,
+        "l1_evidence": [
+            "命中隐私信息(1项): ['extracted_bank_card']"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [],
+        "token_count": 5,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "通过私聊发送银行卡信息以获取利益"
+        },
+        "user_profile": {
+            "msg_count": 14,
+            "pagerank": 0.2571486089756858,
+            "mentioned_count": 12,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Group_Leader_A",
+        "text": "收到。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "收到"
+        ],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "未发现明显恶意行为，信息正常接收"
+        },
+        "user_profile": {
+            "msg_count": 9,
+            "pagerank": 0.18463951153237984,
+            "mentioned_count": 9,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_001",
+        "text": "收到。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "收到"
+        ],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "诈骗信息，诱导用户点击链接或提供个人信息"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.0750771847858414,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_002",
+        "text": "收到。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "收到"
+        ],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "high",
+            "role": "scammer",
+            "intent": "收到，可能涉及诈骗行为"
+        },
+        "user_profile": {
+            "msg_count": 3,
+            "pagerank": 0.07387429213053469,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Runner_003",
+        "text": "收到。",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [
+            "trade"
+        ],
+        "l1_risk_score": 30,
+        "l1_evidence": [
+            "命中敏感话题: trade"
+        ],
+        "l1_role_clue": "neutral",
+        "risk_level": "medium",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "收到"
+        ],
+        "token_count": 2,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "看我朋友圈反馈，顺丰包邮"
+        },
+        "user_profile": {
+            "msg_count": 2,
+            "pagerank": 0.04951011985066334,
+            "mentioned_count": 2,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "签到",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "签到"
+        ],
+        "token_count": 1,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "签到/噪声消息"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    },
+    {
+        "username": "Unknown_User",
+        "text": "滴滴",
+        "has_pii": false,
+        "pii_details": {},
+        "preliminary_topics": [],
+        "l1_risk_score": 0,
+        "l1_evidence": [],
+        "l1_role_clue": "neutral",
+        "risk_level": "low",
+        "is_system_msg": false,
+        "nlp_keywords": [
+            "滴滴"
+        ],
+        "token_count": 1,
+        "l2_risk_score": 0,
+        "l2_evidence": [],
+        "llm_decision": {
+            "risk": "low",
+            "role": "other",
+            "intent": "签到/噪声消息"
+        },
+        "user_profile": {
+            "msg_count": 6,
+            "pagerank": 0.07668225706175914,
+            "mentioned_count": 3,
+            "is_kol": false
+        }
+    }
+]

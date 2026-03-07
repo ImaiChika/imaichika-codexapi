@@ -1,4 +1,6 @@
 # main.py
+import os
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 from datetime import datetime
 from pathlib import Path
 import sys
@@ -23,7 +25,7 @@ def main():
     logger.info("=== 启动全链路 API 研判系统 (Qwen-api版) ===")
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    raw_file_base = "test100" # 替换为你的文件名
+    raw_file_base = "test" # 替换为你的文件名
 
     # 1. 初始化
     l1 = RegexAnalyzer()

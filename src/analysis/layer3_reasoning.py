@@ -59,6 +59,10 @@ class ReasoningLayer:
     def _safe_lower(x) -> str:
         return str(x or "").strip().lower()
 
+    @staticmethod
+    def _is_first_person(text: str) -> bool:
+        return any(p in (text or "") for p in ["我", "本人", "咱", "俺"])
+
     def _risk_prior(self, msg: Dict) -> float:
         l1 = float(msg.get("l1_risk_score", 0) or 0)
         l2 = float(msg.get("l2_risk_score", 0) or 0)
@@ -128,14 +132,12 @@ class ReasoningLayer:
             if normalized_current is not None and item.get("norm_vec") is not None:
                 sem = torch.dot(normalized_current, item["norm_vec"]).item()
 
-            # age: smaller is newer; exponential decay keeps old but relevant context
             age = len(self.memory_pool) - idx
             recency = math.exp(-age / 45.0)
             kw_overlap = self._calc_keyword_overlap(cur_keywords, item.get("keywords", []))
             risk_prior = item.get("risk_prior", 0.0)
             same_user = 1.0 if item.get("username") == cur_user else 0.0
 
-            # Hybrid score: semantic > recency > topic > risk > same-user tie-break
             score = (
                 0.56 * sem
                 + 0.20 * recency
@@ -151,7 +153,6 @@ class ReasoningLayer:
 
         scored.sort(key=lambda x: x[1], reverse=True)
 
-        # Diversity: avoid one user dominating all context rows
         chosen = []
         per_user_cap = 2
         per_user_count = defaultdict(int)
@@ -168,7 +169,6 @@ class ReasoningLayer:
         if not chosen:
             return "无可用上下文"
 
-        # Keep chronological order for readability in prompt
         chosen.sort(key=lambda x: x[0])
 
         lines = []
@@ -207,12 +207,10 @@ class ReasoningLayer:
         for kw in keywords:
             self.keyword_index[kw].append(idx)
 
-        # keep memory bounded to avoid OOM on large datasets
         if len(self.memory_pool) > self.max_memory_size:
             self._prune_memory()
 
     def _prune_memory(self):
-        # Keep the newest max_memory_size records and rebuild indices.
         self.memory_pool = self.memory_pool[-self.max_memory_size :]
 
         new_user_index = defaultdict(list)
@@ -237,9 +235,9 @@ class ReasoningLayer:
             role = "victim"
 
         risk = "low"
-        if any(x in low for x in ["risk: high", "风险: 高", "风险:high", "high"]):
+        if any(x in low for x in ["risk: high", "风险: 高", "风险:high", " high", "|high"]):
             risk = "high"
-        elif any(x in low for x in ["risk: medium", "风险: 中", "风险:medium", "medium"]):
+        elif any(x in low for x in ["risk: medium", "风险: 中", "风险:medium", " medium", "|medium"]):
             risk = "medium"
 
         intent_match = re.search(r"(?:intent|意图)\s*[:：]\s*([^\n|]+)", txt, re.I)
@@ -251,22 +249,43 @@ class ReasoningLayer:
         text = str(current_msg.get("text", "") or "")
         lower_text = text.lower()
         has_pii = bool(current_msg.get("has_pii"))
+        first_person = self._is_first_person(text)
 
-        scammer_keywords = [
+        noise_tokens = {"签到", "滴滴", "打卡", "路过", "冒泡"}
+        if text.strip() in noise_tokens:
+            return {"risk": "low", "role": "other", "intent": "签到/噪声消息"}
+
+        casual_tokens = ["天气", "羡慕", "看看", "围观", "聊天", "专业啊"]
+        if any(k in text for k in casual_tokens) and not has_pii:
+            parsed["role"] = "other"
+            parsed["risk"] = "low"
+            parsed["intent"] = "闲聊"
+            return parsed
+
+        op_keywords = [
             "卡号",
             "户名",
             "下发",
-            "进场",
-            "接单",
-            "收款",
-            "转完",
-            "截图",
-            "汇率",
-            "速度",
+            "车队",
+            "待命",
+            "保证金",
+            "开后台",
+            "进二群",
+            "内部通道",
+            "换卡",
+            "新卡",
+            "收U",
+            "四件套",
+            "白户",
             "踢",
-            "敏感词",
-            "跑分",
-            "洗钱",
+            "滚",
+        ]
+        threat_patterns = [
+            "你自己也是违法",
+            "看警察抓谁",
+            "报警？",
+            "别影响别人",
+            "懂吗",
         ]
         victim_keywords = [
             "被骗",
@@ -279,35 +298,48 @@ class ReasoningLayer:
             "报案",
             "拉黑",
             "退钱",
+            "兼职",
+            "刷单",
+            "待审核",
+            "审核好了吗",
+            "不理我",
+            "充值",
+            "提现",
+            "还要钱",
+            "我转了",
         ]
+        self_pii_cues = ["我的电话", "身份证号", "住址", "我这就拍", "照片都发了", "我是学生"]
 
-        hit_scammer = any(k in text for k in scammer_keywords)
-        hit_victim = any(k in text for k in victim_keywords)
+        op_signal = any(k in text for k in op_keywords)
+        threat_signal = any(k in text for k in threat_patterns)
+        victim_signal = any(k in text for k in victim_keywords) and (first_person or "你们" in text)
+        self_pii_signal = has_pii and first_person and any(k in text for k in self_pii_cues)
 
-        # Long account-like numbers usually imply operational instruction/asset sharing.
         has_long_number = bool(re.search(r"(?<!\d)\d{15,19}(?!\d)", lower_text))
-        if has_long_number:
-            hit_scammer = True
 
-        if hit_scammer and not hit_victim:
+        if threat_signal or (op_signal and (has_long_number or "卡号" in text or "保证金" in text) and not self_pii_signal):
             parsed["role"] = "scammer"
             if parsed["risk"] == "low":
-                parsed["risk"] = "high" if has_pii else "medium"
+                parsed["risk"] = "high" if has_pii or has_long_number else "medium"
             if not parsed.get("intent") or parsed["intent"] == "other":
-                parsed["intent"] = "资金操作/作案指令"
+                parsed["intent"] = "指令/威胁/资金操作"
             return parsed
 
-        if hit_victim and not hit_scammer:
+        if self_pii_signal or (victim_signal and not op_signal):
             parsed["role"] = "victim"
             if parsed["risk"] == "low":
                 parsed["risk"] = "medium"
             if not parsed.get("intent") or parsed["intent"] == "other":
-                parsed["intent"] = "求助/维权"
+                parsed["intent"] = "求助/维权/隐私泄露"
             return parsed
 
-        # Drop noisy user false positives.
+        # number-only messages are not automatically scammer without operation context
+        if has_long_number and op_signal:
+            parsed["role"] = "scammer"
+            parsed["risk"] = "high" if has_pii else max(parsed["risk"], "medium")
+
         username = self._safe_lower(current_msg.get("username"))
-        if username.startswith("unknown") and not (hit_victim or hit_scammer):
+        if (username.startswith("unknown") or "bot" in username) and not (victim_signal or op_signal):
             parsed["role"] = "other"
             parsed["risk"] = "low"
 
@@ -347,7 +379,6 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
         parsed = self._parse_result(raw_result)
         parsed = self._apply_hard_rules(current_msg, parsed)
 
-        # update memory after current message is processed
         self._append_memory(current_msg, current_vec)
         return parsed
 
@@ -355,8 +386,20 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
         suspect_assets = group_stats.get("suspect_assets", []) or []
         victim_leaks = group_stats.get("victim_leaks", []) or []
         victim_names = group_stats.get("victim_list", []) or []
+        suspect_names = group_stats.get("suspect_list", []) or []
+        irrelevant_names = set(group_stats.get("irrelevant_list", []) or [])
 
-        core_users = [u.get("username", "unknown") for u in top_kols[:8]]
+        core_users = []
+        for name in suspect_names[:4]:
+            if name not in core_users:
+                core_users.append(name)
+        for u in top_kols:
+            name = u.get("username", "unknown")
+            if name not in core_users:
+                core_users.append(name)
+            if len(core_users) >= 8:
+                break
+
         if not victim_names:
             victim_names = ["暂无明确受害用户"]
 
@@ -373,13 +416,15 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
 
         risk_level = "高" if (len(suspect_assets) >= 2 and len(victim_names) >= 1) else "中"
 
+        role_map = {u.get("username", "unknown"): str(u.get("predicted_role", "other")) for u in top_kols}
         core_profiles = []
-        for u in top_kols[:8]:
-            name = u.get("username", "unknown")
-            role = str(u.get("predicted_role", "other"))
-            if name in victim_names:
+        for name in core_users[:8]:
+            role = role_map.get(name, "other")
+            if name in irrelevant_names:
+                desc = "无关人士/水军，主要为签到或闲聊噪声。"
+            elif name in victim_names:
                 desc = "疑似受害者，其信息可能被用于非法资金活动。"
-            elif role == "scammer":
+            elif name in suspect_names or role == "scammer":
                 desc = "疑似嫌疑人，具备资金或指令操控特征。"
             else:
                 desc = "群内活跃成员，需结合更多证据研判。"
