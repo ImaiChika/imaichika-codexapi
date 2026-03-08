@@ -1,0 +1,116 @@
+{
+    "Runner_02": {
+        "msg_count": 7,
+        "pagerank": 0.04329434031400804,
+        "mentioned_count": 7,
+        "is_kol": false
+    },
+    "System": {
+        "msg_count": 9,
+        "pagerank": 0.049282689155319706,
+        "mentioned_count": 8,
+        "is_kol": false
+    },
+    "Brother_Qiang": {
+        "msg_count": 6,
+        "pagerank": 0.04003589825562594,
+        "mentioned_count": 6,
+        "is_kol": false
+    },
+    "Buyer_Z": {
+        "msg_count": 2,
+        "pagerank": 0.02564545481025525,
+        "mentioned_count": 2,
+        "is_kol": false
+    },
+    "Ghost_User": {
+        "msg_count": 12,
+        "pagerank": 0.06414537717881952,
+        "mentioned_count": 11,
+        "is_kol": false
+    },
+    "Casual_Talker": {
+        "msg_count": 4,
+        "pagerank": 0.028673256363102712,
+        "mentioned_count": 4,
+        "is_kol": false
+    },
+    "Unknown_User": {
+        "msg_count": 14,
+        "pagerank": 0.07661457555454762,
+        "mentioned_count": 13,
+        "is_kol": false
+    },
+    "Runner_04": {
+        "msg_count": 3,
+        "pagerank": 0.02384066914484341,
+        "mentioned_count": 3,
+        "is_kol": false
+    },
+    "Victim_User_A": {
+        "msg_count": 16,
+        "pagerank": 0.1008355896033521,
+        "mentioned_count": 16,
+        "is_kol": false
+    },
+    "Runner_03": {
+        "msg_count": 5,
+        "pagerank": 0.03369357458352655,
+        "mentioned_count": 5,
+        "is_kol": false
+    },
+    "Depressed_Man": {
+        "msg_count": 7,
+        "pagerank": 0.06652638276467256,
+        "mentioned_count": 6,
+        "is_kol": false
+    },
+    "Wife_XiaoLi": {
+        "msg_count": 6,
+        "pagerank": 0.04003589825562594,
+        "mentioned_count": 6,
+        "is_kol": false
+    },
+    "Casual_User_01": {
+        "msg_count": 1,
+        "pagerank": 0.016770095826180255,
+        "mentioned_count": 1,
+        "is_kol": false
+    },
+    "Admin_Mod": {
+        "msg_count": 2,
+        "pagerank": 0.02484853225924233,
+        "mentioned_count": 2,
+        "is_kol": false
+    },
+    "Shadow_Hunter_X": {
+        "msg_count": 11,
+        "pagerank": 0.10441295902551133,
+        "mentioned_count": 10,
+        "is_kol": false
+    },
+    "Casual_User_02": {
+        "msg_count": 1,
+        "pagerank": 0.01845561960723205,
+        "mentioned_count": 1,
+        "is_kol": false
+    },
+    "Finance_Lady": {
+        "msg_count": 22,
+        "pagerank": 0.1275098992721053,
+        "mentioned_count": 22,
+        "is_kol": false
+    },
+    "Group_Admin_Boss": {
+        "msg_count": 12,
+        "pagerank": 0.07167670362045188,
+        "mentioned_count": 12,
+        "is_kol": false
+    },
+    "Runner_01": {
+        "msg_count": 7,
+        "pagerank": 0.04370248440557738,
+        "mentioned_count": 7,
+        "is_kol": false
+    }
+}

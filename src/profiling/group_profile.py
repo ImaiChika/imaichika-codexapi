@@ -40,81 +40,18 @@ class GroupProfiler:
         )
 
         self.victim_keywords = [
-            "被骗",
-            "骗子",
-            "还钱",
-            "没到账",
-            "没到帐",
-            "求助",
-            "救命",
-            "报警",
-            "报案",
-            "拉黑",
-            "退钱",
-            "投诉",
-            "维权",
-            "兼职",
-            "刷单",
-            "待审核",
-            "审核好了吗",
-            "不理我",
-            "充值",
-            "提现",
-            "还要钱",
-            "我转了",
+            "被骗", "骗子", "还钱", "没到账", "没到帐", "求助", "救命", "报警", "报案", "拉黑", "退钱", "投诉", "维权",
+            "兼职", "刷单", "待审核", "审核好了吗", "不理我", "充值", "提现", "还要钱", "我转了",
         ]
         self.loss_keywords = [
-            "没到账",
-            "没到帐",
-            "提现",
-            "还要钱",
-            "拉黑",
-            "不理我",
-            "被骗了",
-            "退钱",
-            "投诉",
-            "维权",
-            "骗子",
-            "报案",
-            "报警",
+            "没到账", "没到帐", "提现", "还要钱", "拉黑", "不理我", "被骗了", "退钱", "投诉", "维权", "骗子", "报案", "报警",
         ]
         self.scammer_keywords = [
-            "卡号",
-            "户名",
-            "下发",
-            "车队",
-            "待命",
-            "保证金",
-            "开后台",
-            "进二群",
-            "内部通道",
-            "换卡",
-            "新卡",
-            "收U",
-            "四件套",
-            "白户",
-            "实名",
-            "高仿",
-            "包邮",
-            "踢",
-            "滚",
-            "反诈",
+            "卡号", "户名", "下发", "车队", "待命", "保证金", "开后台", "进二群", "内部通道", "换卡", "新卡",
+            "收U", "四件套", "白户", "实名", "高仿", "包邮", "踢", "滚", "反诈",
         ]
         self.manager_keywords = [
-            "车队",
-            "待命",
-            "保证金",
-            "开后台",
-            "新卡",
-            "换卡",
-            "下发",
-            "卡号",
-            "户名",
-            "内部通道",
-            "进二群",
-            "收U",
-            "四件套",
-            "白户",
+            "车队", "待命", "保证金", "开后台", "新卡", "换卡", "下发", "卡号", "户名", "内部通道", "进二群", "收U", "四件套", "白户",
         ]
         self.noise_keywords = {"签到", "滴滴", "打卡", "路过", "冒泡"}
         self.casual_keywords = ["天气", "专业", "羡慕", "看看", "围观", "聊天"]
@@ -158,8 +95,11 @@ class GroupProfiler:
             return "身份证"
         if "mail" in k:
             return "邮箱"
+        if "name" in k:
+            return "姓名"
+        if "address" in k or "location" in k:
+            return "地址"
 
-        # Bank regex can over-hit ID fragments; use context to fix.
         if "bank" in k:
             if any(x in t for x in ["身份证", "住址", "手持照", "实名注册"]):
                 return "身份证"
@@ -193,7 +133,7 @@ class GroupProfiler:
             rec["victim_signal"] += 1
             rec["self_pii_leak"] += 1
 
-        if victim_hit and (first_person or "你们" in t):
+        if (loss_hit and first_person) or (victim_hit and "你们" in t):
             rec["victim_signal"] += 1
         if loss_hit:
             rec["loss_signal"] += 1
@@ -362,7 +302,12 @@ class GroupProfiler:
                 irrelevant.add(username)
                 continue
 
-            has_hard_scammer_behavior = manager_signal >= 2 or bank_posts > 0 or rec.get("scammer_signal", 0) >= 3
+            has_hard_scammer_behavior = (
+                manager_signal >= 2
+                or bank_posts > 0
+                or rec.get("scammer_signal", 0) >= 3
+                or (manager_signal >= 1 and rec.get("scammer_signal", 0) >= 2)
+            )
             if has_hard_scammer_behavior and scammer_score >= max(2.6, victim_score + 1.2):
                 suspects.add(username)
                 continue
@@ -377,7 +322,7 @@ class GroupProfiler:
                 victims.add(username)
                 continue
 
-            if irrelevant_score >= 1.6 and victim_signal == 0 and loss_signal == 0 and manager_signal == 0:
+            if irrelevant_score >= 1.6 and victim_signal == 0 and loss_signal == 0 and manager_signal == 0 and rec["votes"].get("scammer", 0) == 0 and rec.get("scammer_signal", 0) == 0:
                 irrelevant.add(username)
 
         cleaned_victims = set()
@@ -484,3 +429,4 @@ class GroupProfiler:
             "suspect_list": ranked_suspects,
             "irrelevant_list": ranked_irrelevant,
         }
+

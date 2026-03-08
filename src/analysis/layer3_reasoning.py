@@ -93,20 +93,20 @@ class ReasoningLayer:
 
         candidate_idx = set()
 
-        # A. recency recall (ensure dialogue continuity)
+        # A. recency recall
         start = max(0, len(self.memory_pool) - self.recent_window)
         candidate_idx.update(range(start, len(self.memory_pool)))
 
-        # B. same-user recall (ensure persona continuity)
+        # B. same-user recall
         user_hist = self.user_index.get(cur_user, [])
         candidate_idx.update(user_hist[-4:])
 
-        # C. keyword-linked recall (topic continuity)
+        # C. keyword-linked recall
         for kw in cur_keywords[:8]:
             linked = self.keyword_index.get(kw, [])
             candidate_idx.update(linked[-6:])
 
-        # D. semantic recall over full memory
+        # D. semantic recall
         normalized_current = self._normalize(current_vec)
         if normalized_current is not None:
             sem_scores = []
@@ -145,7 +145,6 @@ class ReasoningLayer:
                 + 0.08 * risk_prior
                 + 0.04 * same_user
             )
-
             scored.append((idx, score, sem, item))
 
         if not scored:
@@ -286,6 +285,7 @@ class ReasoningLayer:
             "报警？",
             "别影响别人",
             "懂吗",
+            "让你消失",
         ]
         victim_keywords = [
             "被骗",
@@ -333,16 +333,42 @@ class ReasoningLayer:
                 parsed["intent"] = "求助/维权/隐私泄露"
             return parsed
 
-        # number-only messages are not automatically scammer without operation context
         if has_long_number and op_signal:
             parsed["role"] = "scammer"
-            parsed["risk"] = "high" if has_pii else max(parsed["risk"], "medium")
+            if parsed["risk"] == "low":
+                parsed["risk"] = "medium"
 
         username = self._safe_lower(current_msg.get("username"))
         if (username.startswith("unknown") or "bot" in username) and not (victim_signal or op_signal):
             parsed["role"] = "other"
             parsed["risk"] = "low"
 
+        return parsed
+
+    def quick_analyze(self, current_msg: Dict) -> Dict[str, str]:
+        """
+        Low-cost inference path (no LLM call), used for token saving on low-risk messages.
+        """
+        text = str(current_msg.get("text", "") or "").strip()
+        username = self._safe_lower(current_msg.get("username"))
+
+        if not text or current_msg.get("is_system_msg") or username == "system":
+            return {"risk": "low", "role": "other", "intent": "system_message"}
+
+        base = {"risk": "low", "role": "other", "intent": "rule_fast_path"}
+        parsed = self._apply_hard_rules(current_msg, base)
+
+        if parsed.get("role") == "other":
+            score = (float(current_msg.get("l1_risk_score", 0) or 0) + float(current_msg.get("l2_risk_score", 0) or 0)) / 2
+            if score >= 65:
+                parsed["risk"] = "high"
+            elif score >= 30:
+                parsed["risk"] = "medium"
+            else:
+                parsed["risk"] = "low"
+
+        current_vec = self.embedder.get_embedding(text)
+        self._append_memory(current_msg, current_vec)
         return parsed
 
     def analyze(self, current_msg: Dict) -> Dict[str, str]:

@@ -1,0 +1,327 @@
+[
+    {
+        "cluster_id": "C002",
+        "canonical_name": "Finance_Lady",
+        "aliases": [
+            "Depressed_Man",
+            "Finance_Lady",
+            "Victim_User_A"
+        ],
+        "groups": [
+            "public_group",
+            "related_group_a",
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Finance_Lady"
+            },
+            {
+                "source_group": "public_group",
+                "username": "Victim_User_A"
+            },
+            {
+                "source_group": "related_group_a",
+                "username": "Victim_User_A"
+            },
+            {
+                "source_group": "related_group_b",
+                "username": "Depressed_Man"
+            }
+        ],
+        "shared_pii": {
+            "bank": [
+                "310101199001018888",
+                "6212261001009999888",
+                "6217009988776655001"
+            ],
+            "name": [
+                "张强",
+                "转给张强那个工行卡的"
+            ],
+            "phone": [
+                "13811223344"
+            ],
+            "id": [
+                "310101199001018888"
+            ]
+        }
+    },
+    {
+        "cluster_id": "C001",
+        "canonical_name": "Group_Admin_Boss",
+        "aliases": [
+            "Group_Admin_Boss"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Group_Admin_Boss"
+            }
+        ],
+        "shared_pii": {
+            "address": [
+                "上海市静安区延安中路1000号地库C区"
+            ]
+        }
+    },
+    {
+        "cluster_id": "C003",
+        "canonical_name": "Runner_01",
+        "aliases": [
+            "Runner_01"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Runner_01"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C004",
+        "canonical_name": "Runner_02",
+        "aliases": [
+            "Runner_02"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Runner_02"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C005",
+        "canonical_name": "System",
+        "aliases": [
+            "System"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "System"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C006",
+        "canonical_name": "Unknown_User",
+        "aliases": [
+            "Unknown_User"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Unknown_User"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C007",
+        "canonical_name": "Runner_03",
+        "aliases": [
+            "Runner_03"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Runner_03"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C008",
+        "canonical_name": "Casual_Talker",
+        "aliases": [
+            "Casual_Talker"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Casual_Talker"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C009",
+        "canonical_name": "Ghost_User",
+        "aliases": [
+            "Ghost_User"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Ghost_User"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C010",
+        "canonical_name": "Runner_04",
+        "aliases": [
+            "Runner_04"
+        ],
+        "groups": [
+            "public_group"
+        ],
+        "members": [
+            {
+                "source_group": "public_group",
+                "username": "Runner_04"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C011",
+        "canonical_name": "Wife_XiaoLi",
+        "aliases": [
+            "Wife_XiaoLi"
+        ],
+        "groups": [
+            "related_group_a"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_a",
+                "username": "Wife_XiaoLi"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C012",
+        "canonical_name": "Brother_Qiang",
+        "aliases": [
+            "Brother_Qiang"
+        ],
+        "groups": [
+            "related_group_a"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_a",
+                "username": "Brother_Qiang"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C013",
+        "canonical_name": "Shadow_Hunter_X",
+        "aliases": [
+            "Shadow_Hunter_X"
+        ],
+        "groups": [
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_b",
+                "username": "Shadow_Hunter_X"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C014",
+        "canonical_name": "Buyer_Z",
+        "aliases": [
+            "Buyer_Z"
+        ],
+        "groups": [
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_b",
+                "username": "Buyer_Z"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C015",
+        "canonical_name": "Casual_User_01",
+        "aliases": [
+            "Casual_User_01"
+        ],
+        "groups": [
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_b",
+                "username": "Casual_User_01"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C016",
+        "canonical_name": "Admin_Mod",
+        "aliases": [
+            "Admin_Mod"
+        ],
+        "groups": [
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_b",
+                "username": "Admin_Mod"
+            }
+        ],
+        "shared_pii": {}
+    },
+    {
+        "cluster_id": "C017",
+        "canonical_name": "Casual_User_02",
+        "aliases": [
+            "Casual_User_02"
+        ],
+        "groups": [
+            "related_group_b"
+        ],
+        "members": [
+            {
+                "source_group": "related_group_b",
+                "username": "Casual_User_02"
+            }
+        ],
+        "shared_pii": {}
+    }
+]
