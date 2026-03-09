@@ -28,7 +28,7 @@ class MultiDBManager:
         self._init_global_schema()
 
     def _init_global_schema(self):
-        cur = self.global_conn.cursor()
+        cur = self.global_conn.cursor() # 创建游标对象用于执行指令
 
         cur.execute(
             """

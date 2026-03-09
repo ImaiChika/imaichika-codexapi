@@ -2,6 +2,7 @@
 from datetime import datetime
 from pathlib import Path
 import sys
+from typing import Dict, List
 
 from tqdm import tqdm
 
@@ -15,6 +16,7 @@ from src.config import (
     HIGH_SIGNAL_KEYWORDS,
     LLM_MIN_L1_SCORE,
     LLM_MIN_L2_SCORE,
+    REPORT_CLUE_CHAIN_TOP_K,
 )
 from src.linkage.identity_resolver import IdentityResolver
 from src.loader import load_json_data
@@ -29,7 +31,7 @@ sys.path.append(str(Path(__file__).parent))
 
 def should_use_llm(message: dict) -> bool:
     """
-    Cost-aware gate: only call LLM when message is risky or semantically ambiguous.
+    只有当消息被视为高风险或语义模糊时，才调用LLM，以节省token。
     """
     if message.get("is_system_msg"):
         return False
@@ -59,6 +61,29 @@ def should_use_llm(message: dict) -> bool:
 
 def iter_raw_files(raw_dir: Path):
     return sorted([p for p in raw_dir.glob("*.json") if p.is_file()])
+
+
+def _format_clue_chain_lines(chains: List[Dict], top_k: int = REPORT_CLUE_CHAIN_TOP_K) -> List[str]:
+    if not chains:
+        return ["- 暂无可用线索链"]
+
+    lines: List[str] = []
+    for c in chains[:top_k]:
+        victims = ", ".join(c.get("points_to", {}).get("victims", [])[:4]) or "无"
+        suspects = ", ".join(c.get("points_to", {}).get("suspects", [])[:4]) or "无"
+
+        pair_items = []
+        for p in c.get("soft_identity_candidates", [])[:3]:
+            pair_items.append(f"{p.get('account_a')}<->{p.get('account_b')}")
+        pair_txt = "; ".join(pair_items) if pair_items else "无"
+
+        lines.append(
+            f"- [{c.get('chain_id', '')}][{c.get('confidence', 'low')}/{c.get('chain_type', 'correlation')}] "
+            f"{c.get('clue_type', 'pii')}={c.get('clue_value', '')} | "
+            f"受害者指向: {victims} | 嫌疑人关联: {suspects} | 同人候选: {pair_txt}"
+        )
+
+    return lines
 
 
 def main():
@@ -128,6 +153,7 @@ def main():
     identity_resolver.attach_cluster_labels(processed_msgs, identity_result["node_to_cluster"])
     trace_events = identity_resolver.build_trace_events(processed_msgs, identity_result["node_to_cluster"])
     linkage_summary = identity_resolver.summarize(identity_result["clusters"], trace_events)
+    clue_chains = identity_resolver.build_clue_chains(processed_msgs, identity_result["node_to_cluster"], group_summary)
 
     db.store_identity_clusters(identity_result["clusters"])
     db.store_trace_events(trace_events)
@@ -140,6 +166,7 @@ def main():
     clusters_path = save_json(identity_result["clusters"], Path(f"identity_clusters_{timestamp}"), DATA_PROC_DIR)
     traces_path = save_json(trace_events, Path(f"cross_group_traces_{timestamp}"), DATA_PROC_DIR)
     linkage_path = save_json(linkage_summary, Path(f"linkage_summary_{timestamp}"), DATA_PROC_DIR)
+    clue_chain_path = save_json(clue_chains, Path(f"clue_chains_{timestamp}"), DATA_PROC_DIR)
 
     report_path = DATA_PROC_DIR / f"final_report_{timestamp}.txt"
     with open(report_path, "w", encoding="utf-8") as f:
@@ -150,7 +177,12 @@ def main():
         f.write(f"无关人士/水军: {', '.join(group_summary.get('irrelevant_list', [])) or '无'}\n")
         f.write(f"跨群身份簇数量: {linkage_summary.get('cluster_count', 0)}\n")
         f.write(f"跨群关联簇(>=2群): {linkage_summary.get('cross_group_cluster_count', 0)}\n")
+        f.write(f"线索链数量(软关联): {len(clue_chains)}\n")
         f.write(f"LLM调用数/总消息数: {llm_calls}/{len(processed_msgs)}\n")
+
+        f.write("\n=== 同人线索链（软关联，不等于强身份并人） ===\n")
+        for line in _format_clue_chain_lines(clue_chains, REPORT_CLUE_CHAIN_TOP_K):
+            f.write(f"{line}\n")
 
     db.close()
 
@@ -160,6 +192,7 @@ def main():
     logger.info(f"身份簇输出: {clusters_path}")
     logger.info(f"跨群事件输出: {traces_path}")
     logger.info(f"关联摘要输出: {linkage_path}")
+    logger.info(f"线索链输出: {clue_chain_path}")
     logger.info(f"最终报告输出: {report_path}")
 
 

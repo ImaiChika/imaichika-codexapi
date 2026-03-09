@@ -7,6 +7,7 @@ from typing import Dict, List, Optional
 
 import torch
 
+from src.config import REPORT_CORE_USER_TOP_K, REPORT_PROFILE_LINE_TOP_K
 from src.models.llm_wrapper import QwenWrapper
 
 
@@ -416,15 +417,27 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
         irrelevant_names = set(group_stats.get("irrelevant_list", []) or [])
 
         core_users = []
-        for name in suspect_names[:4]:
+        # Adjust report scale in src/config.py via REPORT_CORE_USER_TOP_K.
+        for name in suspect_names:
             if name not in core_users:
                 core_users.append(name)
-        for u in top_kols:
-            name = u.get("username", "unknown")
-            if name not in core_users:
-                core_users.append(name)
-            if len(core_users) >= 8:
+            if len(core_users) >= REPORT_CORE_USER_TOP_K:
                 break
+
+        if len(core_users) < REPORT_CORE_USER_TOP_K:
+            for name in victim_names:
+                if name not in core_users:
+                    core_users.append(name)
+                if len(core_users) >= REPORT_CORE_USER_TOP_K:
+                    break
+
+        if len(core_users) < REPORT_CORE_USER_TOP_K:
+            for u in top_kols:
+                name = u.get("username", "unknown")
+                if name not in core_users:
+                    core_users.append(name)
+                if len(core_users) >= REPORT_CORE_USER_TOP_K:
+                    break
 
         if not victim_names:
             victim_names = ["暂无明确受害用户"]
@@ -444,7 +457,7 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
 
         role_map = {u.get("username", "unknown"): str(u.get("predicted_role", "other")) for u in top_kols}
         core_profiles = []
-        for name in core_users[:8]:
+        for name in core_users[:REPORT_PROFILE_LINE_TOP_K]:
             role = role_map.get(name, "other")
             if name in irrelevant_names:
                 desc = "无关人士/水军，主要为签到或闲聊噪声。"
@@ -456,12 +469,14 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
                 desc = "群内活跃成员，需结合更多证据研判。"
             core_profiles.append(f"- **{name}**：{desc}")
 
+        intro_users = core_users[: min(6, REPORT_CORE_USER_TOP_K)]
+
         report = f"""**非法网络活动研判报告**
 
 ---
 
 ### 1. 案件定性
-本案件属于**非法网络活动**，涉及**隐私信息泄露**与**资金相关操作**。核心人物包括**{', '.join(core_users[:4]) if core_users else '暂无'}**，其中疑似受害者为**{', '.join(victim_names)}**。
+本案件属于**非法网络活动**，涉及**隐私信息泄露**与**资金相关操作**。核心人物包括**{', '.join(intro_users) if intro_users else '暂无'}**，其中疑似受害者为**{', '.join(victim_names)}**。
 
 ---
 
@@ -488,3 +503,4 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
 **风险等级：{risk_level}**"""
 
         return report
+

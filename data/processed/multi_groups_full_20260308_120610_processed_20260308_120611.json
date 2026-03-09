@@ -285,7 +285,7 @@
         "source_file": "public_group.json",
         "msg_index": 8,
         "has_pii": true,
-        "pii_details": {
+        "": {
             "extracted_address_cn": [
                 "上海市静安区延安中路1000号地库C区"
             ]

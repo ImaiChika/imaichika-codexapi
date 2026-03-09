@@ -23,6 +23,19 @@ LLM_MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 LLM_MIN_L1_SCORE = 45
 LLM_MIN_L2_SCORE = 30
 
+# === Report Rendering (tunable) ===
+# You can tune report scale here:
+# - REPORT_CORE_USER_TOP_K controls "核心人物包括" total length.
+# - REPORT_PROFILE_LINE_TOP_K controls detailed bullet lines in section 2.
+# - REPORT_CLUE_CHAIN_TOP_K controls how many clue chains are printed in report tail.
+REPORT_CORE_USER_TOP_K = 16
+REPORT_PROFILE_LINE_TOP_K = 24
+REPORT_CLUE_CHAIN_TOP_K = 20
+
+# Group name hints used for role disambiguation.
+SUSPECT_GROUP_HINTS = ["suspect", "internal", "ops", "分赃", "内部分工", "内部操作", "核心"]
+VICTIM_GROUP_HINTS = ["victim", "family", "related", "受害", "亲友", "投诉", "维权"]
+
 # === Regex Patterns (PII / sensitive evidence) ===
 # NOTE:
 # - name_cn / address_cn are context-triggered to reduce false positives.

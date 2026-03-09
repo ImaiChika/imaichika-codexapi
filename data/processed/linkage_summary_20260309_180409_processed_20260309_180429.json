@@ -1,0 +1,84 @@
+{
+    "cluster_count": 18,
+    "cross_group_cluster_count": 1,
+    "cross_group_clusters": [
+        {
+            "cluster_id": "C001",
+            "canonical_name": "Group_Admin_Boss",
+            "aliases": [
+                "Depressed_Man",
+                "Finance_Lady",
+                "Group_Admin_Boss",
+                "Middleman_Joe",
+                "Victim_User_A"
+            ],
+            "groups": [
+                "public_group",
+                "related_group_a",
+                "related_group_b",
+                "suspect_internal_ops"
+            ],
+            "members": [
+                {
+                    "source_group": "public_group",
+                    "username": "Finance_Lady"
+                },
+                {
+                    "source_group": "public_group",
+                    "username": "Group_Admin_Boss"
+                },
+                {
+                    "source_group": "public_group",
+                    "username": "Victim_User_A"
+                },
+                {
+                    "source_group": "related_group_a",
+                    "username": "Victim_User_A"
+                },
+                {
+                    "source_group": "related_group_b",
+                    "username": "Depressed_Man"
+                },
+                {
+                    "source_group": "suspect_internal_ops",
+                    "username": "Finance_Lady"
+                },
+                {
+                    "source_group": "suspect_internal_ops",
+                    "username": "Group_Admin_Boss"
+                },
+                {
+                    "source_group": "suspect_internal_ops",
+                    "username": "Middleman_Joe"
+                }
+            ],
+            "shared_pii": {
+                "bank": [
+                    "6212261001009999888",
+                    "6212261234567890",
+                    "6217009988776655001"
+                ],
+                "name": [
+                    "张强"
+                ],
+                "address": [
+                    "上海市静安区延安中路1000号地库C区"
+                ],
+                "phone": [
+                    "13811223344"
+                ],
+                "id": [
+                    "310101199001018888"
+                ]
+            }
+        }
+    ],
+    "event_counts": {
+        "ORDER_PUBLISH": 4,
+        "ORDER_RECEIVE": 21,
+        "OFFLINE_MEET": 17,
+        "PII_LEAK": 6,
+        "VICTIM_COMPLAINT": 9,
+        "THREAT": 3
+    }
+}

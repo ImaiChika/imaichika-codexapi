@@ -1,5 +1,7 @@
-﻿from collections import defaultdict
+﻿import re
+from collections import defaultdict
 from dataclasses import dataclass
+from itertools import combinations
 from typing import Dict, Iterable, List, Set, Tuple
 
 
@@ -27,10 +29,10 @@ class _DSU:
 
 class IdentityResolver:
     """
-    Cross-group, cross-account identity linkage based on:
-    - same username across groups
-    - shared strong PII (phone/id)
-    - shared weak PII (bank/name/address) under strict constraints
+    Cross-group, cross-account identity linkage with conservative hard-merging:
+    - hard merge: same username across groups
+    - hard merge: strong PII (phone/id) only when self-claimed by >=2 nodes
+    - all other links are exported as soft clue chains (no forced identity assertion)
     """
 
     EVENT_KEYWORDS = {
@@ -54,6 +56,37 @@ class IdentityResolver:
     def _is_noise_username(u: str) -> bool:
         u = str(u or "").strip().lower()
         return u.startswith("system") or "bot" in u or u.startswith("unknown")
+
+    @staticmethod
+    def _is_first_person(text: str) -> bool:
+        return any(x in (text or "") for x in ["我", "本人", "咱", "俺"])
+
+    def _is_self_claim(self, text: str, ptype: str, token: str) -> bool:
+        t = str(text or "")
+        first = self._is_first_person(t)
+
+        if ptype == "phone":
+            if re.search(r"我.{0,8}1[3-9]\d{9}", t):
+                return True
+            return first and any(x in t for x in ["我的电话", "我电话", "手机号", "联系我", "我是"])
+
+        if ptype == "id":
+            if re.search(r"我.{0,8}\d{17}[0-9Xx]", t):
+                return True
+            return first and any(x in t for x in ["身份证", "身份证号", "我证件"])
+
+        if ptype == "bank":
+            if re.search(r"我.{0,12}\d{15,19}", t):
+                return True
+            return first and any(x in t for x in ["我卡", "我的卡", "卡号", "银行卡"])
+
+        if ptype == "name":
+            return any(x in t for x in ["我叫", "我是", "姓名"]) and token in t
+
+        if ptype == "address":
+            return first and any(x in t for x in ["我住", "我在", "我家", "住址", "地址"])
+
+        return False
 
     def _iter_pii_tokens(self, msg: Dict) -> Iterable[Tuple[str, str]]:
         pii_details = msg.get("pii_details", {})
@@ -97,12 +130,13 @@ class IdentityResolver:
         node_signal: Dict[str, Dict] = defaultdict(lambda: {"scammer": 0, "victim": 0, "other": 0})
 
         username_nodes: Dict[str, List[str]] = defaultdict(list)
-        pii_nodes: Dict[str, List[str]] = defaultdict(list)
+        token_mentions: Dict[str, List[Dict]] = defaultdict(list)
 
         for msg in messages:
             node = self._node_id(msg)
             user = msg.get("username", "unknown")
             group = msg.get("source_group", "unknown")
+            text = str(msg.get("text", "") or "")
 
             if node not in node_meta:
                 node_meta[node] = {
@@ -119,63 +153,54 @@ class IdentityResolver:
                 username_nodes[self._normalize_username(user)].append(node)
 
             for ptype, pval in self._iter_pii_tokens(msg):
-                pii_nodes[f"{ptype}:{pval}"].append(node)
+                token = f"{ptype}:{pval}"
+                token_mentions[token].append(
+                    {
+                        "node": node,
+                        "username": user,
+                        "source_group": group,
+                        "self_claim": self._is_self_claim(text, ptype, pval),
+                    }
+                )
 
-        # same username across groups
+        # hard merge: same username across groups
         for nodes in username_nodes.values():
-            if len(nodes) < 2:
-                continue
-            anchor = nodes[0]
-            for n in nodes[1:]:
-                dsu.union(anchor, n)
-
-        # pii-based unions with confidence tiers
-        for token, nodes in pii_nodes.items():
-            if len(nodes) < 2:
-                continue
-
-            ptype, pval = token.split(":", 1)
             uniq_nodes = list(dict.fromkeys(nodes))
             if len(uniq_nodes) < 2:
                 continue
+            anchor = uniq_nodes[0]
+            for n in uniq_nodes[1:]:
+                dsu.union(anchor, n)
 
-            if ptype in {"phone", "id"}:
-                anchor = uniq_nodes[0]
-                for n in uniq_nodes[1:]:
+        # hard merge: strong pii (phone/id) must be self-claimed by >=2 nodes.
+        for token, mentions in token_mentions.items():
+            if len(mentions) < 2:
+                continue
+            ptype, _ = token.split(":", 1)
+            uniq_nodes = list(dict.fromkeys(m["node"] for m in mentions))
+            if len(uniq_nodes) < 2:
+                continue
+
+            if ptype not in {"phone", "id"}:
+                continue
+
+            self_nodes = list(dict.fromkeys(m["node"] for m in mentions if m.get("self_claim")))
+            if len(self_nodes) >= 2:
+                anchor = self_nodes[0]
+                for n in self_nodes[1:]:
                     dsu.union(anchor, n)
                 continue
 
-            if ptype == "name":
-                # avoid merging by generic short names only
-                if len(pval) < 2 or len(pval) > 6:
-                    continue
-                anchor = uniq_nodes[0]
-                for n in uniq_nodes[1:]:
-                    dsu.union(anchor, n)
-                continue
-
-            if ptype == "address":
-                # address is useful for meetup linkage
-                if len(pval) < 8:
-                    continue
-                anchor = uniq_nodes[0]
-                for n in uniq_nodes[1:]:
-                    dsu.union(anchor, n)
-                continue
-
-            if ptype == "bank":
-                # bank card is weak evidence by itself: victims can repeat suspect account.
-                # only merge if both sides are suspect-like or usernames are identical.
-                for i in range(len(uniq_nodes)):
-                    for j in range(i + 1, len(uniq_nodes)):
-                        a = uniq_nodes[i]
-                        b = uniq_nodes[j]
-                        ua = self._normalize_username(node_meta[a]["username"])
-                        ub = self._normalize_username(node_meta[b]["username"])
-                        same_user = ua == ub and ua != "unknown"
-                        both_suspect_like = self._node_is_suspect_like(node_signal[a]) and self._node_is_suspect_like(node_signal[b])
-                        if same_user or both_suspect_like:
-                            dsu.union(a, b)
+            # fallback: same normalized username sharing same strong token across groups
+            by_user = defaultdict(list)
+            for m in mentions:
+                by_user[self._normalize_username(m["username"])].append(m["node"])
+            for user, nodes in by_user.items():
+                uniq = list(dict.fromkeys(nodes))
+                if user != "unknown" and len(uniq) >= 2:
+                    anchor = uniq[0]
+                    for n in uniq[1:]:
+                        dsu.union(anchor, n)
 
         clusters_nodes: Dict[str, Set[str]] = defaultdict(set)
         for node in node_meta.keys():
@@ -193,6 +218,7 @@ class IdentityResolver:
             canonical_name = "unknown"
 
             shared_pii: Dict[str, Set[str]] = defaultdict(set)
+
             for node in nodes:
                 meta = node_meta[node]
                 members.append({"source_group": meta["source_group"], "username": meta["username"]})
@@ -203,15 +229,28 @@ class IdentityResolver:
                     max_msgs = meta["msg_count"]
                     canonical_name = meta["username"]
 
-            for token, t_nodes in pii_nodes.items():
-                if any(n in nodes for n in t_nodes):
-                    ptype, pval = token.split(":", 1)
-                    shared_pii[ptype].add(pval)
+            # shared pii in cluster: only add token if linked by >=2 distinct nodes in this cluster
+            for token, mentions in token_mentions.items():
+                touched = {m["node"] for m in mentions if m["node"] in nodes}
+                if len(touched) < 2:
+                    continue
+                ptype, pval = token.split(":", 1)
+                shared_pii[ptype].add(pval)
 
             cluster_id = f"C{cid:03d}"
             cid += 1
             for node in nodes:
                 node_to_cluster[node] = cluster_id
+
+            confidence = "low"
+            if len(groups) >= 2 and (
+                len(shared_pii.get("phone", [])) > 0
+                or len(shared_pii.get("id", [])) > 0
+                or len(aliases) > 1
+            ):
+                confidence = "high"
+            elif len(groups) >= 2 or len(shared_pii) > 0:
+                confidence = "medium"
 
             clusters.append(
                 {
@@ -221,6 +260,7 @@ class IdentityResolver:
                     "groups": sorted(groups),
                     "members": sorted(members, key=lambda x: (x["source_group"], x["username"])),
                     "shared_pii": {k: sorted(v) for k, v in shared_pii.items()},
+                    "confidence": confidence,
                 }
             )
 
@@ -259,6 +299,117 @@ class IdentityResolver:
     def attach_cluster_labels(self, messages: List[Dict], node_to_cluster: Dict[str, str]):
         for msg in messages:
             msg["identity_cluster"] = node_to_cluster.get(self._node_id(msg), "")
+
+    def build_clue_chains(self, messages: List[Dict], node_to_cluster: Dict[str, str], group_summary: Dict) -> List[Dict]:
+        suspects = set(group_summary.get("suspect_list", []) or [])
+        victims = set(group_summary.get("victim_list", []) or [])
+        irrelevant = set(group_summary.get("irrelevant_list", []) or [])
+
+        token_mentions: Dict[str, List[Dict]] = defaultdict(list)
+        for msg in messages:
+            text = str(msg.get("text", "") or "")
+            if not text:
+                continue
+            for ptype, pval in self._iter_pii_tokens(msg):
+                token = f"{ptype}:{pval}"
+                username = msg.get("username", "unknown")
+
+                if username in suspects:
+                    role_hint = "suspect"
+                elif username in victims:
+                    role_hint = "victim"
+                elif username in irrelevant:
+                    role_hint = "irrelevant"
+                else:
+                    role_hint = str((msg.get("llm_decision", {}) or {}).get("role", "other"))
+
+                token_mentions[token].append(
+                    {
+                        "source_group": msg.get("source_group", "unknown"),
+                        "username": username,
+                        "msg_index": int(msg.get("msg_index", 0)),
+                        "text_excerpt": text[:100],
+                        "self_claim": self._is_self_claim(text, ptype, pval),
+                        "role_hint": role_hint,
+                        "cluster_id": node_to_cluster.get(self._node_id(msg), ""),
+                    }
+                )
+
+        conf_rank = {"high": 3, "medium": 2, "low": 1}
+        chains: List[Dict] = []
+
+        for token, mentions in token_mentions.items():
+            uniq_users = sorted({m["username"] for m in mentions})
+            uniq_groups = sorted({m["source_group"] for m in mentions})
+            if len(uniq_users) < 2 and len(uniq_groups) < 2:
+                continue
+
+            ptype, pval = token.split(":", 1)
+            mentions_sorted = sorted(mentions, key=lambda x: (x["source_group"], x["msg_index"], x["username"]))
+
+            suspect_users = sorted({m["username"] for m in mentions_sorted if m["role_hint"] == "suspect"})
+            victim_users = sorted({m["username"] for m in mentions_sorted if m["role_hint"] == "victim"})
+            irrelevant_users = sorted({m["username"] for m in mentions_sorted if m["role_hint"] == "irrelevant"})
+            self_claim_users = sorted({m["username"] for m in mentions_sorted if m.get("self_claim")})
+
+            confidence = "low"
+            chain_type = "cross_group_correlation"
+            inference = "同一线索在多个账号/群出现，建议继续人工核验。"
+
+            if ptype in {"phone", "id"} and len(self_claim_users) >= 2:
+                confidence = "high"
+                chain_type = "alt_account_candidate"
+                inference = "多个账号分别自述同一强隐私标识，存在大小号/换号可能（软结论）。"
+            elif suspect_users and victim_users:
+                confidence = "medium"
+                chain_type = "suspect_victim_link"
+                inference = "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。"
+            elif len(suspect_users) >= 2:
+                confidence = "medium"
+                chain_type = "suspect_internal_asset"
+                inference = "多名嫌疑人复用同一线索，疑似内部协作或分工流转。"
+            elif len(self_claim_users) >= 2:
+                confidence = "medium"
+                chain_type = "identity_soft_link"
+                inference = "多个账号的自述信息重合，建议作为同人候选链跟踪。"
+
+            candidate_pairs = []
+            if len(self_claim_users) >= 2:
+                for a, b in list(combinations(self_claim_users, 2))[:6]:
+                    candidate_pairs.append({"account_a": a, "account_b": b, "basis": f"{ptype}:{pval}"})
+
+            chains.append(
+                {
+                    "clue_type": ptype,
+                    "clue_value": pval,
+                    "chain_type": chain_type,
+                    "confidence": confidence,
+                    "inference": inference,
+                    "groups": uniq_groups,
+                    "mentions_count": len(mentions_sorted),
+                    "points_to": {
+                        "victims": victim_users,
+                        "suspects": suspect_users,
+                        "irrelevant": irrelevant_users,
+                    },
+                    "soft_identity_candidates": candidate_pairs,
+                    "mentions": mentions_sorted[:12],
+                }
+            )
+
+        chains.sort(
+            key=lambda x: (
+                conf_rank.get(x.get("confidence", "low"), 1),
+                x.get("mentions_count", 0),
+                len(x.get("groups", [])),
+            ),
+            reverse=True,
+        )
+
+        for i, c in enumerate(chains, start=1):
+            c["chain_id"] = f"L{i:03d}"
+
+        return chains
 
     @staticmethod
     def summarize(clusters: List[Dict], events: List[Dict]) -> Dict:
