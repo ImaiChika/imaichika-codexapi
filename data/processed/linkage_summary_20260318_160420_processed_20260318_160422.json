@@ -1,0 +1,103 @@
+{
+    "cluster_count": 21,
+    "cross_group_cluster_count": 3,
+    "cross_group_clusters": [
+        {
+            "cluster_id": "C007",
+            "canonical_name": "Victim_User_A",
+            "aliases": [
+                "Depressed_Man",
+                "Victim_User_A"
+            ],
+            "groups": [
+                "public_group",
+                "related_group_a",
+                "related_group_b"
+            ],
+            "members": [
+                {
+                    "source_group": "public_group",
+                    "username": "Victim_User_A"
+                },
+                {
+                    "source_group": "related_group_a",
+                    "username": "Victim_User_A"
+                },
+                {
+                    "source_group": "related_group_b",
+                    "username": "Depressed_Man"
+                }
+            ],
+            "shared_pii": {
+                "bank": [
+                    "6217009988776655001"
+                ],
+                "phone": [
+                    "13811223344"
+                ],
+                "id": [
+                    "310101199001018888"
+                ]
+            },
+            "confidence": "high"
+        },
+        {
+            "cluster_id": "C002",
+            "canonical_name": "Finance_Lady",
+            "aliases": [
+                "Finance_Lady"
+            ],
+            "groups": [
+                "public_group",
+                "suspect_internal_ops"
+            ],
+            "members": [
+                {
+                    "source_group": "public_group",
+                    "username": "Finance_Lady"
+                },
+                {
+                    "source_group": "suspect_internal_ops",
+                    "username": "Finance_Lady"
+                }
+            ],
+            "shared_pii": {
+                "bank": [
+                    "6217009988776655001"
+                ]
+            },
+            "confidence": "medium"
+        },
+        {
+            "cluster_id": "C001",
+            "canonical_name": "Group_Admin_Boss",
+            "aliases": [
+                "Group_Admin_Boss"
+            ],
+            "groups": [
+                "public_group",
+                "suspect_internal_ops"
+            ],
+            "members": [
+                {
+                    "source_group": "public_group",
+                    "username": "Group_Admin_Boss"
+                },
+                {
+                    "source_group": "suspect_internal_ops",
+                    "username": "Group_Admin_Boss"
+                }
+            ],
+            "shared_pii": {},
+            "confidence": "medium"
+        }
+    ],
+    "event_counts": {
+        "ORDER_PUBLISH": 4,
+        "ORDER_RECEIVE": 21,
+        "OFFLINE_MEET": 17,
+        "PII_LEAK": 6,
+        "VICTIM_COMPLAINT": 9,
+        "THREAT": 3
+    }
+}

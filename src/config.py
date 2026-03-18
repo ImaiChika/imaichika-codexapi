@@ -23,6 +23,12 @@ LLM_MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 LLM_MIN_L1_SCORE = 45
 LLM_MIN_L2_SCORE = 30
 
+# === RAG / Vector Store ===
+VECTOR_DB_DIR = DATA_DB_DIR / "chroma"
+VECTOR_COLLECTION = "chat_messages"
+RAG_TOP_K = 12
+RAG_MAX_DOC_CHARS = 240
+
 # === Report Rendering (tunable) ===
 # You can tune report scale here:
 # - REPORT_CORE_USER_TOP_K controls "核心人物包括" total length.

@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+import hashlib
 import math
 import re
 from collections import defaultdict
@@ -7,8 +8,16 @@ from typing import Dict, List, Optional
 
 import torch
 
-from src.config import REPORT_CORE_USER_TOP_K, REPORT_PROFILE_LINE_TOP_K
+from src.config import (
+    RAG_MAX_DOC_CHARS,
+    RAG_TOP_K,
+    REPORT_CORE_USER_TOP_K,
+    REPORT_PROFILE_LINE_TOP_K,
+    VECTOR_COLLECTION,
+    VECTOR_DB_DIR,
+)
 from src.models.llm_wrapper import QwenWrapper
+from src.storage.vector_store import VectorStore
 
 
 class ReasoningLayer:
@@ -34,12 +43,15 @@ class ReasoningLayer:
 
         self.embedder = EmbeddingEngine()
         self.llm = QwenWrapper()
+        self.vector_store = VectorStore(VECTOR_DB_DIR, VECTOR_COLLECTION)
 
         self.max_memory_size = max_memory_size
         self.recent_window = recent_window
         self.semantic_top_k = semantic_top_k
         self.context_top_k = context_top_k
         self.max_context_chars = max_context_chars
+        self.rag_top_k = RAG_TOP_K
+        self.rag_max_doc_chars = RAG_MAX_DOC_CHARS
 
         self.memory_pool: List[Dict] = []
         self.user_index: Dict[str, List[int]] = defaultdict(list)
@@ -85,9 +97,9 @@ class ReasoningLayer:
             return 0.0
         return len(sa & sb) / union_n
 
-    def _build_context(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> str:
+    def _build_memory_context_lines(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> List[str]:
         if not self.memory_pool:
-            return "无历史上下文"
+            return []
 
         cur_user = current_msg.get("username", "unknown")
         cur_keywords = self._extract_keywords(current_msg)
@@ -121,7 +133,7 @@ class ReasoningLayer:
             candidate_idx.update(idx for idx, _ in sem_scores[: self.semantic_top_k])
 
         if not candidate_idx:
-            return "无可用上下文"
+            return []
 
         scored = []
         for idx in candidate_idx:
@@ -149,7 +161,7 @@ class ReasoningLayer:
             scored.append((idx, score, sem, item))
 
         if not scored:
-            return "无可用上下文"
+            return []
 
         scored.sort(key=lambda x: x[1], reverse=True)
 
@@ -167,7 +179,7 @@ class ReasoningLayer:
                 break
 
         if not chosen:
-            return "无可用上下文"
+            return []
 
         chosen.sort(key=lambda x: x[0])
 
@@ -181,8 +193,61 @@ class ReasoningLayer:
                 break
             lines.append(line)
             total_chars += len(line)
+        return lines
+
+    def _build_rag_context_lines(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> List[str]:
+        if current_vec is None:
+            return []
+
+        hits = self.vector_store.query(current_vec, top_k=self.rag_top_k)
+        if not hits:
+            return []
+
+        seen_text = set()
+        lines = []
+        for h in hits:
+            text = str(h.get("text", "") or "").replace("\n", " ").strip()
+            if not text or text in seen_text:
+                continue
+            seen_text.add(text)
+
+            meta = h.get("metadata", {}) or {}
+            user = meta.get("username", "unknown")
+            group = meta.get("source_group", "unknown")
+            sim = float(h.get("score", 0.0) or 0.0)
+
+            if self.rag_max_doc_chars and len(text) > self.rag_max_doc_chars:
+                text = text[: self.rag_max_doc_chars] + "…"
+
+            line = f"[RAG][{group}][{user}][sim={sim:.2f}] {text}"
+            lines.append(line)
+        return lines
+
+    def _build_context(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> str:
+        memory_lines = self._build_memory_context_lines(current_msg, current_vec)
+        rag_lines = self._build_rag_context_lines(current_msg, current_vec)
+
+        if not memory_lines and not rag_lines:
+            return "无可用上下文"
+
+        lines = []
+        total_chars = 0
+        for line in memory_lines + rag_lines:
+            if total_chars + len(line) > self.max_context_chars:
+                break
+            lines.append(line)
+            total_chars += len(line)
 
         return "\n".join(lines) if lines else "上下文超长，已截断"
+
+    @staticmethod
+    def _make_doc_id(msg: Dict) -> str:
+        group = msg.get("source_group", "unknown")
+        file_name = msg.get("source_file", "unknown")
+        idx = msg.get("msg_index", 0)
+        user = msg.get("username", "unknown")
+        base = f"{group}|{file_name}|{idx}|{user}"
+        return hashlib.md5(base.encode("utf-8")).hexdigest()
 
     def _append_memory(self, msg: Dict, vec: Optional[torch.Tensor]):
         text = msg.get("text", "")
@@ -209,6 +274,64 @@ class ReasoningLayer:
 
         if len(self.memory_pool) > self.max_memory_size:
             self._prune_memory()
+
+        if vec is None:
+            return
+        if msg.get("is_system_msg"):
+            return
+
+        metadata = {
+            "username": msg.get("username", "unknown"),
+            "source_group": msg.get("source_group", "unknown"),
+            "source_file": msg.get("source_file", "unknown"),
+            "msg_index": int(msg.get("msg_index", 0) or 0),
+            "risk_prior": self._risk_prior(msg),
+        }
+        self.vector_store.add(self._make_doc_id(msg), text, vec, metadata=metadata)
+
+    @staticmethod
+    def _risk_rank(risk: str) -> int:
+        return {"low": 1, "medium": 2, "high": 3}.get(str(risk or "low"), 1)
+
+    def _self_check(self, current_msg: Dict, parsed: Dict[str, str]) -> Dict[str, str]:
+        text = str(current_msg.get("text", "") or "")
+        first_person = self._is_first_person(text)
+        has_pii = bool(current_msg.get("has_pii"))
+
+        op_keywords = ["卡号", "户名", "下发", "车队", "保证金", "开后台", "换卡", "新卡", "收U"]
+        victim_keywords = ["被骗", "骗子", "还钱", "没到账", "求助", "报警", "报案", "拉黑", "退钱", "维权"]
+
+        op_signal = any(k in text for k in op_keywords)
+        victim_signal = any(k in text for k in victim_keywords) and (first_person or "你们" in text)
+        self_pii_signal = has_pii and first_person
+        has_long_number = bool(re.search(r"(?<!\d)\d{15,19}(?!\d)", text))
+
+        suggestion = None
+        if parsed.get("role") == "other":
+            if op_signal and (has_long_number or has_pii) and not self_pii_signal:
+                suggestion = "scammer"
+            elif victim_signal and (self_pii_signal or has_pii):
+                suggestion = "victim"
+
+        result = {
+            "flags": {
+                "op_signal": op_signal,
+                "victim_signal": victim_signal,
+                "self_pii_signal": self_pii_signal,
+                "long_number": has_long_number,
+            },
+            "suggested_role": suggestion,
+            "applied": False,
+        }
+
+        if suggestion and parsed.get("role") == "other":
+            parsed["role"] = suggestion
+            if self._risk_rank(parsed.get("risk")) < 2:
+                parsed["risk"] = "medium"
+            result["applied"] = True
+
+        parsed["self_check"] = result
+        return parsed
 
     def _prune_memory(self):
         self.memory_pool = self.memory_pool[-self.max_memory_size :]
@@ -358,6 +481,7 @@ class ReasoningLayer:
 
         base = {"risk": "low", "role": "other", "intent": "rule_fast_path"}
         parsed = self._apply_hard_rules(current_msg, base)
+        parsed = self._self_check(current_msg, parsed)
 
         if parsed.get("role") == "other":
             score = (float(current_msg.get("l1_risk_score", 0) or 0) + float(current_msg.get("l2_risk_score", 0) or 0)) / 2
@@ -405,6 +529,7 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
         raw_result = self.llm.generate_response(prompt)
         parsed = self._parse_result(raw_result)
         parsed = self._apply_hard_rules(current_msg, parsed)
+        parsed = self._self_check(current_msg, parsed)
 
         self._append_memory(current_msg, current_vec)
         return parsed
