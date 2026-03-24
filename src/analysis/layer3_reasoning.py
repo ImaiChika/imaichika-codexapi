@@ -9,6 +9,9 @@ from typing import Dict, List, Optional
 import torch
 
 from src.config import (
+    AGENT_ENABLE_LIGHT_REACT,
+    AGENT_ENABLE_REFLECTION,
+    AGENT_MAX_INTENT_CHARS,
     RAG_MAX_DOC_CHARS,
     RAG_TOP_K,
     REPORT_CORE_USER_TOP_K,
@@ -223,12 +226,18 @@ class ReasoningLayer:
             lines.append(line)
         return lines
 
-    def _build_context(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> str:
+    def _build_context_bundle(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> Dict[str, object]:
         memory_lines = self._build_memory_context_lines(current_msg, current_vec)
         rag_lines = self._build_rag_context_lines(current_msg, current_vec)
 
         if not memory_lines and not rag_lines:
-            return "无可用上下文"
+            return {
+                "memory_lines": memory_lines,
+                "rag_lines": rag_lines,
+                "memory_hit_count": 0,
+                "rag_hit_count": 0,
+                "context_str": "无可用上下文",
+            }
 
         lines = []
         total_chars = 0
@@ -238,7 +247,17 @@ class ReasoningLayer:
             lines.append(line)
             total_chars += len(line)
 
-        return "\n".join(lines) if lines else "上下文超长，已截断"
+        context_str = "\n".join(lines) if lines else "上下文超长，已截断"
+        return {
+            "memory_lines": memory_lines,
+            "rag_lines": rag_lines,
+            "memory_hit_count": len(memory_lines),
+            "rag_hit_count": len(rag_lines),
+            "context_str": context_str,
+        }
+
+    def _build_context(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> str:
+        return str(self._build_context_bundle(current_msg, current_vec).get("context_str", "无可用上下文"))
 
     @staticmethod
     def _make_doc_id(msg: Dict) -> str:
@@ -292,6 +311,296 @@ class ReasoningLayer:
     @staticmethod
     def _risk_rank(risk: str) -> int:
         return {"low": 1, "medium": 2, "high": 3}.get(str(risk or "low"), 1)
+
+    @classmethod
+    def _max_risk(cls, *risks: str) -> str:
+        valid = [str(r or "low") for r in risks]
+        return max(valid, key=cls._risk_rank) if valid else "low"
+
+    def _infer_intent_from_signals(self, current_msg: Dict, role_hint: str = "other") -> str:
+        text = str(current_msg.get("text", "") or "")
+        first_person = self._is_first_person(text)
+
+        if role_hint == "scammer":
+            if any(x in text for x in ["卡号", "户名", "下发", "保证金", "换卡", "新卡", "收U", "开后台"]):
+                return "资金操作/指令"
+            if any(x in text for x in ["报警？", "别影响别人", "看警察抓谁", "让你消失"]):
+                return "威胁/施压"
+        if role_hint == "victim":
+            if bool(current_msg.get("has_pii")) and first_person:
+                return "求助/隐私泄露"
+            if any(x in text for x in ["被骗", "没到账", "拉黑", "退钱", "报警", "报案", "还钱"]):
+                return "求助/维权"
+
+        if any(x in text for x in ["签到", "滴滴", "打卡", "路过", "冒泡"]):
+            return "签到/噪声消息"
+        if any(x in text for x in ["天气", "羡慕", "看看", "围观", "聊天", "专业啊"]):
+            return "闲聊"
+        if bool(current_msg.get("has_pii")):
+            return "敏感信息传播"
+        return "一般讨论"
+
+    def _sanitize_intent(self, intent: str, current_msg: Dict, role_hint: str = "other") -> str:
+        cleaned = re.sub(r"\s+", " ", str(intent or "").replace("\n", " ")).strip()
+        low = cleaned.lower()
+
+        if cleaned in {
+            "rule_fast_path",
+            "system_message",
+            "签到/噪声消息",
+            "闲聊",
+            "指令/威胁/资金操作",
+            "求助/维权/隐私泄露",
+        }:
+            return cleaned
+
+        if not cleaned or any(x in low for x in ["role:", "risk:", "intent:", "角色:", "风险:", "意图:"]):
+            return self._infer_intent_from_signals(current_msg, role_hint)
+
+        if len(cleaned) > AGENT_MAX_INTENT_CHARS:
+            return self._infer_intent_from_signals(current_msg, role_hint)
+        return cleaned
+
+    def _build_rule_candidate(self, current_msg: Dict) -> Dict[str, str]:
+        parsed = {"risk": "low", "role": "other", "intent": "rule_fast_path"}
+        parsed = self._apply_hard_rules(current_msg, parsed)
+        parsed = self._self_check(current_msg, parsed)
+
+        if parsed.get("role") == "other":
+            score = (
+                float(current_msg.get("l1_risk_score", 0) or 0)
+                + float(current_msg.get("l2_risk_score", 0) or 0)
+            ) / 2
+            if score >= 65:
+                parsed["risk"] = "high"
+            elif score >= 30:
+                parsed["risk"] = "medium"
+            else:
+                parsed["risk"] = "low"
+
+        parsed["intent"] = self._sanitize_intent(parsed.get("intent", ""), current_msg, parsed.get("role", "other"))
+        return parsed
+
+    def _compose_prompt(self, current_msg: Dict, context_str: str) -> str:
+        text = str(current_msg.get("text", "") or "").strip()
+        return f"""
+你是群聊风控分析助手。请根据消息、检索上下文与规则线索判断角色和风险。
+
+[当前消息]
+用户: {current_msg.get('username', 'unknown')}
+内容: {text}
+
+[规则线索]
+L1风险分: {current_msg.get('l1_risk_score', 0)}
+L2风险分: {current_msg.get('l2_risk_score', 0)}
+L1证据: {current_msg.get('l1_evidence', [])}
+L2证据: {current_msg.get('l2_evidence', [])}
+
+[检索上下文]
+{context_str}
+
+请严格按以下格式输出一行:
+Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
+""".strip()
+
+    def _estimate_decision_quality(
+        self,
+        current_msg: Dict,
+        parsed: Dict[str, str],
+        rule_candidate: Dict[str, str],
+        context_bundle: Dict[str, object],
+        llm_used: bool,
+    ) -> Dict[str, object]:
+        text = str(current_msg.get("text", "") or "")
+        first_person = self._is_first_person(text)
+        has_pii = bool(current_msg.get("has_pii"))
+        op_signal = any(k in text for k in ["卡号", "户名", "下发", "车队", "保证金", "换卡", "新卡", "收U"])
+        victim_signal = any(k in text for k in ["被骗", "骗子", "没到账", "还钱", "求助", "报警", "报案"]) and (
+            first_person or "你们" in text
+        )
+
+        issues: List[str] = []
+        score = 0.58 if llm_used else 0.66
+
+        role = str(parsed.get("role", "other"))
+        risk = str(parsed.get("risk", "low"))
+        intent = str(parsed.get("intent", "") or "").strip()
+
+        if role in {"scammer", "victim", "other"}:
+            score += 0.10
+        else:
+            issues.append("invalid_role")
+
+        if risk in {"low", "medium", "high"}:
+            score += 0.08
+        else:
+            issues.append("invalid_risk")
+
+        if intent:
+            score += 0.08
+        else:
+            issues.append("empty_intent")
+
+        if role == rule_candidate.get("role"):
+            score += 0.08
+        elif rule_candidate.get("role") != "other":
+            score -= 0.14
+            issues.append("rule_conflict")
+
+        if self._risk_rank(risk) >= self._risk_rank(rule_candidate.get("risk", "low")):
+            score += 0.05
+        elif self._risk_rank(rule_candidate.get("risk", "low")) > self._risk_rank(risk):
+            score -= 0.07
+            issues.append("risk_understated")
+
+        if has_pii and risk == "low":
+            score -= 0.10
+            issues.append("pii_low_risk")
+
+        if op_signal and role == "victim" and rule_candidate.get("role") == "scammer":
+            score -= 0.12
+            issues.append("op_signal_mismatch")
+
+        if victim_signal and role == "scammer" and rule_candidate.get("role") == "victim":
+            score -= 0.12
+            issues.append("victim_signal_mismatch")
+
+        if int(context_bundle.get("memory_hit_count", 0) or 0) + int(context_bundle.get("rag_hit_count", 0) or 0) > 0:
+            score += 0.03
+
+        score = max(0.0, min(0.99, score))
+        level = "high" if score >= 0.82 else "medium" if score >= 0.62 else "low"
+        return {
+            "score": round(score, 3),
+            "level": level,
+            "issues": issues,
+            "llm_used": llm_used,
+            "rule_role": rule_candidate.get("role", "other"),
+        }
+
+    def _reflect_decision(
+        self,
+        current_msg: Dict,
+        parsed: Dict[str, str],
+        rule_candidate: Dict[str, str],
+        quality: Dict[str, object],
+    ) -> Dict[str, str]:
+        refined = {
+            "risk": str(parsed.get("risk", "low") or "low"),
+            "role": str(parsed.get("role", "other") or "other"),
+            "intent": str(parsed.get("intent", "") or ""),
+        }
+        changed_fields: List[str] = []
+
+        if refined["role"] not in {"scammer", "victim", "other"}:
+            refined["role"] = rule_candidate.get("role", "other")
+            changed_fields.append("role")
+        if refined["risk"] not in {"low", "medium", "high"}:
+            refined["risk"] = rule_candidate.get("risk", "low")
+            changed_fields.append("risk")
+
+        if AGENT_ENABLE_REFLECTION:
+            issues = set(quality.get("issues", []) or [])
+            should_follow_rules = (
+                quality.get("level") == "low"
+                or "rule_conflict" in issues
+                or "op_signal_mismatch" in issues
+                or "victim_signal_mismatch" in issues
+            )
+
+            if should_follow_rules and rule_candidate.get("role") != "other":
+                if refined["role"] != rule_candidate.get("role"):
+                    refined["role"] = rule_candidate.get("role", "other")
+                    changed_fields.append("role")
+                stronger_risk = self._max_risk(refined["risk"], rule_candidate.get("risk", "low"))
+                if stronger_risk != refined["risk"]:
+                    refined["risk"] = stronger_risk
+                    changed_fields.append("risk")
+
+            if "risk_understated" in issues:
+                stronger_risk = self._max_risk(refined["risk"], rule_candidate.get("risk", "low"))
+                if stronger_risk != refined["risk"]:
+                    refined["risk"] = stronger_risk
+                    changed_fields.append("risk")
+
+        sanitized_intent = self._sanitize_intent(refined.get("intent", ""), current_msg, refined.get("role", "other"))
+        if sanitized_intent != refined.get("intent", ""):
+            refined["intent"] = sanitized_intent
+            changed_fields.append("intent")
+
+        rule_checked = self._apply_hard_rules(current_msg, dict(refined))
+        rule_checked = self._self_check(current_msg, rule_checked)
+        rule_checked["intent"] = self._sanitize_intent(
+            rule_checked.get("intent", ""),
+            current_msg,
+            rule_checked.get("role", "other"),
+        )
+        rule_checked["reflection"] = {
+            "revised": bool(changed_fields),
+            "changed_fields": changed_fields,
+            "issues_before": list(quality.get("issues", []) or []),
+        }
+        return rule_checked
+
+    def _react_analyze(self, current_msg: Dict, current_vec: Optional[torch.Tensor]) -> Dict[str, str]:
+        context_bundle = self._build_context_bundle(current_msg, current_vec)
+        rule_candidate = self._build_rule_candidate(current_msg)
+
+        steps = [
+            {
+                "action": "rules",
+                "observation": (
+                    f"rule_role={rule_candidate.get('role', 'other')}, "
+                    f"rule_risk={rule_candidate.get('risk', 'low')}"
+                ),
+            },
+            {
+                "action": "retrieve_context",
+                "observation": (
+                    f"memory_hits={context_bundle.get('memory_hit_count', 0)}, "
+                    f"rag_hits={context_bundle.get('rag_hit_count', 0)}"
+                ),
+            },
+        ]
+
+        prompt = self._compose_prompt(current_msg, str(context_bundle.get("context_str", "无可用上下文")))
+        raw_result = self.llm.generate_response(prompt)
+        steps.append({"action": "llm", "observation": (raw_result or "")[:96]})
+
+        parsed = self._parse_result(raw_result)
+        parsed = self._apply_hard_rules(current_msg, parsed)
+        parsed = self._self_check(current_msg, parsed)
+        parsed["intent"] = self._sanitize_intent(parsed.get("intent", ""), current_msg, parsed.get("role", "other"))
+
+        quality_before = self._estimate_decision_quality(current_msg, parsed, rule_candidate, context_bundle, llm_used=True)
+        final_decision = self._reflect_decision(current_msg, parsed, rule_candidate, quality_before)
+        final_quality = self._estimate_decision_quality(
+            current_msg,
+            final_decision,
+            rule_candidate,
+            context_bundle,
+            llm_used=True,
+        )
+
+        steps.append(
+            {
+                "action": "reflect",
+                "observation": (
+                    f"quality={final_quality.get('score', 0)}, "
+                    f"revised={final_decision.get('reflection', {}).get('revised', False)}"
+                ),
+            }
+        )
+
+        final_decision["quality"] = final_quality
+        final_decision["agent_trace"] = {
+            "mode": "light_react_llm",
+            "tools_used": ["rules", "memory", "rag", "llm", "reflection"],
+            "steps": steps,
+            "memory_hits": context_bundle.get("memory_hit_count", 0),
+            "rag_hits": context_bundle.get("rag_hit_count", 0),
+        }
+        return final_decision
 
     def _self_check(self, current_msg: Dict, parsed: Dict[str, str]) -> Dict[str, str]:
         text = str(current_msg.get("text", "") or "")
@@ -479,18 +788,24 @@ class ReasoningLayer:
         if not text or current_msg.get("is_system_msg") or username == "system":
             return {"risk": "low", "role": "other", "intent": "system_message"}
 
-        base = {"risk": "low", "role": "other", "intent": "rule_fast_path"}
-        parsed = self._apply_hard_rules(current_msg, base)
-        parsed = self._self_check(current_msg, parsed)
-
-        if parsed.get("role") == "other":
-            score = (float(current_msg.get("l1_risk_score", 0) or 0) + float(current_msg.get("l2_risk_score", 0) or 0)) / 2
-            if score >= 65:
-                parsed["risk"] = "high"
-            elif score >= 30:
-                parsed["risk"] = "medium"
-            else:
-                parsed["risk"] = "low"
+        parsed = self._build_rule_candidate(current_msg)
+        quality = self._estimate_decision_quality(current_msg, parsed, parsed, {}, llm_used=False)
+        parsed = self._reflect_decision(current_msg, parsed, parsed, quality)
+        parsed["quality"] = self._estimate_decision_quality(current_msg, parsed, parsed, {}, llm_used=False)
+        parsed["agent_trace"] = {
+            "mode": "fast_path",
+            "tools_used": ["rules", "heuristic_risk", "reflection"],
+            "steps": [
+                {
+                    "action": "rules",
+                    "observation": f"role={parsed.get('role', 'other')}, risk={parsed.get('risk', 'low')}",
+                },
+                {
+                    "action": "reflect",
+                    "observation": f"quality={parsed.get('quality', {}).get('score', 0)}",
+                },
+            ],
+        }
 
         current_vec = self.embedder.get_embedding(text)
         self._append_memory(current_msg, current_vec)
@@ -504,32 +819,16 @@ class ReasoningLayer:
             return {"risk": "low", "role": "other", "intent": "system_message"}
 
         current_vec = self.embedder.get_embedding(text)
-        context_str = self._build_context(current_msg, current_vec)
-
-        prompt = f"""
-你是群聊风控分析助手。请根据消息、检索上下文与规则线索判断角色和风险。
-
-[当前消息]
-用户: {current_msg.get('username', 'unknown')}
-内容: {text}
-
-[规则线索]
-L1风险分: {current_msg.get('l1_risk_score', 0)}
-L2风险分: {current_msg.get('l2_risk_score', 0)}
-L1证据: {current_msg.get('l1_evidence', [])}
-L2证据: {current_msg.get('l2_evidence', [])}
-
-[检索上下文]
-{context_str}
-
-请严格按以下格式输出一行:
-Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
-""".strip()
-
-        raw_result = self.llm.generate_response(prompt)
-        parsed = self._parse_result(raw_result)
-        parsed = self._apply_hard_rules(current_msg, parsed)
-        parsed = self._self_check(current_msg, parsed)
+        if AGENT_ENABLE_LIGHT_REACT:
+            parsed = self._react_analyze(current_msg, current_vec)
+        else:
+            context_str = self._build_context(current_msg, current_vec)
+            prompt = self._compose_prompt(current_msg, context_str)
+            raw_result = self.llm.generate_response(prompt)
+            parsed = self._parse_result(raw_result)
+            parsed = self._apply_hard_rules(current_msg, parsed)
+            parsed = self._self_check(current_msg, parsed)
+            parsed["intent"] = self._sanitize_intent(parsed.get("intent", ""), current_msg, parsed.get("role", "other"))
 
         self._append_memory(current_msg, current_vec)
         return parsed

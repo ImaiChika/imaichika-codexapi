@@ -47,7 +47,6 @@ class VectorStore:
         return None
 
     def add(self, doc_id: str, text: str, embedding, metadata: Optional[Dict] = None):
-        print(f"Adding to Chroma: {self._use_chroma}")
         if not text:
             return
         vec_list = self._to_list(embedding)

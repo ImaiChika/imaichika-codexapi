@@ -29,6 +29,11 @@ VECTOR_COLLECTION = "chat_messages"
 RAG_TOP_K = 12
 RAG_MAX_DOC_CHARS = 240
 
+# === Lightweight Agent / Reflection ===
+AGENT_ENABLE_LIGHT_REACT = True
+AGENT_ENABLE_REFLECTION = True
+AGENT_MAX_INTENT_CHARS = 24
+
 # === Report Rendering (tunable) ===
 # You can tune report scale here:
 # - REPORT_CORE_USER_TOP_K controls "核心人物包括" total length.
