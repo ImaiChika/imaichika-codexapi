@@ -60,10 +60,12 @@ def should_use_llm(message: dict) -> bool:
 
 
 def iter_raw_files(raw_dir: Path):
+    """按文件名稳定排序，保证多次运行时处理顺序一致。"""
     return sorted([p for p in raw_dir.glob("*.json") if p.is_file()])
 
 
 def _format_clue_chain_lines(chains: List[Dict], top_k: int = REPORT_CLUE_CHAIN_TOP_K) -> List[str]:
+    """把跨群软关联线索链渲染成报告尾部摘要。"""
     if not chains:
         return ["- 暂无可用线索链"]
 
@@ -112,6 +114,7 @@ def main():
     processed_msgs = []
     llm_calls = 0
 
+    # Step 1: 对每条原始消息执行三层分析，并实时累积画像与数据库。
     for raw_path in raw_files:
         raw_data = load_json_data(raw_path)
         logger.info(f"处理文件: {raw_path.name}, 消息数: {len(raw_data)}")
@@ -135,6 +138,7 @@ def main():
             processed_msgs.append(msg)
             db.store_message(msg)
 
+    # Step 2: 基于全量消息回看整个社交拓扑，再补用户影响力画像。
     logger.info("Step 2: 计算全量社交拓扑权重...")
     l2_net.build_from_data(processed_msgs)
     network_stats = l2_net.analyze_centrality()
@@ -148,6 +152,7 @@ def main():
     final_users = user_p.finalize()
     group_summary = group_p.get_summary_context(network_stats)
 
+    # Step 3: 做跨群身份归并、事件追踪和软线索链生成。
     logger.info("Step 3: 进行跨群身份关联与事件溯源...")
     identity_result = identity_resolver.resolve(processed_msgs)
     identity_resolver.attach_cluster_labels(processed_msgs, identity_result["node_to_cluster"])
@@ -158,6 +163,7 @@ def main():
     db.store_identity_clusters(identity_result["clusters"])
     db.store_trace_events(trace_events)
 
+    # Step 4: 生成最终研判报告与各类中间产物，便于答辩展示和复核。
     logger.info("Step 4: 生成研判报告...")
     report_content = l3.generate_comprehensive_report(group_summary, final_users)
 
