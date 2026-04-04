@@ -1,0 +1,16 @@
+**案件研判报告**
+
+**角色判定：**  
+- **嫌疑人**：`Finance_Master`, `Group_Leader_A`  
+- **受害者**：`Help_Me_Please`, `Student_Xiao`  
+- **其他**：无
+
+**风险等级：** 高
+
+**理由：**  
+1. **嫌疑人**：`Finance_Master` 和 `Group_Leader_A` 与受害者有直接联系（`Help_Me_Please` 和 `Student_Xiao`），且在活跃用户列表中，可能涉及信息泄露、数据窃取或恶意行为。  
+2. **受害者**：`Help_Me_Please` 和 `Student_Xiao` 是明确的受害者，可能遭受了信息泄露、骚扰或身份盗用。  
+3. **风险等级高**：由于嫌疑人与受害者存在直接关联，且活跃用户中包含潜在威胁者，存在较高的信息泄露或恶意行为风险。
+
+=== 自动化取证摘要 ===
+最终锁定的受害者名单: Help_Me_Please, Student_Xiao

@@ -1,0 +1,1442 @@
+[
+    {
+        "clue_type": "name",
+        "clue_value": "WangKang",
+        "chain_type": "suspect_internal_asset",
+        "confidence": "medium",
+        "inference": "多名嫌疑人复用同一线索，疑似内部协作或分工流转。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 7,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "XiaoTJiang",
+                "xiaofnb"
+            ],
+            "irrelevant": [
+                "Qingshan_77"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77",
+                "msg_index": 688,
+                "text_excerpt": "WangKang 这条三要素能补全吗，手机号 13972224978，身份证 320381198605011833，急用。",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C203"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xingyun320",
+                "msg_index": 689,
+                "text_excerpt": "WangKang 这条可以继续做，三要素+户籍能补，照片另算。",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77",
+                "msg_index": 691,
+                "text_excerpt": "刚转了 80u，查 WangKang，手机号 13972224978。",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C203"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 704,
+                "text_excerpt": "WangKang 320381198605011833 13972224978 这条我也在跟，有没有不重复卖的？",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_awei",
+                "msg_index": 2,
+                "text_excerpt": "昨天在 @dbkyi 那充了 80u 查档，查 WangKang 320381198605011833 / 13972224978，到现在没给全。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C211"
+            },
+            {
+                "source_group": "3",
+                "username": "XiaoTJiang",
+                "msg_index": 2,
+                "text_excerpt": "WangKang 320381198605011833 / 13972224978 这条继续挂外群，按机主、三要素、户籍、照片拆开卖。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C205"
+            },
+            {
+                "source_group": "3",
+                "username": "xiaofnb",
+                "msg_index": 5,
+                "text_excerpt": "WangKang 这条住址我先发洪山区关山大道 519 号附近，先给模糊定位。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C180"
+            }
+        ],
+        "chain_id": "L001"
+    },
+    {
+        "clue_type": "wallet",
+        "clue_value": "TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn",
+        "chain_type": "suspect_internal_asset",
+        "confidence": "medium",
+        "inference": "多名嫌疑人复用同一线索，疑似内部协作或分工流转。",
+        "groups": [
+            "1",
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 5,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "dbkyi",
+                "user_-1002394323226"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_-1002394323226",
+                "msg_index": 3,
+                "text_excerpt": "欢迎来到 一诺客服 中心~\n\n专业查档客服  @XiaoTJiang\n👆机器人查询不到的信息可以找此处\n人工查档 收款地址 \nTFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn\n前六",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C002"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_-1002394323226",
+                "msg_index": 3,
+                "text_excerpt": "欢迎来到 一诺客服 中心~\n\n专业查档客服  @XiaoTJiang\n👆机器人查询不到的信息可以找此处\n人工查档 收款地址 \nTFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn\n前六",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C002"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dbkyi",
+                "msg_index": 690,
+                "text_excerpt": "补全资料先充 80U，还是打到公告那个地址 TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn，备注尾号 927。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C204"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_awei",
+                "msg_index": 4,
+                "text_excerpt": "usdt 是打到 TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn，查询客服 @XiaoTJiang。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C211"
+            },
+            {
+                "source_group": "3",
+                "username": "dbkyi",
+                "msg_index": 3,
+                "text_excerpt": "收款还是走 TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn，别换地址。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C204"
+            }
+        ],
+        "chain_id": "L002"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "13972224978",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 12,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "XiaoTJiang"
+            ],
+            "irrelevant": [
+                "Qingshan_77"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77",
+                "msg_index": 688,
+                "text_excerpt": "WangKang 这条三要素能补全吗，手机号 13972224978，身份证 320381198605011833，急用。",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C203"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77",
+                "msg_index": 691,
+                "text_excerpt": "刚转了 80u，查 WangKang，手机号 13972224978。",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C203"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 704,
+                "text_excerpt": "WangKang 320381198605011833 13972224978 这条我也在跟，有没有不重复卖的？",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_awei",
+                "msg_index": 2,
+                "text_excerpt": "昨天在 @dbkyi 那充了 80u 查档，查 WangKang 320381198605011833 / 13972224978，到现在没给全。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C211"
+            },
+            {
+                "source_group": "2",
+                "username": "wq2025",
+                "msg_index": 6,
+                "text_excerpt": "我买的是三要素+户籍，手机号 13972224978，身份证 320381198605011833，只给了半截。",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C213"
+            },
+            {
+                "source_group": "3",
+                "username": "XiaoTJiang",
+                "msg_index": 2,
+                "text_excerpt": "WangKang 320381198605011833 / 13972224978 这条继续挂外群，按机主、三要素、户籍、照片拆开卖。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C205"
+            }
+        ],
+        "chain_id": "L003"
+    },
+    {
+        "clue_type": "id",
+        "clue_value": "320381198605011833",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 11,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "XiaoTJiang"
+            ],
+            "irrelevant": [
+                "Qingshan_77"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77",
+                "msg_index": 688,
+                "text_excerpt": "WangKang 这条三要素能补全吗，手机号 13972224978，身份证 320381198605011833，急用。",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C203"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 704,
+                "text_excerpt": "WangKang 320381198605011833 13972224978 这条我也在跟，有没有不重复卖的？",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_awei",
+                "msg_index": 2,
+                "text_excerpt": "昨天在 @dbkyi 那充了 80u 查档，查 WangKang 320381198605011833 / 13972224978，到现在没给全。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C211"
+            },
+            {
+                "source_group": "2",
+                "username": "wq2025",
+                "msg_index": 6,
+                "text_excerpt": "我买的是三要素+户籍，手机号 13972224978，身份证 320381198605011833，只给了半截。",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C213"
+            },
+            {
+                "source_group": "3",
+                "username": "XiaoTJiang",
+                "msg_index": 2,
+                "text_excerpt": "WangKang 320381198605011833 / 13972224978 这条继续挂外群，按机主、三要素、户籍、照片拆开卖。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C205"
+            }
+        ],
+        "chain_id": "L004"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "王康",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 6,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xingyun320",
+                "msg_index": 384,
+                "text_excerpt": "🍰查询完毕\n\nIDcard：320381198605011833\nPhone：13972224978\nName：王康\n结果：✅核验成功✅\n\n>>>本次查询由 小助手 免费提供",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C094"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 387,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546",
+                "msg_index": 390,
+                "text_excerpt": "王康\n320381198605011833\n13972224978\n\n来个大哥帮我过一下3要",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C129"
+            }
+        ],
+        "chain_id": "L005"
+    },
+    {
+        "clue_type": "qq",
+        "clue_value": "1285851817",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented",
+            "3"
+        ],
+        "mentions_count": 5,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "As060802",
+                "msg_index": 601,
+                "text_excerpt": "QQ1285851817\n手机号码152xxxx6011\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802",
+                "msg_index": 601,
+                "text_excerpt": "QQ1285851817\n手机号码152xxxx6011\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "3",
+                "username": "moxiaonuo",
+                "msg_index": 13,
+                "text_excerpt": "另外一条汕头的是 QQ1285851817，手机号 15875458309，先别和 WangKang 混。",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C218"
+            }
+        ],
+        "chain_id": "L006"
+    },
+    {
+        "clue_type": "qq",
+        "clue_value": "2221701875",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": [
+                "rainbowkboy"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "rainbowkboy",
+                "msg_index": 206,
+                "text_excerpt": "谁能跑一下这个QQ号的手机号啊：2221701875，没地区",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C076"
+            },
+            {
+                "source_group": "1",
+                "username": "rainbowkboy",
+                "msg_index": 211,
+                "text_excerpt": "谁能跑一下这个QQ号的手机号啊：2221701875",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C076"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "rainbowkboy",
+                "msg_index": 206,
+                "text_excerpt": "谁能跑一下这个QQ号的手机号啊：2221701875，没地区",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C076"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "rainbowkboy",
+                "msg_index": 211,
+                "text_excerpt": "谁能跑一下这个QQ号的手机号啊：2221701875",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C076"
+            }
+        ],
+        "chain_id": "L007"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15617209729",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "xqcd888",
+                "msg_index": 296,
+                "text_excerpt": "许愿免费名字15617209729",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C104"
+            },
+            {
+                "source_group": "1",
+                "username": "xqcd888",
+                "msg_index": 304,
+                "text_excerpt": "许愿免费名字15617209729",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C104"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xqcd888",
+                "msg_index": 296,
+                "text_excerpt": "许愿免费名字15617209729",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C104"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xqcd888",
+                "msg_index": 304,
+                "text_excerpt": "许愿免费名字15617209729",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C104"
+            }
+        ],
+        "chain_id": "L008"
+    },
+    {
+        "clue_type": "address",
+        "clue_value": "广东省汕头市",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "As060802",
+                "msg_index": 601,
+                "text_excerpt": "QQ1285851817\n手机号码152xxxx6011\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802",
+                "msg_index": 601,
+                "text_excerpt": "QQ1285851817\n手机号码152xxxx6011\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            }
+        ],
+        "chain_id": "L009"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15361350538",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "xiaofnb"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "xiaofnb",
+                "msg_index": 634,
+                "text_excerpt": "@GD19_810 15361350538",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C180"
+            },
+            {
+                "source_group": "1",
+                "username": "xiaofnb",
+                "msg_index": 640,
+                "text_excerpt": "@GD19_810 15361350538",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C180"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xiaofnb",
+                "msg_index": 634,
+                "text_excerpt": "@GD19_810 15361350538",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C180"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xiaofnb",
+                "msg_index": 640,
+                "text_excerpt": "@GD19_810 15361350538",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C180"
+            }
+        ],
+        "chain_id": "L010"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15875458309",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802",
+                "msg_index": 603,
+                "text_excerpt": "QQ1285851817\n手机号码15875458309\n广东省汕头市",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C177"
+            },
+            {
+                "source_group": "3",
+                "username": "moxiaonuo",
+                "msg_index": 13,
+                "text_excerpt": "另外一条汕头的是 QQ1285851817，手机号 15875458309，先别和 WangKang 混。",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C218"
+            }
+        ],
+        "chain_id": "L011"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "诈骗",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "user_-1002394323226"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_-1002394323226",
+                "msg_index": 3,
+                "text_excerpt": "欢迎来到 一诺客服 中心~\n\n专业查档客服  @XiaoTJiang\n👆机器人查询不到的信息可以找此处\n人工查档 收款地址 \nTFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn\n前六",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C002"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_-1002394323226",
+                "msg_index": 3,
+                "text_excerpt": "欢迎来到 一诺客服 中心~\n\n专业查档客服  @XiaoTJiang\n👆机器人查询不到的信息可以找此处\n人工查档 收款地址 \nTFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn\n前六",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C002"
+            }
+        ],
+        "chain_id": "L012"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "18437186221",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "njjnb666",
+                "msg_index": 59,
+                "text_excerpt": "*晟屹18437186221许愿支百",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C021"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "njjnb666",
+                "msg_index": 59,
+                "text_excerpt": "*晟屹18437186221许愿支百",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C021"
+            }
+        ],
+        "chain_id": "L013"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "17537774668",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": [
+                "user_8128659028"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_8128659028",
+                "msg_index": 109,
+                "text_excerpt": "田文杰-17537774668",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C004"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8128659028",
+                "msg_index": 109,
+                "text_excerpt": "田文杰-17537774668",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C004"
+            }
+        ],
+        "chain_id": "L014"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "嘻嘻平",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "jfidjidjjd",
+                "msg_index": 173,
+                "text_excerpt": "我是嘻嘻平，给我99999U我给你反",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C005"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "jfidjidjjd",
+                "msg_index": 173,
+                "text_excerpt": "我是嘻嘻平，给我99999U我给你反",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C005"
+            }
+        ],
+        "chain_id": "L015"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15231992292",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "hhhhhzzzznnn",
+                "msg_index": 183,
+                "text_excerpt": "15231992292",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C061"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "hhhhhzzzznnn",
+                "msg_index": 183,
+                "text_excerpt": "15231992292",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C061"
+            }
+        ],
+        "chain_id": "L016"
+    },
+    {
+        "clue_type": "id",
+        "clue_value": "522428199908223822",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "YJ8809",
+                "msg_index": 286,
+                "text_excerpt": "522428199908223822 在用的名下号能出的来",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C101"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "YJ8809",
+                "msg_index": 286,
+                "text_excerpt": "522428199908223822 在用的名下号能出的来",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C101"
+            }
+        ],
+        "chain_id": "L017"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15061363477",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": [
+                "wamzi886"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "wamzi886",
+                "msg_index": 291,
+                "text_excerpt": "15061363477",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C095"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "wamzi886",
+                "msg_index": 291,
+                "text_excerpt": "15061363477",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C095"
+            }
+        ],
+        "chain_id": "L018"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "15928593637",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_7838640773",
+                "msg_index": 335,
+                "text_excerpt": "骆瑞东，男41岁，手机号15928593637，身份证前四5131，后四101×",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C117"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7838640773",
+                "msg_index": 335,
+                "text_excerpt": "骆瑞东，男41岁，手机号15928593637，身份证前四5131，后四101×",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C117"
+            }
+        ],
+        "chain_id": "L019"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "公群老板",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "mh888666",
+                "msg_index": 482,
+                "text_excerpt": "我是公群老板",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C063"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "mh888666",
+                "msg_index": 482,
+                "text_excerpt": "我是公群老板",
+                "self_claim": true,
+                "role_hint": "other",
+                "cluster_id": "C063"
+            }
+        ],
+        "chain_id": "L020"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "谁吧",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": [
+                "tmttkx"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "tmttkx",
+                "msg_index": 511,
+                "text_excerpt": "我又底层了 打听一下我是谁吧",
+                "self_claim": true,
+                "role_hint": "irrelevant",
+                "cluster_id": "C150"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tmttkx",
+                "msg_index": 511,
+                "text_excerpt": "我又底层了 打听一下我是谁吧",
+                "self_claim": true,
+                "role_hint": "irrelevant",
+                "cluster_id": "C150"
+            }
+        ],
+        "chain_id": "L021"
+    },
+    {
+        "clue_type": "name",
+        "clue_value": "来一个",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "dongxi66668888",
+                "msg_index": 551,
+                "text_excerpt": "机主来一个",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C154"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dongxi66668888",
+                "msg_index": 551,
+                "text_excerpt": "机主来一个",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C154"
+            }
+        ],
+        "chain_id": "L022"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "13460379592",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_5934288212",
+                "msg_index": 571,
+                "text_excerpt": "13460379592",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C163"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_5934288212",
+                "msg_index": 571,
+                "text_excerpt": "13460379592",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C163"
+            }
+        ],
+        "chain_id": "L023"
+    },
+    {
+        "clue_type": "id",
+        "clue_value": "429006199302210333",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "cjch5456",
+                "msg_index": 574,
+                "text_excerpt": "谢稳 429006199302210333 许愿户籍地址",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C165"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "cjch5456",
+                "msg_index": 574,
+                "text_excerpt": "谢稳 429006199302210333 许愿户籍地址",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C165"
+            }
+        ],
+        "chain_id": "L024"
+    },
+    {
+        "clue_type": "phone",
+        "clue_value": "18369702059",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "user_7067462364",
+                "msg_index": 577,
+                "text_excerpt": "谁能给个机主18369702059",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C167"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7067462364",
+                "msg_index": 577,
+                "text_excerpt": "谁能给个机主18369702059",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C167"
+            }
+        ],
+        "chain_id": "L025"
+    },
+    {
+        "clue_type": "id",
+        "clue_value": "612526198911089011",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [],
+            "irrelevant": [
+                "JunZi21"
+            ]
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1",
+                "username": "JunZi21",
+                "msg_index": 579,
+                "text_excerpt": "石涛612526198911089011",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C168"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "JunZi21",
+                "msg_index": 579,
+                "text_excerpt": "石涛612526198911089011",
+                "self_claim": false,
+                "role_hint": "irrelevant",
+                "cluster_id": "C168"
+            }
+        ],
+        "chain_id": "L026"
+    }
+]

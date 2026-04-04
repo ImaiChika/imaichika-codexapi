@@ -55,9 +55,11 @@ class GroupProfiler:
         self.scammer_keywords = [
             "卡号", "户名", "下发", "车队", "待命", "保证金", "开后台", "进二群", "内部通道", "换卡", "新卡",
             "收U", "四件套", "白户", "实名", "高仿", "包邮", "踢", "滚", "反诈",
+            "拆开卖", "重复卖", "挂外群", "主推", "模糊定位", "口径统一", "补家谱", "收款地址",
         ]
         self.manager_keywords = [
             "车队", "待命", "保证金", "开后台", "新卡", "换卡", "下发", "卡号", "户名", "内部通道", "进二群", "收U", "四件套", "白户",
+            "拆开卖", "重复卖", "挂外群", "主推", "模糊定位", "口径统一", "收款地址",
         ]
         self.noise_keywords = {"签到", "滴滴", "打卡", "路过", "冒泡"}
         self.casual_keywords = ["天气", "专业", "羡慕", "看看", "围观", "聊天"]
@@ -121,10 +123,16 @@ class GroupProfiler:
 
         if "phone" in k or "mobile" in k:
             return "手机号"
+        if "qq" in k:
+            return "QQ号"
         if "id" in k:
             return "身份证"
         if "mail" in k:
             return "邮箱"
+        if "payment" in k or "wallet" in k or "usdt" in k:
+            return "收款地址"
+        if "name_en" in k:
+            return "英文名"
         if "name" in k:
             return "姓名"
         if "address" in k or "location" in k:
@@ -165,7 +173,9 @@ class GroupProfiler:
             scammer_hit = True
             manager_hit = True
 
-        self_leak_cue = first_person and any(x in t for x in ["我的电话", "身份证号", "住址", "照片都发了", "我这就拍"])
+        self_leak_cue = first_person and any(
+            x in t for x in ["我的电话", "我电话", "身份证号", "我的身份证", "我的住址", "我住", "我家", "照片都发了", "我这就拍", "我的QQ", "我QQ"]
+        )
         if self_leak_cue and (group_bias != "suspect" or loss_hit or victim_hit):
             rec["victim_signal"] += 1
             rec["self_pii_leak"] += 1
@@ -217,9 +227,14 @@ class GroupProfiler:
 
         first_person = self._is_first_person_text(text)
         victim_text_context = any(x in text for x in (self.victim_keywords + self.loss_keywords))
-        self_leak_context = first_person and any(x in text for x in ["我的", "身份证", "住址", "照片", "我这就拍", "我是学生"])
+        self_leak_context = first_person and any(
+            x in text for x in ["我的电话", "我电话", "我的手机号", "身份证号", "我的身份证", "我的住址", "我住", "我家", "照片都发了", "我这就拍", "我是学生", "我的QQ", "我QQ"]
+        )
         allow_self_leak = self_leak_context and (group_bias != "suspect" or victim_text_context)
-        op_context = any(x in text for x in ["卡号", "户名", "银行", "下发", "新卡", "换卡", "收款", "手续费", "资料"])
+        op_context = any(
+            x in text
+            for x in ["卡号", "户名", "银行", "下发", "新卡", "换卡", "收款", "手续费", "资料", "三要素", "家谱", "户籍", "拆开卖", "重复卖", "挂外群", "模糊定位"]
+        )
         suspect_op_context = group_bias == "suspect" and (
             op_context
             or rec.get("manager_signal", 0) > 0
@@ -238,10 +253,10 @@ class GroupProfiler:
                 label = self._guess_pii_label(key, text, content)
 
                 rec["pii_count"] += 1
-                if label == "银行卡" and (op_context or suspect_op_context) and not allow_self_leak:
+                if label in {"银行卡", "收款地址"} and (op_context or suspect_op_context) and not allow_self_leak:
                     rec["bank_card_posts"] += 1
                     rec["pii_ops_signal"] += 1
-                if label in {"手机号", "身份证", "姓名", "地址"} and suspect_op_context and not allow_self_leak:
+                if label in {"手机号", "身份证", "姓名", "英文名", "地址", "QQ号"} and suspect_op_context and not allow_self_leak:
                     rec["pii_ops_signal"] += 1
                 if label == "身份证":
                     rec["id_posts"] += 1
@@ -477,9 +492,9 @@ class GroupProfiler:
                 or rec.get("pii_ops_signal", 0) > 0
             )
 
-            if e["type"] == "银行卡" and is_suspect_like:
+            if e["type"] in {"银行卡", "收款地址"} and is_suspect_like:
                 suspect_assets.append(e)
-            elif e["type"] in {"手机号", "身份证", "姓名", "地址"} and is_suspect_like and rec.get("self_pii_leak", 0) == 0:
+            elif e["type"] in {"手机号", "身份证", "姓名", "英文名", "地址", "QQ号"} and is_suspect_like and rec.get("self_pii_leak", 0) == 0:
                 suspect_assets.append(e)
             elif rec.get("self_pii_leak", 0) > 0:
                 victim_leaks.append(e)

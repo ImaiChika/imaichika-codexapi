@@ -1,0 +1,5073 @@
+[
+    {
+        "cluster_id": "C180",
+        "canonical_name": "xiaofnb",
+        "aliases": [
+            "xiaofnb"
+        ],
+        "groups": [
+            "1",
+            "1_augmented",
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xiaofnb"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xiaofnb"
+            },
+            {
+                "source_group": "3",
+                "username": "xiaofnb"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "15361350538"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C207",
+        "canonical_name": "yinuo_emo888",
+        "aliases": [
+            "yinuo_emo888"
+        ],
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "yinuo_emo888"
+            },
+            {
+                "source_group": "2",
+                "username": "yinuo_emo888"
+            },
+            {
+                "source_group": "3",
+                "username": "yinuo_emo888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C094",
+        "canonical_name": "xingyun320",
+        "aliases": [
+            "xingyun320"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xingyun320"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xingyun320"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "13972224978"
+            ],
+            "id": [
+                "320381198605011833"
+            ],
+            "name": [
+                "王康"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C129",
+        "canonical_name": "user_8506896546",
+        "aliases": [
+            "user_8506896546"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8506896546"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8506896546"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "13972224978"
+            ],
+            "id": [
+                "320381198605011833"
+            ],
+            "name": [
+                "王康"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C177",
+        "canonical_name": "As060802",
+        "aliases": [
+            "As060802"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "As060802"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "As060802"
+            }
+        ],
+        "shared_pii": {
+            "qq": [
+                "1285851817"
+            ],
+            "address": [
+                "广东省汕头市"
+            ],
+            "phone": [
+                "15875458309"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C002",
+        "canonical_name": "user_-1002394323226",
+        "aliases": [
+            "user_-1002394323226"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_-1002394323226"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_-1002394323226"
+            }
+        ],
+        "shared_pii": {
+            "wallet": [
+                "TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn"
+            ]
+        },
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C004",
+        "canonical_name": "user_8128659028",
+        "aliases": [
+            "user_8128659028"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8128659028"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8128659028"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "17537774668"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C005",
+        "canonical_name": "jfidjidjjd",
+        "aliases": [
+            "jfidjidjjd"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "jfidjidjjd"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "jfidjidjjd"
+            }
+        ],
+        "shared_pii": {
+            "name": [
+                "嘻嘻平"
+            ]
+        },
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C021",
+        "canonical_name": "njjnb666",
+        "aliases": [
+            "njjnb666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "njjnb666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "njjnb666"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "18437186221"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C061",
+        "canonical_name": "hhhhhzzzznnn",
+        "aliases": [
+            "hhhhhzzzznnn"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "hhhhhzzzznnn"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "hhhhhzzzznnn"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "15231992292"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C076",
+        "canonical_name": "rainbowkboy",
+        "aliases": [
+            "rainbowkboy"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "rainbowkboy"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "rainbowkboy"
+            }
+        ],
+        "shared_pii": {
+            "qq": [
+                "2221701875"
+            ]
+        },
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C095",
+        "canonical_name": "wamzi886",
+        "aliases": [
+            "wamzi886"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "wamzi886"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "wamzi886"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "15061363477"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C101",
+        "canonical_name": "YJ8809",
+        "aliases": [
+            "YJ8809"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "YJ8809"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "YJ8809"
+            }
+        ],
+        "shared_pii": {
+            "id": [
+                "522428199908223822"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C104",
+        "canonical_name": "xqcd888",
+        "aliases": [
+            "xqcd888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xqcd888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xqcd888"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "15617209729"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C117",
+        "canonical_name": "user_7838640773",
+        "aliases": [
+            "user_7838640773"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7838640773"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7838640773"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "15928593637"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C163",
+        "canonical_name": "user_5934288212",
+        "aliases": [
+            "user_5934288212"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_5934288212"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_5934288212"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "13460379592"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C165",
+        "canonical_name": "cjch5456",
+        "aliases": [
+            "cjch5456"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "cjch5456"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "cjch5456"
+            }
+        ],
+        "shared_pii": {
+            "id": [
+                "429006199302210333"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C167",
+        "canonical_name": "user_7067462364",
+        "aliases": [
+            "user_7067462364"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7067462364"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7067462364"
+            }
+        ],
+        "shared_pii": {
+            "phone": [
+                "18369702059"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C168",
+        "canonical_name": "JunZi21",
+        "aliases": [
+            "JunZi21"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "JunZi21"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "JunZi21"
+            }
+        ],
+        "shared_pii": {
+            "id": [
+                "612526198911089011"
+            ]
+        },
+        "confidence": "high"
+    },
+    {
+        "cluster_id": "C204",
+        "canonical_name": "dbkyi",
+        "aliases": [
+            "dbkyi"
+        ],
+        "groups": [
+            "1_augmented",
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "dbkyi"
+            },
+            {
+                "source_group": "3",
+                "username": "dbkyi"
+            }
+        ],
+        "shared_pii": {
+            "wallet": [
+                "TFTGxnqqchaEgKVwDZUozLmthxmqwJBnTn"
+            ]
+        },
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C001",
+        "canonical_name": "user_6085607279",
+        "aliases": [
+            "user_6085607279"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_6085607279"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_6085607279"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C003",
+        "canonical_name": "em0_yinuo",
+        "aliases": [
+            "em0_yinuo"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "em0_yinuo"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "em0_yinuo"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C006",
+        "canonical_name": "user_8172146976",
+        "aliases": [
+            "user_8172146976"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8172146976"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8172146976"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C008",
+        "canonical_name": "y521p",
+        "aliases": [
+            "y521p"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "y521p"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "y521p"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C009",
+        "canonical_name": "bbshsnjsgj",
+        "aliases": [
+            "bbshsnjsgj"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "bbshsnjsgj"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "bbshsnjsgj"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C010",
+        "canonical_name": "chuixuenb",
+        "aliases": [
+            "chuixuenb"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "chuixuenb"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "chuixuenb"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C011",
+        "canonical_name": "sorre888",
+        "aliases": [
+            "sorre888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sorre888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sorre888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C012",
+        "canonical_name": "tmmmiok",
+        "aliases": [
+            "tmmmiok"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tmmmiok"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tmmmiok"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C013",
+        "canonical_name": "z004770",
+        "aliases": [
+            "z004770"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "z004770"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "z004770"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C014",
+        "canonical_name": "user_7972323873",
+        "aliases": [
+            "user_7972323873"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7972323873"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7972323873"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C015",
+        "canonical_name": "BCTYCD",
+        "aliases": [
+            "BCTYCD"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "BCTYCD"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "BCTYCD"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C016",
+        "canonical_name": "CXlovea",
+        "aliases": [
+            "CXlovea"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "CXlovea"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "CXlovea"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C017",
+        "canonical_name": "user_8591284623",
+        "aliases": [
+            "user_8591284623"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8591284623"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8591284623"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C018",
+        "canonical_name": "PJ_ok",
+        "aliases": [
+            "PJ_ok"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "PJ_ok"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "PJ_ok"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C019",
+        "canonical_name": "sanqiuchadang",
+        "aliases": [
+            "sanqiuchadang"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sanqiuchadang"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sanqiuchadang"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C020",
+        "canonical_name": "TYCKN_2025",
+        "aliases": [
+            "TYCKN_2025"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "TYCKN_2025"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "TYCKN_2025"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C022",
+        "canonical_name": "user_7309751543",
+        "aliases": [
+            "user_7309751543"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7309751543"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7309751543"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C023",
+        "canonical_name": "Yshu66",
+        "aliases": [
+            "Yshu66"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Yshu66"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Yshu66"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C024",
+        "canonical_name": "user_8074640804",
+        "aliases": [
+            "user_8074640804"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8074640804"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8074640804"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C025",
+        "canonical_name": "user_7824141517",
+        "aliases": [
+            "user_7824141517"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7824141517"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7824141517"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C026",
+        "canonical_name": "user_8329810252",
+        "aliases": [
+            "user_8329810252"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8329810252"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8329810252"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C027",
+        "canonical_name": "user_8337396511",
+        "aliases": [
+            "user_8337396511"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8337396511"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8337396511"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C028",
+        "canonical_name": "user_7619981237",
+        "aliases": [
+            "user_7619981237"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7619981237"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7619981237"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C029",
+        "canonical_name": "user_8351546644",
+        "aliases": [
+            "user_8351546644"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8351546644"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8351546644"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C030",
+        "canonical_name": "eycd88",
+        "aliases": [
+            "eycd88"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "eycd88"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "eycd88"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C031",
+        "canonical_name": "user_7623790415",
+        "aliases": [
+            "user_7623790415"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7623790415"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7623790415"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C032",
+        "canonical_name": "ays7891cbb",
+        "aliases": [
+            "ays7891cbb"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "ays7891cbb"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "ays7891cbb"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C033",
+        "canonical_name": "xy_07777",
+        "aliases": [
+            "xy_07777"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xy_07777"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xy_07777"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C034",
+        "canonical_name": "Qtcha188",
+        "aliases": [
+            "Qtcha188"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Qtcha188"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Qtcha188"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C035",
+        "canonical_name": "user_7819358714",
+        "aliases": [
+            "user_7819358714"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7819358714"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7819358714"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C036",
+        "canonical_name": "user_6336660105",
+        "aliases": [
+            "user_6336660105"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_6336660105"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_6336660105"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C037",
+        "canonical_name": "user_5422399126",
+        "aliases": [
+            "user_5422399126"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_5422399126"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_5422399126"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C038",
+        "canonical_name": "TG_poju",
+        "aliases": [
+            "TG_poju"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "TG_poju"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "TG_poju"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C039",
+        "canonical_name": "CPAnb6666",
+        "aliases": [
+            "CPAnb6666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "CPAnb6666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "CPAnb6666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C040",
+        "canonical_name": "user_6772594021",
+        "aliases": [
+            "user_6772594021"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_6772594021"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_6772594021"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C041",
+        "canonical_name": "Linkedin_GvSL77",
+        "aliases": [
+            "Linkedin_GvSL77"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Linkedin_GvSL77"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Linkedin_GvSL77"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C042",
+        "canonical_name": "qndn8888888888888888888888888888",
+        "aliases": [
+            "qndn8888888888888888888888888888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "qndn8888888888888888888888888888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qndn8888888888888888888888888888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C043",
+        "canonical_name": "tlms999",
+        "aliases": [
+            "tlms999"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tlms999"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tlms999"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C044",
+        "canonical_name": "Bzhennen",
+        "aliases": [
+            "Bzhennen"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Bzhennen"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Bzhennen"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C045",
+        "canonical_name": "user_8082705816",
+        "aliases": [
+            "user_8082705816"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8082705816"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8082705816"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C046",
+        "canonical_name": "ydopo",
+        "aliases": [
+            "ydopo"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "ydopo"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "ydopo"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C047",
+        "canonical_name": "user_8229956849",
+        "aliases": [
+            "user_8229956849"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8229956849"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8229956849"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C048",
+        "canonical_name": "aknsiwkk",
+        "aliases": [
+            "aknsiwkk"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "aknsiwkk"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "aknsiwkk"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C049",
+        "canonical_name": "dengTQ666",
+        "aliases": [
+            "dengTQ666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "dengTQ666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dengTQ666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C050",
+        "canonical_name": "user_8017183250",
+        "aliases": [
+            "user_8017183250"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8017183250"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8017183250"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C051",
+        "canonical_name": "zzcd0002",
+        "aliases": [
+            "zzcd0002"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "zzcd0002"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "zzcd0002"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C052",
+        "canonical_name": "YoooJsn",
+        "aliases": [
+            "YoooJsn"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "YoooJsn"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "YoooJsn"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C053",
+        "canonical_name": "zhanduan888",
+        "aliases": [
+            "zhanduan888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "zhanduan888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "zhanduan888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C054",
+        "canonical_name": "user_1904607132",
+        "aliases": [
+            "user_1904607132"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_1904607132"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_1904607132"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C055",
+        "canonical_name": "WWW360CD",
+        "aliases": [
+            "WWW360CD"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "WWW360CD"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "WWW360CD"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C056",
+        "canonical_name": "user_92007680",
+        "aliases": [
+            "user_92007680"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_92007680"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_92007680"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C057",
+        "canonical_name": "dfc6f",
+        "aliases": [
+            "dfc6f"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "dfc6f"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dfc6f"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C058",
+        "canonical_name": "user_8484813034",
+        "aliases": [
+            "user_8484813034"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8484813034"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8484813034"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C059",
+        "canonical_name": "qqcd001",
+        "aliases": [
+            "qqcd001"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "qqcd001"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qqcd001"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C060",
+        "canonical_name": "VIP_PowerMario",
+        "aliases": [
+            "VIP_PowerMario"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "VIP_PowerMario"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "VIP_PowerMario"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C062",
+        "canonical_name": "bb8256u",
+        "aliases": [
+            "bb8256u"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "bb8256u"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "bb8256u"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C063",
+        "canonical_name": "mh888666",
+        "aliases": [
+            "mh888666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "mh888666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "mh888666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C064",
+        "canonical_name": "Goby_admin",
+        "aliases": [
+            "Goby_admin"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Goby_admin"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Goby_admin"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C065",
+        "canonical_name": "DanHuang01",
+        "aliases": [
+            "DanHuang01"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "DanHuang01"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "DanHuang01"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C066",
+        "canonical_name": "Xjianiiiii",
+        "aliases": [
+            "Xjianiiiii"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Xjianiiiii"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Xjianiiiii"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C067",
+        "canonical_name": "TGboqing",
+        "aliases": [
+            "TGboqing"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "TGboqing"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "TGboqing"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C068",
+        "canonical_name": "fdh25896",
+        "aliases": [
+            "fdh25896"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "fdh25896"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "fdh25896"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C069",
+        "canonical_name": "llllllaaaaa8",
+        "aliases": [
+            "llllllaaaaa8"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "llllllaaaaa8"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "llllllaaaaa8"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C070",
+        "canonical_name": "fayantong",
+        "aliases": [
+            "fayantong"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "fayantong"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "fayantong"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C071",
+        "canonical_name": "user_8499120091",
+        "aliases": [
+            "user_8499120091"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8499120091"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8499120091"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C072",
+        "canonical_name": "user_526025297",
+        "aliases": [
+            "user_526025297"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_526025297"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_526025297"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C073",
+        "canonical_name": "user_7112227256",
+        "aliases": [
+            "user_7112227256"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7112227256"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7112227256"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C074",
+        "canonical_name": "a177yu",
+        "aliases": [
+            "a177yu"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "a177yu"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "a177yu"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C075",
+        "canonical_name": "user_8452392083",
+        "aliases": [
+            "user_8452392083"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8452392083"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8452392083"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C077",
+        "canonical_name": "user_7556436849",
+        "aliases": [
+            "user_7556436849"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7556436849"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7556436849"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C078",
+        "canonical_name": "Always5200",
+        "aliases": [
+            "Always5200"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Always5200"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Always5200"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C079",
+        "canonical_name": "sisiwechat",
+        "aliases": [
+            "sisiwechat"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sisiwechat"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sisiwechat"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C080",
+        "canonical_name": "miegong999",
+        "aliases": [
+            "miegong999"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "miegong999"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "miegong999"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C081",
+        "canonical_name": "nn7780",
+        "aliases": [
+            "nn7780"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "nn7780"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "nn7780"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C082",
+        "canonical_name": "yunianovo",
+        "aliases": [
+            "yunianovo"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "yunianovo"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yunianovo"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C083",
+        "canonical_name": "MIOcccoo",
+        "aliases": [
+            "MIOcccoo"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "MIOcccoo"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "MIOcccoo"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C084",
+        "canonical_name": "pianmian69",
+        "aliases": [
+            "pianmian69"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "pianmian69"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "pianmian69"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C085",
+        "canonical_name": "wc55448866wc",
+        "aliases": [
+            "wc55448866wc"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "wc55448866wc"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "wc55448866wc"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C086",
+        "canonical_name": "hjjkk666",
+        "aliases": [
+            "hjjkk666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "hjjkk666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "hjjkk666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C087",
+        "canonical_name": "Zkjsoapsojxkelw",
+        "aliases": [
+            "Zkjsoapsojxkelw"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Zkjsoapsojxkelw"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Zkjsoapsojxkelw"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C088",
+        "canonical_name": "tonypp556",
+        "aliases": [
+            "tonypp556"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tonypp556"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tonypp556"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C089",
+        "canonical_name": "Guo_1688",
+        "aliases": [
+            "Guo_1688"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Guo_1688"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Guo_1688"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C090",
+        "canonical_name": "user_8014102782",
+        "aliases": [
+            "user_8014102782"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8014102782"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8014102782"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C091",
+        "canonical_name": "Cdhhn888",
+        "aliases": [
+            "Cdhhn888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Cdhhn888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Cdhhn888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C092",
+        "canonical_name": "tqkf009",
+        "aliases": [
+            "tqkf009"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tqkf009"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tqkf009"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C093",
+        "canonical_name": "dongshuicha",
+        "aliases": [
+            "dongshuicha"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "dongshuicha"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dongshuicha"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C096",
+        "canonical_name": "ZMou0",
+        "aliases": [
+            "ZMou0"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "ZMou0"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "ZMou0"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C097",
+        "canonical_name": "xsmiji",
+        "aliases": [
+            "xsmiji"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xsmiji"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xsmiji"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C098",
+        "canonical_name": "chao0000111",
+        "aliases": [
+            "chao0000111"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "chao0000111"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "chao0000111"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C099",
+        "canonical_name": "WuqiXQianX",
+        "aliases": [
+            "WuqiXQianX"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "WuqiXQianX"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "WuqiXQianX"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C100",
+        "canonical_name": "user_7332532858",
+        "aliases": [
+            "user_7332532858"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7332532858"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7332532858"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C102",
+        "canonical_name": "xa9191",
+        "aliases": [
+            "xa9191"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xa9191"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xa9191"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C103",
+        "canonical_name": "rainnb",
+        "aliases": [
+            "rainnb"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "rainnb"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "rainnb"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C105",
+        "canonical_name": "qwq0629",
+        "aliases": [
+            "qwq0629"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "qwq0629"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qwq0629"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C106",
+        "canonical_name": "user_8454160980",
+        "aliases": [
+            "user_8454160980"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8454160980"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8454160980"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C107",
+        "canonical_name": "chiqing9",
+        "aliases": [
+            "chiqing9"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "chiqing9"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "chiqing9"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C108",
+        "canonical_name": "TYCHW8888",
+        "aliases": [
+            "TYCHW8888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "TYCHW8888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "TYCHW8888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C109",
+        "canonical_name": "laicny",
+        "aliases": [
+            "laicny"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "laicny"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "laicny"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C110",
+        "canonical_name": "user_7202292461",
+        "aliases": [
+            "user_7202292461"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7202292461"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7202292461"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C111",
+        "canonical_name": "xkdnlm",
+        "aliases": [
+            "xkdnlm"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xkdnlm"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xkdnlm"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C112",
+        "canonical_name": "e8799",
+        "aliases": [
+            "e8799"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "e8799"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "e8799"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C113",
+        "canonical_name": "zhigeanlan",
+        "aliases": [
+            "zhigeanlan"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "zhigeanlan"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "zhigeanlan"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C114",
+        "canonical_name": "BAIZEYLC",
+        "aliases": [
+            "BAIZEYLC"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "BAIZEYLC"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "BAIZEYLC"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C115",
+        "canonical_name": "Lin_Ran888",
+        "aliases": [
+            "Lin_Ran888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Lin_Ran888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Lin_Ran888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C116",
+        "canonical_name": "haialb",
+        "aliases": [
+            "haialb"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "haialb"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "haialb"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C118",
+        "canonical_name": "Yueshangglaze",
+        "aliases": [
+            "Yueshangglaze"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Yueshangglaze"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Yueshangglaze"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C119",
+        "canonical_name": "user_8363519100",
+        "aliases": [
+            "user_8363519100"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8363519100"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8363519100"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C120",
+        "canonical_name": "zp_520",
+        "aliases": [
+            "zp_520"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "zp_520"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "zp_520"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C121",
+        "canonical_name": "user_8542134722",
+        "aliases": [
+            "user_8542134722"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8542134722"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8542134722"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C122",
+        "canonical_name": "tongkusag",
+        "aliases": [
+            "tongkusag"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tongkusag"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tongkusag"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C123",
+        "canonical_name": "user_8329123218",
+        "aliases": [
+            "user_8329123218"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8329123218"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8329123218"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C124",
+        "canonical_name": "xsdwd66",
+        "aliases": [
+            "xsdwd66"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xsdwd66"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xsdwd66"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C125",
+        "canonical_name": "qkis6",
+        "aliases": [
+            "qkis6"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "qkis6"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qkis6"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C126",
+        "canonical_name": "user_7152413657",
+        "aliases": [
+            "user_7152413657"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7152413657"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7152413657"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C127",
+        "canonical_name": "DSADDSADGG",
+        "aliases": [
+            "DSADDSADGG"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "DSADDSADGG"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "DSADDSADGG"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C128",
+        "canonical_name": "user_8291344016",
+        "aliases": [
+            "user_8291344016"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8291344016"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8291344016"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C130",
+        "canonical_name": "sfkjhb76",
+        "aliases": [
+            "sfkjhb76"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sfkjhb76"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sfkjhb76"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C131",
+        "canonical_name": "o721ningning",
+        "aliases": [
+            "o721ningning"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "o721ningning"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "o721ningning"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C132",
+        "canonical_name": "Sfzheyan",
+        "aliases": [
+            "Sfzheyan"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Sfzheyan"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Sfzheyan"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C133",
+        "canonical_name": "user_7178811876",
+        "aliases": [
+            "user_7178811876"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7178811876"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7178811876"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C134",
+        "canonical_name": "yyywma",
+        "aliases": [
+            "yyywma"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "yyywma"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yyywma"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C135",
+        "canonical_name": "user_8076776661",
+        "aliases": [
+            "user_8076776661"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8076776661"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8076776661"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C136",
+        "canonical_name": "hdin135136",
+        "aliases": [
+            "hdin135136"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "hdin135136"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "hdin135136"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C137",
+        "canonical_name": "amtyc01",
+        "aliases": [
+            "amtyc01"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "amtyc01"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "amtyc01"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C138",
+        "canonical_name": "yxbz123",
+        "aliases": [
+            "yxbz123"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "yxbz123"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yxbz123"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C139",
+        "canonical_name": "linshouwl",
+        "aliases": [
+            "linshouwl"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "linshouwl"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "linshouwl"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C140",
+        "canonical_name": "chengxin1320",
+        "aliases": [
+            "chengxin1320"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "chengxin1320"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "chengxin1320"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C141",
+        "canonical_name": "user_8165310095",
+        "aliases": [
+            "user_8165310095"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8165310095"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8165310095"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C142",
+        "canonical_name": "sn785",
+        "aliases": [
+            "sn785"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sn785"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sn785"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C143",
+        "canonical_name": "bss112211",
+        "aliases": [
+            "bss112211"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "bss112211"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "bss112211"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C144",
+        "canonical_name": "user_7920109861",
+        "aliases": [
+            "user_7920109861"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7920109861"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7920109861"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C145",
+        "canonical_name": "liubianshi520",
+        "aliases": [
+            "liubianshi520"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "liubianshi520"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "liubianshi520"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C146",
+        "canonical_name": "WanShiTong_555",
+        "aliases": [
+            "WanShiTong_555"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "WanShiTong_555"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "WanShiTong_555"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C147",
+        "canonical_name": "PwZwIMEQejaJzhCV",
+        "aliases": [
+            "PwZwIMEQejaJzhCV"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "PwZwIMEQejaJzhCV"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "PwZwIMEQejaJzhCV"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C148",
+        "canonical_name": "gmXRRoRXdeBPzjaCaf",
+        "aliases": [
+            "gmXRRoRXdeBPzjaCaf"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "gmXRRoRXdeBPzjaCaf"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "gmXRRoRXdeBPzjaCaf"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C149",
+        "canonical_name": "jdyydg1",
+        "aliases": [
+            "jdyydg1"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "jdyydg1"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "jdyydg1"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C150",
+        "canonical_name": "tmttkx",
+        "aliases": [
+            "tmttkx"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tmttkx"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tmttkx"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C151",
+        "canonical_name": "Sherlockholmes688",
+        "aliases": [
+            "Sherlockholmes688"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Sherlockholmes688"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Sherlockholmes688"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C152",
+        "canonical_name": "YY52648",
+        "aliases": [
+            "YY52648"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "YY52648"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "YY52648"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C153",
+        "canonical_name": "user_6781407781",
+        "aliases": [
+            "user_6781407781"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_6781407781"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_6781407781"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C154",
+        "canonical_name": "dongxi66668888",
+        "aliases": [
+            "dongxi66668888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "dongxi66668888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dongxi66668888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C155",
+        "canonical_name": "yujichadang",
+        "aliases": [
+            "yujichadang"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "yujichadang"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yujichadang"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C156",
+        "canonical_name": "user_7970491298",
+        "aliases": [
+            "user_7970491298"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7970491298"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7970491298"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C157",
+        "canonical_name": "user_8162394860",
+        "aliases": [
+            "user_8162394860"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8162394860"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8162394860"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C158",
+        "canonical_name": "user_7685007412",
+        "aliases": [
+            "user_7685007412"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7685007412"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7685007412"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C159",
+        "canonical_name": "user_7845426173",
+        "aliases": [
+            "user_7845426173"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7845426173"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7845426173"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C160",
+        "canonical_name": "user_7310275650",
+        "aliases": [
+            "user_7310275650"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7310275650"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7310275650"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C161",
+        "canonical_name": "lt_tg1",
+        "aliases": [
+            "lt_tg1"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "lt_tg1"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "lt_tg1"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C162",
+        "canonical_name": "user_8101653479",
+        "aliases": [
+            "user_8101653479"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8101653479"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8101653479"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C164",
+        "canonical_name": "konhai666",
+        "aliases": [
+            "konhai666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "konhai666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "konhai666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C166",
+        "canonical_name": "WMlh1314",
+        "aliases": [
+            "WMlh1314"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "WMlh1314"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "WMlh1314"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C169",
+        "canonical_name": "user_8149747083",
+        "aliases": [
+            "user_8149747083"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8149747083"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8149747083"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C170",
+        "canonical_name": "Cult_leader8888888",
+        "aliases": [
+            "Cult_leader8888888"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "Cult_leader8888888"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "Cult_leader8888888"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C171",
+        "canonical_name": "laorui66",
+        "aliases": [
+            "laorui66"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "laorui66"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "laorui66"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C172",
+        "canonical_name": "user_7745332719",
+        "aliases": [
+            "user_7745332719"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7745332719"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7745332719"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C173",
+        "canonical_name": "user_7610288023",
+        "aliases": [
+            "user_7610288023"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7610288023"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7610288023"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C174",
+        "canonical_name": "daili13812",
+        "aliases": [
+            "daili13812"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "daili13812"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "daili13812"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C175",
+        "canonical_name": "user_7846080464",
+        "aliases": [
+            "user_7846080464"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7846080464"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7846080464"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C176",
+        "canonical_name": "user_6786238972",
+        "aliases": [
+            "user_6786238972"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_6786238972"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_6786238972"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C178",
+        "canonical_name": "zdyyiop",
+        "aliases": [
+            "zdyyiop"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "zdyyiop"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "zdyyiop"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C179",
+        "canonical_name": "user_7775463708",
+        "aliases": [
+            "user_7775463708"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7775463708"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7775463708"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C181",
+        "canonical_name": "user_8146862614",
+        "aliases": [
+            "user_8146862614"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8146862614"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8146862614"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C182",
+        "canonical_name": "user_7904762526",
+        "aliases": [
+            "user_7904762526"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7904762526"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7904762526"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C183",
+        "canonical_name": "tear767",
+        "aliases": [
+            "tear767"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "tear767"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "tear767"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C184",
+        "canonical_name": "HaiLin999",
+        "aliases": [
+            "HaiLin999"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "HaiLin999"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "HaiLin999"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C185",
+        "canonical_name": "SE122022",
+        "aliases": [
+            "SE122022"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "SE122022"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "SE122022"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C186",
+        "canonical_name": "user_7840032258",
+        "aliases": [
+            "user_7840032258"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7840032258"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7840032258"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C187",
+        "canonical_name": "user_7909311739",
+        "aliases": [
+            "user_7909311739"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7909311739"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7909311739"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C188",
+        "canonical_name": "user_7674495014",
+        "aliases": [
+            "user_7674495014"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7674495014"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7674495014"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C189",
+        "canonical_name": "user_7950328282",
+        "aliases": [
+            "user_7950328282"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7950328282"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7950328282"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C190",
+        "canonical_name": "user_7241759316",
+        "aliases": [
+            "user_7241759316"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7241759316"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7241759316"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C191",
+        "canonical_name": "XueDe299",
+        "aliases": [
+            "XueDe299"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "XueDe299"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "XueDe299"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C192",
+        "canonical_name": "qiyuan041",
+        "aliases": [
+            "qiyuan041"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "qiyuan041"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qiyuan041"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C193",
+        "canonical_name": "xigua6666",
+        "aliases": [
+            "xigua6666"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "xigua6666"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "xigua6666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C194",
+        "canonical_name": "user_8100999458",
+        "aliases": [
+            "user_8100999458"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_8100999458"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8100999458"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C195",
+        "canonical_name": "user_7774238500",
+        "aliases": [
+            "user_7774238500"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7774238500"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7774238500"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C196",
+        "canonical_name": "ak3961",
+        "aliases": [
+            "ak3961"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "ak3961"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "ak3961"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C197",
+        "canonical_name": "user_7426636478",
+        "aliases": [
+            "user_7426636478"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7426636478"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7426636478"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C198",
+        "canonical_name": "yintuile",
+        "aliases": [
+            "yintuile"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "yintuile"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yintuile"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C199",
+        "canonical_name": "sbsgbsbs",
+        "aliases": [
+            "sbsgbsbs"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "sbsgbsbs"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "sbsgbsbs"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C200",
+        "canonical_name": "jnbff8",
+        "aliases": [
+            "jnbff8"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "jnbff8"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "jnbff8"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C201",
+        "canonical_name": "user_7738168827",
+        "aliases": [
+            "user_7738168827"
+        ],
+        "groups": [
+            "1",
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "user_7738168827"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_7738168827"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C203",
+        "canonical_name": "Qingshan_77",
+        "aliases": [
+            "Qingshan_77"
+        ],
+        "groups": [
+            "1_augmented",
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "Qingshan_77"
+            },
+            {
+                "source_group": "2",
+                "username": "Qingshan_77"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C205",
+        "canonical_name": "XiaoTJiang",
+        "aliases": [
+            "XiaoTJiang"
+        ],
+        "groups": [
+            "1_augmented",
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "XiaoTJiang"
+            },
+            {
+                "source_group": "3",
+                "username": "XiaoTJiang"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C208",
+        "canonical_name": "GD19_810",
+        "aliases": [
+            "GD19_810"
+        ],
+        "groups": [
+            "1_augmented",
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "GD19_810"
+            },
+            {
+                "source_group": "3",
+                "username": "GD19_810"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "medium"
+    },
+    {
+        "cluster_id": "C007",
+        "canonical_name": "unknown",
+        "aliases": [
+            "unknown"
+        ],
+        "groups": [
+            "1"
+        ],
+        "members": [
+            {
+                "source_group": "1",
+                "username": "unknown"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C202",
+        "canonical_name": "unknown",
+        "aliases": [
+            "unknown"
+        ],
+        "groups": [
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "unknown"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C206",
+        "canonical_name": "moxin_223",
+        "aliases": [
+            "moxin_223"
+        ],
+        "groups": [
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "moxin_223"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C209",
+        "canonical_name": "Ghost_User",
+        "aliases": [
+            "Ghost_User"
+        ],
+        "groups": [
+            "1_augmented"
+        ],
+        "members": [
+            {
+                "source_group": "1_augmented",
+                "username": "Ghost_User"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C210",
+        "canonical_name": "group_notice",
+        "aliases": [
+            "group_notice"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "group_notice"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C211",
+        "canonical_name": "victim_awei",
+        "aliases": [
+            "victim_awei"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "victim_awei"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C212",
+        "canonical_name": "beizhaole666",
+        "aliases": [
+            "beizhaole666"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "beizhaole666"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C213",
+        "canonical_name": "wq2025",
+        "aliases": [
+            "wq2025"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "wq2025"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C214",
+        "canonical_name": "small_liu",
+        "aliases": [
+            "small_liu"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "small_liu"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C215",
+        "canonical_name": "helper_03",
+        "aliases": [
+            "helper_03"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "helper_03"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C216",
+        "canonical_name": "unknown",
+        "aliases": [
+            "unknown"
+        ],
+        "groups": [
+            "2"
+        ],
+        "members": [
+            {
+                "source_group": "2",
+                "username": "unknown"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C217",
+        "canonical_name": "ops_notice",
+        "aliases": [
+            "ops_notice"
+        ],
+        "groups": [
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "3",
+                "username": "ops_notice"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C218",
+        "canonical_name": "moxiaonuo",
+        "aliases": [
+            "moxiaonuo"
+        ],
+        "groups": [
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "3",
+                "username": "moxiaonuo"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    },
+    {
+        "cluster_id": "C219",
+        "canonical_name": "unknown",
+        "aliases": [
+            "unknown"
+        ],
+        "groups": [
+            "3"
+        ],
+        "members": [
+            {
+                "source_group": "3",
+                "username": "unknown"
+            }
+        ],
+        "shared_pii": {},
+        "confidence": "low"
+    }
+]

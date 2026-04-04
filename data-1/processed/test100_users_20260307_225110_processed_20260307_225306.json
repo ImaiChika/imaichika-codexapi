@@ -1,0 +1,80 @@
+{
+    "system": {
+        "msg_count": 4,
+        "pagerank": 0.04594038952337028,
+        "mentioned_count": 4,
+        "is_kol": false
+    },
+    "Runner_Y": {
+        "msg_count": 7,
+        "pagerank": 0.0702689240413426,
+        "mentioned_count": 7,
+        "is_kol": false
+    },
+    "Work_From_Home_Mom": {
+        "msg_count": 5,
+        "pagerank": 0.05322724249328405,
+        "mentioned_count": 5,
+        "is_kol": false
+    },
+    "Casual_Talker": {
+        "msg_count": 5,
+        "pagerank": 0.05456058822143211,
+        "mentioned_count": 5,
+        "is_kol": false
+    },
+    "Account_Manager": {
+        "msg_count": 22,
+        "pagerank": 0.20340242018033036,
+        "mentioned_count": 22,
+        "is_kol": false
+    },
+    "Middleman_Joe": {
+        "msg_count": 10,
+        "pagerank": 0.10020339039221154,
+        "mentioned_count": 10,
+        "is_kol": false
+    },
+    "Group_Admin_Zero": {
+        "msg_count": 15,
+        "pagerank": 0.1383135961610664,
+        "mentioned_count": 14,
+        "is_kol": false
+    },
+    "Young_Grad_2026": {
+        "msg_count": 5,
+        "pagerank": 0.04405134882278137,
+        "mentioned_count": 4,
+        "is_kol": false
+    },
+    "Runner_X": {
+        "msg_count": 8,
+        "pagerank": 0.07717311226716216,
+        "mentioned_count": 8,
+        "is_kol": false
+    },
+    "Runner_Z": {
+        "msg_count": 5,
+        "pagerank": 0.053934535516056016,
+        "mentioned_count": 5,
+        "is_kol": false
+    },
+    "Ghost_User": {
+        "msg_count": 8,
+        "pagerank": 0.0785608394885215,
+        "mentioned_count": 8,
+        "is_kol": false
+    },
+    "Unlucky_User_99": {
+        "msg_count": 3,
+        "pagerank": 0.03619252471520596,
+        "mentioned_count": 3,
+        "is_kol": false
+    },
+    "New_User_01": {
+        "msg_count": 4,
+        "pagerank": 0.04417108817723592,
+        "mentioned_count": 4,
+        "is_kol": false
+    }
+}

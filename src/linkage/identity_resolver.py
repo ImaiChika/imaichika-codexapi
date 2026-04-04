@@ -39,7 +39,7 @@ class IdentityResolver:
         "ORDER_PUBLISH": ["下发", "新卡", "换卡", "车队", "保证金", "开后台", "收U", "四件套", "白户"],
         "ORDER_RECEIVE": ["收到", "进场", "准备", "查收"],
         "VICTIM_COMPLAINT": ["被骗", "没到账", "拉黑", "报警", "报案", "还要钱", "退钱", "骗子"],
-        "PII_LEAK": ["身份证", "手机号", "住址", "我的电话", "照片都发了", "我这就拍"],
+        "PII_LEAK": ["身份证", "手机号", "QQ", "住址", "收款地址", "我的电话", "照片都发了", "我这就拍"],
         "OFFLINE_MEET": ["接头地点", "见面", "地库", "地址", "延安中路"],
         "THREAT": ["你自己也是违法", "让你消失", "滚", "踢了"],
     }
@@ -86,6 +86,9 @@ class IdentityResolver:
         if ptype == "address":
             return first and any(x in t for x in ["我住", "我在", "我家", "住址", "地址"])
 
+        if ptype == "qq":
+            return first and any(x in t for x in ["我的QQ", "我QQ", "QQ号"]) and token in t
+
         return False
 
     def _iter_pii_tokens(self, msg: Dict) -> Iterable[Tuple[str, str]]:
@@ -99,10 +102,14 @@ class IdentityResolver:
             ptype = None
             if "mobile" in key or "phone" in key:
                 ptype = "phone"
+            elif "qq" in key:
+                ptype = "qq"
             elif "id" in key:
                 ptype = "id"
             elif "bank" in key:
                 ptype = "bank"
+            elif "payment" in key or "wallet" in key or "usdt" in key:
+                ptype = "wallet"
             elif "name" in key:
                 ptype = "name"
             elif "address" in key or "location" in key:

@@ -6,7 +6,7 @@ import networkx as nx
 try:
     import jieba
     import jieba.analyse
-except Exception:  # pragma: no cover
+except Exception: 
     jieba = None
 
 from src.config import STOPWORDS, SYSTEM_MSG_KEYWORDS
@@ -32,6 +32,12 @@ class TextMiner:
             "下发",
             "提现",
             "充值",
+            "QQ",
+            "收款地址",
+            "三要素",
+            "户籍",
+            "家谱",
+            "近照",
         }
 
     def is_system_message(self, text: str) -> bool:
@@ -83,7 +89,7 @@ class TextMiner:
 
             if any(x in text for x in ["?", "？", "怎么", "为何", "为什么"]):
                 l2_evidence.append("疑问/求助语气")
-            if any(x in text for x in ["卡号", "户名", "下发", "速度", "查收", "进场"]):
+            if any(x in text for x in ["卡号", "户名", "下发", "速度", "查收", "进场", "收款地址", "三要素", "查档"]):
                 l2_evidence.append("操作/指令语气")
 
             if len(text) > 50:
