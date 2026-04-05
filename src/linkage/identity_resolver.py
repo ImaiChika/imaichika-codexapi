@@ -36,10 +36,10 @@ class IdentityResolver:
     """
 
     EVENT_KEYWORDS = {
-        "ORDER_PUBLISH": ["下发", "新卡", "换卡", "车队", "保证金", "开后台", "收U", "四件套", "白户"],
+        "ORDER_PUBLISH": ["下发", "新卡", "换卡", "车队", "保证金", "开后台", "收U", "四件套", "白户", "尾号", "开头", "结尾", "前六", "尾四", "半套", "全量"],
         "ORDER_RECEIVE": ["收到", "进场", "准备", "查收"],
-        "VICTIM_COMPLAINT": ["被骗", "没到账", "拉黑", "报警", "报案", "还要钱", "退钱", "骗子"],
-        "PII_LEAK": ["身份证", "手机号", "QQ", "住址", "收款地址", "我的电话", "照片都发了", "我这就拍"],
+        "VICTIM_COMPLAINT": ["被骗", "没到账", "拉黑", "报警", "报案", "还要钱", "退钱", "骗子", "投诉", "维权", "不给全", "假地址", "不发到门牌"],
+        "PII_LEAK": ["身份证", "手机号", "QQ", "住址", "收款地址", "我的电话", "照片都发了", "我这就拍", "尾号", "开头", "结尾", "前六", "尾四"],
         "OFFLINE_MEET": ["接头地点", "见面", "地库", "地址", "延安中路"],
         "THREAT": ["你自己也是违法", "让你消失", "滚", "踢了"],
     }
@@ -101,19 +101,21 @@ class IdentityResolver:
             key = str(k).lower()
             ptype = None
             if "mobile" in key or "phone" in key:
-                ptype = "phone"
+                ptype = "phone_fragment" if "fragment" in key or "masked" in key else "phone"
             elif "qq" in key:
                 ptype = "qq"
             elif "id" in key:
-                ptype = "id"
+                ptype = "id_fragment" if "fragment" in key or "masked" in key else "id"
             elif "bank" in key:
                 ptype = "bank"
             elif "payment" in key or "wallet" in key or "usdt" in key:
                 ptype = "wallet"
+            elif "alias" in key:
+                ptype = "alias"
             elif "name" in key:
                 ptype = "name"
             elif "address" in key or "location" in key:
-                ptype = "address"
+                ptype = "address_hint" if "hint" in key else "address"
 
             if not ptype:
                 continue

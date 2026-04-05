@@ -1,0 +1,703 @@
+[
+    {
+        "clue_type": "phone_fragment",
+        "clue_value": "6533",
+        "chain_type": "suspect_victim_link",
+        "confidence": "medium",
+        "inference": "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 8,
+        "points_to": {
+            "victims": [
+                "victim_hebei07"
+            ],
+            "suspects": [
+                "dongshuicha",
+                "ops_kaidan",
+                "user_8295584404",
+                "yinuo_qingcha"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "AHQB34",
+                "msg_index": 837,
+                "text_excerpt": "上次那个 07 年河北的还在吗，尾号 6533 那条，先补机主。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C022"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "AHQB34",
+                "msg_index": 840,
+                "text_excerpt": "可以，手机号我只记得尾号 6533，完整的我私聊接。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C022"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "yinuo_qingcha",
+                "msg_index": 841,
+                "text_excerpt": "收款还是老地址，备注写 6533，不要直接带姓名。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C186"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8295584404",
+                "msg_index": 849,
+                "text_excerpt": "懂了，那王那条我只写 07 年、河北、尾号 6533，机主另议。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C124"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 2,
+                "text_excerpt": "手机号也只说尾号 6533，说机主要另外算。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 3,
+                "text_excerpt": "钱是打到 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注 6533，对接的是 @yinuo_qingcha。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "ops_kaidan",
+                "msg_index": 3,
+                "text_excerpt": "手机号也别全发，只写尾号 6533，机主单独收。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C193"
+            },
+            {
+                "source_group": "3",
+                "username": "dongshuicha",
+                "msg_index": 4,
+                "text_excerpt": "收U还是 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注写 6533 或 0860，别写真名。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C188"
+            }
+        ],
+        "chain_id": "L001"
+    },
+    {
+        "clue_type": "address_hint",
+        "clue_value": "假地址",
+        "chain_type": "suspect_victim_link",
+        "confidence": "medium",
+        "inference": "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。",
+        "groups": [
+            "1_augmented",
+            "3"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [
+                "aaaaaa097436",
+                "qf_889",
+                "user_8281192751"
+            ],
+            "suspects": [
+                "dongshuicha"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "aaaaaa097436",
+                "msg_index": 373,
+                "text_excerpt": "假地址来一个",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C109"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8281192751",
+                "msg_index": 699,
+                "text_excerpt": "谁有这种类似的假地址假头机器人",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C149"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "dongshuicha",
+                "msg_index": 851,
+                "text_excerpt": "最近投诉多，假地址和假头别再混着卖，尤其广西那条。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C188"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 11,
+                "text_excerpt": "假地址继续用模糊定位，承德下边、赣北、广西县城这种说法最稳。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L002"
+    },
+    {
+        "clue_type": "wallet",
+        "clue_value": "TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt",
+        "chain_type": "suspect_victim_link",
+        "confidence": "medium",
+        "inference": "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "victim_hebei07"
+            ],
+            "suspects": [
+                "dongshuicha"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "dongshuicha",
+                "msg_index": 842,
+                "text_excerpt": "人工补单还是这个U地址 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，问机主别刷屏。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C188"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 3,
+                "text_excerpt": "钱是打到 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注 6533，对接的是 @yinuo_qingcha。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "dongshuicha",
+                "msg_index": 4,
+                "text_excerpt": "收U还是 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注写 6533 或 0860，别写真名。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C188"
+            }
+        ],
+        "chain_id": "L003"
+    },
+    {
+        "clue_type": "phone_fragment",
+        "clue_value": "135",
+        "chain_type": "suspect_victim_link",
+        "confidence": "medium",
+        "inference": "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "jianzhu66",
+                "liusu_case"
+            ],
+            "suspects": [
+                "ops_kaidan"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "jianzhu66",
+                "msg_index": 846,
+                "text_excerpt": "广西那条柳素我还在等，135 开头那个只验了半截，住址还是假的。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C147"
+            },
+            {
+                "source_group": "2",
+                "username": "liusu_case",
+                "msg_index": 6,
+                "text_excerpt": "广西那个柳素更离谱，常用号给了 135 开头，住址还是假的。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C191"
+            },
+            {
+                "source_group": "3",
+                "username": "ops_kaidan",
+                "msg_index": 6,
+                "text_excerpt": "广西柳素那条只给 135 开头和假定位，真住址别带。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C193"
+            }
+        ],
+        "chain_id": "L004"
+    },
+    {
+        "clue_type": "address_hint",
+        "clue_value": "模糊定位",
+        "chain_type": "suspect_victim_link",
+        "confidence": "medium",
+        "inference": "嫌疑人与受害者围绕同一隐私标识交叉出现，形成作案-受害线索链。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "liusu_case",
+                "qf_889"
+            ],
+            "suspects": [
+                "zzzeng03"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "zzzeng03",
+                "msg_index": 848,
+                "text_excerpt": "现在大群只放模糊定位，像河北那条只说承德下边，别把镇名带出来。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C048"
+            },
+            {
+                "source_group": "2",
+                "username": "liusu_case",
+                "msg_index": 14,
+                "text_excerpt": "广西这条应该不止卖了一轮，我问住址时他们只回了个模糊定位。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C191"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 11,
+                "text_excerpt": "假地址继续用模糊定位，承德下边、赣北、广西县城这种说法最稳。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L005"
+    },
+    {
+        "clue_type": "alias",
+        "clue_value": "92年那条",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 4,
+        "points_to": {
+            "victims": [
+                "beikou_92",
+                "ttmovo"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "ttmovo",
+                "msg_index": 843,
+                "text_excerpt": "李那个也还要，92 年那条，只给了 0860 尾号，说家里人号另算。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C036"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 850,
+                "text_excerpt": "李那条如果继续做，就按 92 年、赣北、尾号 0860 这个口径。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "beikou_92",
+                "msg_index": 4,
+                "text_excerpt": "我买的李那条也是，只说 92 年、赣北、尾号 0860，完整号码不给。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C190"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 5,
+                "text_excerpt": "李那条维持 92 年、赣北、0860 这个口径，家里人号后补。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L006"
+    },
+    {
+        "clue_type": "id_fragment",
+        "clue_value": "130824",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "victim_hebei07"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 839,
+                "text_excerpt": "如果是王那条，先给 130824 开头和 0050 结尾，中间别发群里。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 1,
+                "text_excerpt": "我昨晚在大群下的 07 年河北那单，到现在只给我 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 2,
+                "text_excerpt": "河北那条继续按王那个来叫，别全名上群，只放 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L007"
+    },
+    {
+        "clue_type": "id_fragment",
+        "clue_value": "0050",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "victim_hebei07"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 839,
+                "text_excerpt": "如果是王那条，先给 130824 开头和 0050 结尾，中间别发群里。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 1,
+                "text_excerpt": "我昨晚在大群下的 07 年河北那单，到现在只给我 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 2,
+                "text_excerpt": "河北那条继续按王那个来叫，别全名上群，只放 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L008"
+    },
+    {
+        "clue_type": "id_fragment",
+        "clue_value": "130824...0050",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "victim_hebei07"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 839,
+                "text_excerpt": "如果是王那条，先给 130824 开头和 0050 结尾，中间别发群里。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 1,
+                "text_excerpt": "我昨晚在大群下的 07 年河北那单，到现在只给我 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 2,
+                "text_excerpt": "河北那条继续按王那个来叫，别全名上群，只放 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            }
+        ],
+        "chain_id": "L009"
+    },
+    {
+        "clue_type": "phone_fragment",
+        "clue_value": "0860",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [
+                "beikou_92"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 850,
+                "text_excerpt": "李那条如果继续做，就按 92 年、赣北、尾号 0860 这个口径。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "beikou_92",
+                "msg_index": 4,
+                "text_excerpt": "我买的李那条也是，只说 92 年、赣北、尾号 0860，完整号码不给。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C190"
+            }
+        ],
+        "chain_id": "L010"
+    },
+    {
+        "clue_type": "alias",
+        "clue_value": "李那条",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [
+                "beikou_92"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "qf_889",
+                "msg_index": 850,
+                "text_excerpt": "李那条如果继续做，就按 92 年、赣北、尾号 0860 这个口径。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "2",
+                "username": "beikou_92",
+                "msg_index": 9,
+                "text_excerpt": "李那条我听到的是机主、户籍、家里人号分开发。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C190"
+            }
+        ],
+        "chain_id": "L011"
+    },
+    {
+        "clue_type": "alias",
+        "clue_value": "07年那条",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [],
+            "suspects": [
+                "user_8295584404"
+            ],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "AHQB34",
+                "msg_index": 837,
+                "text_excerpt": "上次那个 07 年河北的还在吗，尾号 6533 那条，先补机主。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C022"
+            },
+            {
+                "source_group": "1_augmented",
+                "username": "user_8295584404",
+                "msg_index": 849,
+                "text_excerpt": "懂了，那王那条我只写 07 年、河北、尾号 6533，机主另议。",
+                "self_claim": false,
+                "role_hint": "suspect",
+                "cluster_id": "C124"
+            }
+        ],
+        "chain_id": "L012"
+    },
+    {
+        "clue_type": "alias",
+        "clue_value": "河北那条",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "3"
+        ],
+        "mentions_count": 2,
+        "points_to": {
+            "victims": [
+                "neibu_xh"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "3",
+                "username": "qf_889",
+                "msg_index": 2,
+                "text_excerpt": "河北那条继续按王那个来叫，别全名上群，只放 130824 开头和 0050 结尾。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C187"
+            },
+            {
+                "source_group": "3",
+                "username": "neibu_xh",
+                "msg_index": 12,
+                "text_excerpt": "河北那条今晚还能再卖一次，还是拆成机主、半套、家里人号、近照。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C194"
+            }
+        ],
+        "chain_id": "L013"
+    }
+]

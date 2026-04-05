@@ -11,6 +11,48 @@ from src.config import AGENT_ENABLE_LIGHT_REACT, AGENT_ENABLE_REFLECTION, AGENT_
 class ReasoningDecisionMixin:
     """封装 Layer3 的规则判定、LLM 判定与反思修正逻辑。"""
 
+    OP_KEYWORDS = [
+        "卡号", "户名", "下发", "车队", "待命", "保证金", "开后台", "进二群", "内部通道",
+        "换卡", "新卡", "收U", "收款地址", "钱包地址", "U地址", "机主", "三要素", "户籍",
+        "近照", "四件套", "白户", "尾号", "开头", "结尾", "前六", "尾四", "半套", "全量",
+        "别发全", "别全名", "模糊定位", "统一口径", "重复卖", "拆开卖", "主推", "后补",
+        "家里人号", "备注",
+    ]
+    THREAT_PATTERNS = [
+        "你自己也是违法", "看警察抓谁", "报警？", "别影响别人", "懂吗", "让你消失",
+    ]
+    VICTIM_KEYWORDS = [
+        "被骗", "骗子", "还钱", "没到账", "求助", "救命", "报警", "报案", "拉黑", "退钱",
+        "兼职", "刷单", "待审核", "审核好了吗", "不理我", "充值", "提现", "还要钱", "我转了",
+        "投诉", "维权", "不给全", "假地址", "不发到门牌", "重复卖",
+    ]
+    UNAMBIGUOUS_COMPLAINT_CUES = [
+        "被骗", "没到账", "还钱", "求助", "报警", "报案", "拉黑", "退钱", "投诉", "维权",
+        "我买的", "我下的", "我昨晚", "我还在等", "我听到的是", "我想确认", "我问", "我怀疑",
+        "更离谱", "到现在", "完整号码不给", "只给我", "只给了", "只给了个县", "只给了半截",
+        "只发了", "只发了个县", "只回了", "只验了", "还是假的", "对接的是", "钱是打到",
+        "后面说", "他们只回", "不止卖了一轮", "另外算", "另算",
+    ]
+    AMBIGUOUS_COMPLAINT_CUES = [
+        "不给全", "假地址", "不发到门牌", "重复卖", "只说", "只发到县",
+    ]
+    COMPLAINT_CONTEXT_CUES = [
+        "我买的", "我下的", "我昨晚", "我还在等", "我听到的是", "我想确认", "我问", "我怀疑",
+        "更离谱", "到现在", "只给我", "只说", "完整号码不给", "只给了", "只给了个县",
+        "只给了半截", "只发了", "只发了个县", "只回了", "只验了", "还是假的", "对接的是",
+        "钱是打到", "后面说", "他们只回", "不止卖了一轮",
+    ]
+    INSTRUCTION_CUES = [
+        "就按", "只写", "统一说", "别让", "备注写", "别发", "主推", "另议", "后补",
+        "单独收", "继续用", "别全名", "别写真名", "继续按", "继续做", "先给", "先上",
+        "外面只挂", "别带", "拆开算", "维持", "照这个口径", "按口径", "统一叫", "免得对上",
+        "最稳", "混着卖", "先让", "统一收",
+    ]
+    SELF_PII_CUES = [
+        "我的", "我电话", "我的电话", "我的手机号", "我手机号", "身份证号", "我的身份证",
+        "我的QQ", "我QQ", "我住", "我家", "照片都发了", "我这就拍",
+    ]
+
     @staticmethod
     def _safe_lower(x) -> str:
         return str(x or "").strip().lower()
@@ -28,20 +70,61 @@ class ReasoningDecisionMixin:
         valid = [str(r or "low") for r in risks]
         return max(valid, key=cls._risk_rank) if valid else "low"
 
+    @classmethod
+    def _contains_any(cls, text: str, keywords: List[str]) -> bool:
+        hay = str(text or "")
+        return any(k in hay for k in keywords)
+
+    @classmethod
+    def _has_op_signal(cls, text: str) -> bool:
+        return cls._contains_any(text, cls.OP_KEYWORDS)
+
+    @classmethod
+    def _has_instruction_signal(cls, text: str) -> bool:
+        return cls._contains_any(text, cls.INSTRUCTION_CUES)
+
+    @classmethod
+    def _has_victim_signal(cls, text: str) -> bool:
+        return cls._contains_any(text, cls.VICTIM_KEYWORDS)
+
+    def _has_complaint_context(self, text: str) -> bool:
+        text = str(text or "")
+        unambiguous = self._contains_any(text, self.UNAMBIGUOUS_COMPLAINT_CUES)
+        ambiguous = self._contains_any(text, self.AMBIGUOUS_COMPLAINT_CUES)
+        explicit_complaint = self._has_victim_signal(text)
+        receive_context = self._contains_any(text, self.COMPLAINT_CONTEXT_CUES)
+        instruction_signal = self._has_instruction_signal(text)
+        if not (unambiguous or ambiguous or explicit_complaint or receive_context):
+            return False
+
+        if instruction_signal and not unambiguous and not self._is_first_person(text):
+            return False
+
+        if unambiguous:
+            return True
+
+        if self._is_first_person(text):
+            return True
+
+        return any(x in text for x in ["他们", "后面说", "还是假的", "只发了", "只回了", "到现在", "钱是打到", "对接的是", "另外算", "另算"])
+
+    def _has_self_pii_signal(self, text: str, has_pii: bool) -> bool:
+        return bool(has_pii) and self._is_first_person(text) and self._contains_any(text, self.SELF_PII_CUES)
+
     def _infer_intent_from_signals(self, current_msg: Dict, role_hint: str = "other") -> str:
         """当 LLM 意图字段不可靠时，用规则信号回退一个稳定短语。"""
         text = str(current_msg.get("text", "") or "")
-        first_person = self._is_first_person(text)
+        has_pii = bool(current_msg.get("has_pii"))
 
         if role_hint == "scammer":
-            if any(x in text for x in ["卡号", "户名", "下发", "保证金", "换卡", "新卡", "收U", "开后台"]):
+            if self._has_op_signal(text):
                 return "资金操作/指令"
-            if any(x in text for x in ["报警？", "别影响别人", "看警察抓谁", "让你消失"]):
+            if self._contains_any(text, self.THREAT_PATTERNS):
                 return "威胁/施压"
         if role_hint == "victim":
-            if bool(current_msg.get("has_pii")) and first_person:
+            if self._has_self_pii_signal(text, has_pii):
                 return "求助/隐私泄露"
-            if any(x in text for x in ["被骗", "没到账", "拉黑", "退钱", "报警", "报案", "还钱"]):
+            if self._has_complaint_context(text):
                 return "求助/维权"
 
         if any(x in text for x in ["签到", "滴滴", "打卡", "路过", "冒泡"]):
@@ -128,12 +211,9 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
     ) -> Dict[str, object]:
         """对当前判定做置信度估算，供反思步骤决定是否回退到规则。"""
         text = str(current_msg.get("text", "") or "")
-        first_person = self._is_first_person(text)
         has_pii = bool(current_msg.get("has_pii"))
-        op_signal = any(k in text for k in ["卡号", "户名", "下发", "车队", "保证金", "换卡", "新卡", "收U"])
-        victim_signal = any(k in text for k in ["被骗", "骗子", "没到账", "还钱", "求助", "报警", "报案"]) and (
-            first_person or "你们" in text
-        )
+        op_signal = self._has_op_signal(text)
+        victim_signal = self._has_complaint_context(text)
 
         issues: List[str] = []
         score = 0.58 if llm_used else 0.66
@@ -323,23 +403,23 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
     def _self_check(self, current_msg: Dict, parsed: Dict[str, str]) -> Dict[str, str]:
         """对初步判定做一轮规则自检，尽量避免明显错判。"""
         text = str(current_msg.get("text", "") or "")
-        first_person = self._is_first_person(text)
         has_pii = bool(current_msg.get("has_pii"))
-
-        op_keywords = ["卡号", "户名", "下发", "车队", "保证金", "开后台", "换卡", "新卡", "收U"]
-        victim_keywords = ["被骗", "骗子", "还钱", "没到账", "求助", "报警", "报案", "拉黑", "退钱", "维权"]
-
-        op_signal = any(k in text for k in op_keywords)
-        victim_signal = any(k in text for k in victim_keywords) and (first_person or "你们" in text)
-        self_pii_signal = has_pii and first_person
+        op_signal = self._has_op_signal(text)
+        victim_signal = self._has_complaint_context(text)
+        self_pii_signal = self._has_self_pii_signal(text, has_pii)
         has_long_number = bool(re.search(r"(?<!\d)\d{15,19}(?!\d)", text))
 
         suggestion = None
         if parsed.get("role") == "other":
-            if op_signal and (has_long_number or has_pii) and not self_pii_signal:
-                suggestion = "scammer"
-            elif victim_signal and (self_pii_signal or has_pii):
+            if victim_signal:
                 suggestion = "victim"
+            elif op_signal and (
+                has_long_number
+                or has_pii
+                or self._has_instruction_signal(text)
+                or self._contains_any(text, ["三要素", "户籍", "近照", "机主", "收款地址", "U地址", "收U"])
+            ) and not self_pii_signal:
+                suggestion = "scammer"
 
         result = {
             "flags": {
@@ -401,76 +481,38 @@ Role: scammer/victim/other | Risk: high/medium/low | Intent: <一句话>
             parsed["intent"] = "闲聊"
             return parsed
 
-        op_keywords = [
-            "卡号",
-            "户名",
-            "下发",
-            "车队",
-            "待命",
-            "保证金",
-            "开后台",
-            "进二群",
-            "内部通道",
-            "换卡",
-            "新卡",
-            "收U",
-            "四件套",
-            "白户",
-            "踢",
-            "滚",
-        ]
-        threat_patterns = [
-            "你自己也是违法",
-            "看警察抓谁",
-            "报警？",
-            "别影响别人",
-            "懂吗",
-            "让你消失",
-        ]
-        victim_keywords = [
-            "被骗",
-            "骗子",
-            "还钱",
-            "没到账",
-            "求助",
-            "救命",
-            "报警",
-            "报案",
-            "拉黑",
-            "退钱",
-            "兼职",
-            "刷单",
-            "待审核",
-            "审核好了吗",
-            "不理我",
-            "充值",
-            "提现",
-            "还要钱",
-            "我转了",
-        ]
-        self_pii_cues = ["我的电话", "身份证号", "住址", "我这就拍", "照片都发了", "我是学生"]
-
-        op_signal = any(k in text for k in op_keywords)
-        threat_signal = any(k in text for k in threat_patterns)
-        victim_signal = any(k in text for k in victim_keywords) and (first_person or "你们" in text)
-        self_pii_signal = has_pii and first_person and any(k in text for k in self_pii_cues)
+        op_signal = self._has_op_signal(text)
+        threat_signal = self._contains_any(text, self.THREAT_PATTERNS)
+        complaint_context = self._has_complaint_context(text)
+        victim_signal = complaint_context
+        self_pii_signal = self._has_self_pii_signal(text, has_pii)
+        op_instruction_signal = self._has_instruction_signal(text)
 
         has_long_number = bool(re.search(r"(?<!\d)\d{15,19}(?!\d)", lower_text))
 
-        if threat_signal or (op_signal and (has_long_number or "卡号" in text or "保证金" in text) and not self_pii_signal):
-            parsed["role"] = "scammer"
-            if parsed["risk"] == "low":
-                parsed["risk"] = "high" if has_pii or has_long_number else "medium"
-            if not parsed.get("intent") or parsed["intent"] == "other":
-                parsed["intent"] = "指令/威胁/资金操作"
-            return parsed
+        implicit_op_context = any(
+            x in text for x in ["尾号", "开头", "结尾", "前六", "尾四", "半套", "全量", "别发全", "模糊定位", "统一口径", "重复卖", "拆开卖", "主推", "后补", "家里人号", "三要素", "户籍", "近照", "机主", "收款地址", "U地址", "收U"]
+        )
 
-        if self_pii_signal or (victim_signal and not op_signal):
+        if self_pii_signal or complaint_context or (victim_signal and not op_instruction_signal):
             parsed["role"] = "victim"
             if parsed["risk"] == "low":
                 parsed["risk"] = "medium"
             if not parsed.get("intent") or parsed["intent"] == "other":
                 parsed["intent"] = "求助/维权/隐私泄露"
+            return parsed
+
+        if threat_signal or (
+            op_signal
+            and (has_long_number or has_pii or "卡号" in text or "保证金" in text or implicit_op_context or op_instruction_signal)
+            and not self_pii_signal
+            and not complaint_context
+        ):
+            parsed["role"] = "scammer"
+            if parsed["risk"] == "low":
+                parsed["risk"] = "high" if has_pii or has_long_number else "medium"
+            if not parsed.get("intent") or parsed["intent"] == "other":
+                parsed["intent"] = "指令/威胁/资金操作"
             return parsed
 
         if has_long_number and op_signal:

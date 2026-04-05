@@ -1,0 +1,87 @@
+{
+    "cluster_count": 194,
+    "cross_group_cluster_count": 3,
+    "cross_group_clusters": [
+        {
+            "cluster_id": "C188",
+            "canonical_name": "dongshuicha",
+            "aliases": [
+                "dongshuicha"
+            ],
+            "groups": [
+                "1_augmented",
+                "3"
+            ],
+            "members": [
+                {
+                    "source_group": "1_augmented",
+                    "username": "dongshuicha"
+                },
+                {
+                    "source_group": "3",
+                    "username": "dongshuicha"
+                }
+            ],
+            "shared_pii": {
+                "wallet": [
+                    "TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt"
+                ]
+            },
+            "confidence": "medium"
+        },
+        {
+            "cluster_id": "C186",
+            "canonical_name": "yinuo_qingcha",
+            "aliases": [
+                "yinuo_qingcha"
+            ],
+            "groups": [
+                "1_augmented",
+                "3"
+            ],
+            "members": [
+                {
+                    "source_group": "1_augmented",
+                    "username": "yinuo_qingcha"
+                },
+                {
+                    "source_group": "3",
+                    "username": "yinuo_qingcha"
+                }
+            ],
+            "shared_pii": {},
+            "confidence": "medium"
+        },
+        {
+            "cluster_id": "C187",
+            "canonical_name": "qf_889",
+            "aliases": [
+                "qf_889"
+            ],
+            "groups": [
+                "1_augmented",
+                "3"
+            ],
+            "members": [
+                {
+                    "source_group": "1_augmented",
+                    "username": "qf_889"
+                },
+                {
+                    "source_group": "3",
+                    "username": "qf_889"
+                }
+            ],
+            "shared_pii": {},
+            "confidence": "medium"
+        }
+    ],
+    "event_counts": {
+        "PII_LEAK": 23,
+        "ORDER_RECEIVE": 5,
+        "VICTIM_COMPLAINT": 18,
+        "THREAT": 5,
+        "OFFLINE_MEET": 7,
+        "ORDER_PUBLISH": 2
+    }
+}

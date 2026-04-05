@@ -1,0 +1,578 @@
+[
+    {
+        "cluster_id": "C009",
+        "source_group": "1_augmented",
+        "username": "goevj33",
+        "msg_index": 15,
+        "event_type": "PII_LEAK",
+        "detail": "发点湖北身份证"
+    },
+    {
+        "cluster_id": "C013",
+        "source_group": "1_augmented",
+        "username": "user_1995957456",
+        "msg_index": 19,
+        "event_type": "PII_LEAK",
+        "detail": "谁🈶️四川人的手机号随便来一个"
+    },
+    {
+        "cluster_id": "C013",
+        "source_group": "1_augmented",
+        "username": "user_1995957456",
+        "msg_index": 22,
+        "event_type": "PII_LEAK",
+        "detail": "谁有宜宾？的手机号"
+    },
+    {
+        "cluster_id": "C036",
+        "source_group": "1_augmented",
+        "username": "ttmovo",
+        "msg_index": 71,
+        "event_type": "PII_LEAK",
+        "detail": "许愿手机号\n李慧琴 360681199210155945\n185xxxx0860"
+    },
+    {
+        "cluster_id": "C036",
+        "source_group": "1_augmented",
+        "username": "ttmovo",
+        "msg_index": 74,
+        "event_type": "PII_LEAK",
+        "detail": "许愿手机号\n李慧琴 360681199210155945"
+    },
+    {
+        "cluster_id": "C007",
+        "source_group": "1_augmented",
+        "username": "xiaohaileyuan_guanjiabot",
+        "msg_index": 75,
+        "event_type": "ORDER_RECEIVE",
+        "detail": "用户 安稳号商 已收到第 1 次警告"
+    },
+    {
+        "cluster_id": "C059",
+        "source_group": "1_augmented",
+        "username": "guoguo666888",
+        "msg_index": 156,
+        "event_type": "PII_LEAK",
+        "detail": "有身份证号 怎么查手机号"
+    },
+    {
+        "cluster_id": "C007",
+        "source_group": "1_augmented",
+        "username": "xiaohaileyuan_guanjiabot",
+        "msg_index": 159,
+        "event_type": "ORDER_RECEIVE",
+        "detail": "用户 River 已收到第 1 次警告"
+    },
+    {
+        "cluster_id": "C007",
+        "source_group": "1_augmented",
+        "username": "xiaohaileyuan_guanjiabot",
+        "msg_index": 160,
+        "event_type": "ORDER_RECEIVE",
+        "detail": "用户 灸灸 春江8017 已收到第 1 次警告"
+    },
+    {
+        "cluster_id": "C064",
+        "source_group": "1_augmented",
+        "username": "sailio",
+        "msg_index": 165,
+        "event_type": "PII_LEAK",
+        "detail": "求大佬们送个手机号"
+    },
+    {
+        "cluster_id": "C027",
+        "source_group": "1_augmented",
+        "username": "xiaohaige_luojiabot",
+        "msg_index": 170,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "⛔️ 反诈骗公示\n\n频道内容：\n• 骗子曝光名单\n• 常见骗术提醒\n• 安全交易指南\n\n💡 温馨提示：\n发现可疑情况请及时举报"
+    },
+    {
+        "cluster_id": "C007",
+        "source_group": "1_augmented",
+        "username": "xiaohaileyuan_guanjiabot",
+        "msg_index": 195,
+        "event_type": "ORDER_RECEIVE",
+        "detail": "用户 天黑路滑 已收到第 2 次警告"
+    },
+    {
+        "cluster_id": "C103",
+        "source_group": "1_augmented",
+        "username": "xy797",
+        "msg_index": 327,
+        "event_type": "THREAT",
+        "detail": "滚"
+    },
+    {
+        "cluster_id": "C103",
+        "source_group": "1_augmented",
+        "username": "xy797",
+        "msg_index": 330,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "骗子带吧"
+    },
+    {
+        "cluster_id": "C016",
+        "source_group": "1_augmented",
+        "username": "yanzikkkk",
+        "msg_index": 354,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "他让我单我寻思他刚被骗结果给他了给我跑了"
+    },
+    {
+        "cluster_id": "C109",
+        "source_group": "1_augmented",
+        "username": "aaaaaa097436",
+        "msg_index": 373,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "假地址来一个"
+    },
+    {
+        "cluster_id": "C048",
+        "source_group": "1_augmented",
+        "username": "zzzeng03",
+        "msg_index": 380,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "去被骗吧  刚才还找我出头呢"
+    },
+    {
+        "cluster_id": "C113",
+        "source_group": "1_augmented",
+        "username": "yiouo66",
+        "msg_index": 396,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "刚刚被骗了一单🤣"
+    },
+    {
+        "cluster_id": "C048",
+        "source_group": "1_augmented",
+        "username": "zzzeng03",
+        "msg_index": 408,
+        "event_type": "PII_LEAK",
+        "detail": "补齐身份证那个"
+    },
+    {
+        "cluster_id": "C021",
+        "source_group": "1_augmented",
+        "username": "user_8338425844",
+        "msg_index": 409,
+        "event_type": "PII_LEAK",
+        "detail": "谁能补齐手机号"
+    },
+    {
+        "cluster_id": "C115",
+        "source_group": "1_augmented",
+        "username": "zlndiisn",
+        "msg_index": 417,
+        "event_type": "THREAT",
+        "detail": "我靠，我他妈为什么被一诺大群踢了？"
+    },
+    {
+        "cluster_id": "C120",
+        "source_group": "1_augmented",
+        "username": "user_1368869340",
+        "msg_index": 459,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "一诺公群088已上压 本群骗子诈骗犯难以分辨 请各位老板谨慎下单 如在本群被骗可以私信 @dongshuicha 保留好受骗证据 在线为您解决 查档首选公群老板 需要查档或不懂的问题也可以联系 @dongshuicha 频道350人抽奖送冻梨"
+    },
+    {
+        "cluster_id": "C123",
+        "source_group": "1_augmented",
+        "username": "CHWNAR",
+        "msg_index": 477,
+        "event_type": "THREAT",
+        "detail": "给他踢了"
+    },
+    {
+        "cluster_id": "C048",
+        "source_group": "1_augmented",
+        "username": "zzzeng03",
+        "msg_index": 541,
+        "event_type": "ORDER_RECEIVE",
+        "detail": "咋感觉  你是准备明年送😂"
+    },
+    {
+        "cluster_id": "C135",
+        "source_group": "1_augmented",
+        "username": "Always8765",
+        "msg_index": 591,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "这群骗子多"
+    },
+    {
+        "cluster_id": "C032",
+        "source_group": "1_augmented",
+        "username": "user_8593434867",
+        "msg_index": 596,
+        "event_type": "PII_LEAK",
+        "detail": "姓名身份证"
+    },
+    {
+        "cluster_id": "C128",
+        "source_group": "1_augmented",
+        "username": "asd1hg11",
+        "msg_index": 609,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "还有一个骗子  我私发你⊙∀⊙？"
+    },
+    {
+        "cluster_id": "C128",
+        "source_group": "1_augmented",
+        "username": "asd1hg11",
+        "msg_index": 611,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "这个人也是骗子"
+    },
+    {
+        "cluster_id": "C048",
+        "source_group": "1_augmented",
+        "username": "zzzeng03",
+        "msg_index": 634,
+        "event_type": "THREAT",
+        "detail": "那么多反诈的滚刀肉啊"
+    },
+    {
+        "cluster_id": "C124",
+        "source_group": "1_augmented",
+        "username": "user_8295584404",
+        "msg_index": 657,
+        "event_type": "THREAT",
+        "detail": "滚刀肉"
+    },
+    {
+        "cluster_id": "C155",
+        "source_group": "1_augmented",
+        "username": "YNDboo1",
+        "msg_index": 690,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "好的，白天上学晚上吹牛的小屁孩骗子"
+    },
+    {
+        "cluster_id": "C149",
+        "source_group": "1_augmented",
+        "username": "user_8281192751",
+        "msg_index": 699,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "谁有这种类似的假地址假头机器人"
+    },
+    {
+        "cluster_id": "C159",
+        "source_group": "1_augmented",
+        "username": "nanzheng998",
+        "msg_index": 714,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "被骗需要反诈的联系我"
+    },
+    {
+        "cluster_id": "C163",
+        "source_group": "1_augmented",
+        "username": "user_8054577375",
+        "msg_index": 744,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "骗子"
+    },
+    {
+        "cluster_id": "C164",
+        "source_group": "1_augmented",
+        "username": "tt66637773",
+        "msg_index": 748,
+        "event_type": "PII_LEAK",
+        "detail": "谁能出旧的身份证照片？"
+    },
+    {
+        "cluster_id": "C154",
+        "source_group": "1_augmented",
+        "username": "user_8140928276",
+        "msg_index": 750,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "查不了都是骗子"
+    },
+    {
+        "cluster_id": "C165",
+        "source_group": "1_augmented",
+        "username": "user_7740323175",
+        "msg_index": 751,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "而且一堆骗子是不是"
+    },
+    {
+        "cluster_id": "C159",
+        "source_group": "1_augmented",
+        "username": "nanzheng998",
+        "msg_index": 762,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "被骗需要反诈的联系我"
+    },
+    {
+        "cluster_id": "C169",
+        "source_group": "1_augmented",
+        "username": "weiainnnn",
+        "msg_index": 764,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "这里面骗子。骗一次换一次头像是吧。"
+    },
+    {
+        "cluster_id": "C159",
+        "source_group": "1_augmented",
+        "username": "nanzheng998",
+        "msg_index": 776,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "被骗需要反诈的联系我"
+    },
+    {
+        "cluster_id": "C179",
+        "source_group": "1_augmented",
+        "username": "user_7484853632",
+        "msg_index": 793,
+        "event_type": "OFFLINE_MEET",
+        "detail": "查快递地址"
+    },
+    {
+        "cluster_id": "C159",
+        "source_group": "1_augmented",
+        "username": "nanzheng998",
+        "msg_index": 809,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "被骗需要反诈的联系我"
+    },
+    {
+        "cluster_id": "C184",
+        "source_group": "1_augmented",
+        "username": "user_7892998752",
+        "msg_index": 834,
+        "event_type": "PII_LEAK",
+        "detail": "qq开手机号谁会"
+    },
+    {
+        "cluster_id": "C022",
+        "source_group": "1_augmented",
+        "username": "AHQB34",
+        "msg_index": 837,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "上次那个 07 年河北的还在吗，尾号 6533 那条，先补机主。"
+    },
+    {
+        "cluster_id": "C048",
+        "source_group": "1_augmented",
+        "username": "zzzeng03",
+        "msg_index": 838,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "在，名字别全写，王那个先走半套，前六 + 尾四能看。"
+    },
+    {
+        "cluster_id": "C187",
+        "source_group": "1_augmented",
+        "username": "qf_889",
+        "msg_index": 839,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "如果是王那条，先给 130824 开头和 0050 结尾，中间别发群里。"
+    },
+    {
+        "cluster_id": "C022",
+        "source_group": "1_augmented",
+        "username": "AHQB34",
+        "msg_index": 840,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "可以，手机号我只记得尾号 6533，完整的我私聊接。"
+    },
+    {
+        "cluster_id": "C186",
+        "source_group": "1_augmented",
+        "username": "yinuo_qingcha",
+        "msg_index": 841,
+        "event_type": "OFFLINE_MEET",
+        "detail": "收款还是老地址，备注写 6533，不要直接带姓名。"
+    },
+    {
+        "cluster_id": "C188",
+        "source_group": "1_augmented",
+        "username": "dongshuicha",
+        "msg_index": 842,
+        "event_type": "OFFLINE_MEET",
+        "detail": "人工补单还是这个U地址 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，问机主别刷屏。"
+    },
+    {
+        "cluster_id": "C036",
+        "source_group": "1_augmented",
+        "username": "ttmovo",
+        "msg_index": 843,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "李那个也还要，92 年那条，只给了 0860 尾号，说家里人号另算。"
+    },
+    {
+        "cluster_id": "C187",
+        "source_group": "1_augmented",
+        "username": "qf_889",
+        "msg_index": 844,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "李那条只发到县，不发到门牌，免得对上。"
+    },
+    {
+        "cluster_id": "C147",
+        "source_group": "1_augmented",
+        "username": "jianzhu66",
+        "msg_index": 846,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "广西那条柳素我还在等，135 开头那个只验了半截，住址还是假的。"
+    },
+    {
+        "cluster_id": "C186",
+        "source_group": "1_augmented",
+        "username": "yinuo_qingcha",
+        "msg_index": 847,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "柳素那条别在公群写身份证，全量去售后问，外面只挂常用号尾段。"
+    },
+    {
+        "cluster_id": "C124",
+        "source_group": "1_augmented",
+        "username": "user_8295584404",
+        "msg_index": 849,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "懂了，那王那条我只写 07 年、河北、尾号 6533，机主另议。"
+    },
+    {
+        "cluster_id": "C187",
+        "source_group": "1_augmented",
+        "username": "qf_889",
+        "msg_index": 850,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "李那条如果继续做，就按 92 年、赣北、尾号 0860 这个口径。"
+    },
+    {
+        "cluster_id": "C188",
+        "source_group": "1_augmented",
+        "username": "dongshuicha",
+        "msg_index": 851,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "最近投诉多，假地址和假头别再混着卖，尤其广西那条。"
+    },
+    {
+        "cluster_id": "C186",
+        "source_group": "1_augmented",
+        "username": "yinuo_qingcha",
+        "msg_index": 853,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "别急，先上机主和半套，家里人号、近照、住址拆开算。"
+    },
+    {
+        "cluster_id": "C189",
+        "source_group": "2",
+        "username": "victim_hebei07",
+        "msg_index": 1,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "我昨晚在大群下的 07 年河北那单，到现在只给我 130824 开头和 0050 结尾。"
+    },
+    {
+        "cluster_id": "C189",
+        "source_group": "2",
+        "username": "victim_hebei07",
+        "msg_index": 2,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "手机号也只说尾号 6533，说机主要另外算。"
+    },
+    {
+        "cluster_id": "C190",
+        "source_group": "2",
+        "username": "beikou_92",
+        "msg_index": 4,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "我买的李那条也是，只说 92 年、赣北、尾号 0860，完整号码不给。"
+    },
+    {
+        "cluster_id": "C191",
+        "source_group": "2",
+        "username": "liusu_case",
+        "msg_index": 6,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "广西那个柳素更离谱，常用号给了 135 开头，住址还是假的。"
+    },
+    {
+        "cluster_id": "C189",
+        "source_group": "2",
+        "username": "victim_hebei07",
+        "msg_index": 12,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "如果是老地址收U那伙人，应该和公群公告是同一批。"
+    },
+    {
+        "cluster_id": "C191",
+        "source_group": "2",
+        "username": "liusu_case",
+        "msg_index": 14,
+        "event_type": "PII_LEAK",
+        "detail": "广西这条应该不止卖了一轮，我问住址时他们只回了个模糊定位。"
+    },
+    {
+        "cluster_id": "C187",
+        "source_group": "3",
+        "username": "qf_889",
+        "msg_index": 2,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "河北那条继续按王那个来叫，别全名上群，只放 130824 开头和 0050 结尾。"
+    },
+    {
+        "cluster_id": "C193",
+        "source_group": "3",
+        "username": "ops_kaidan",
+        "msg_index": 3,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "手机号也别全发，只写尾号 6533，机主单独收。"
+    },
+    {
+        "cluster_id": "C188",
+        "source_group": "3",
+        "username": "dongshuicha",
+        "msg_index": 4,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "收U还是 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注写 6533 或 0860，别写真名。"
+    },
+    {
+        "cluster_id": "C193",
+        "source_group": "3",
+        "username": "ops_kaidan",
+        "msg_index": 6,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "广西柳素那条只给 135 开头和假定位，真住址别带。"
+    },
+    {
+        "cluster_id": "C186",
+        "source_group": "3",
+        "username": "yinuo_qingcha",
+        "msg_index": 8,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "对，名字别认，公群统一说王那个，别让全量字段同时出现。"
+    },
+    {
+        "cluster_id": "C193",
+        "source_group": "3",
+        "username": "ops_kaidan",
+        "msg_index": 10,
+        "event_type": "PII_LEAK",
+        "detail": "柳素那条已经卖过一轮，外面只说广西那条，别和手机号一起发。"
+    },
+    {
+        "cluster_id": "C187",
+        "source_group": "3",
+        "username": "qf_889",
+        "msg_index": 11,
+        "event_type": "VICTIM_COMPLAINT",
+        "detail": "假地址继续用模糊定位，承德下边、赣北、广西县城这种说法最稳。"
+    },
+    {
+        "cluster_id": "C194",
+        "source_group": "3",
+        "username": "neibu_xh",
+        "msg_index": 12,
+        "event_type": "ORDER_PUBLISH",
+        "detail": "河北那条今晚还能再卖一次，还是拆成机主、半套、家里人号、近照。"
+    },
+    {
+        "cluster_id": "C186",
+        "source_group": "3",
+        "username": "yinuo_qingcha",
+        "msg_index": 13,
+        "event_type": "PII_LEAK",
+        "detail": "售后如果再提收款地址，就说公群公告统一收，别暴露内部号。"
+    }
+]

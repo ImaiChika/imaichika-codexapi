@@ -14,6 +14,7 @@ from src.config import (
     DATA_PROC_DIR,
     DATA_RAW_DIR,
     HIGH_SIGNAL_KEYWORDS,
+    IMPLICIT_SIGNAL_KEYWORDS,
     LLM_MIN_L1_SCORE,
     LLM_MIN_L2_SCORE,
     REPORT_CLUE_CHAIN_TOP_K,
@@ -43,6 +44,20 @@ def should_use_llm(message: dict) -> bool:
     if bool(message.get("has_pii")):
         return True
 
+    pii_details = message.get("pii_details", {})
+    if isinstance(pii_details, dict) and any(
+        pii_details.get(k)
+        for k in [
+            "extracted_mobile_masked",
+            "extracted_id_masked",
+            "extracted_mobile_fragment",
+            "extracted_id_fragment",
+            "extracted_alias_clue",
+            "extracted_address_hint",
+        ]
+    ):
+        return True
+
     if float(message.get("l1_risk_score", 0) or 0) >= LLM_MIN_L1_SCORE:
         return True
 
@@ -50,6 +65,9 @@ def should_use_llm(message: dict) -> bool:
         return True
 
     if any(k in text for k in HIGH_SIGNAL_KEYWORDS):
+        return True
+
+    if any(k in text for k in IMPLICIT_SIGNAL_KEYWORDS):
         return True
 
     # short/noisy messages can skip LLM

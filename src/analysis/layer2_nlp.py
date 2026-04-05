@@ -38,6 +38,53 @@ class TextMiner:
             "户籍",
             "家谱",
             "近照",
+            "尾号",
+            "开头",
+            "结尾",
+            "前六",
+            "尾四",
+            "半套",
+            "全量",
+            "别发全",
+            "模糊定位",
+            "统一口径",
+            "重复卖",
+            "拆开卖",
+            "假地址",
+            "售后",
+        }
+        self.implicit_trade_kws = {
+            "尾号",
+            "开头",
+            "结尾",
+            "前六",
+            "尾四",
+            "半套",
+            "全量",
+            "别发全",
+            "别全名",
+            "模糊定位",
+            "统一口径",
+            "重复卖",
+            "拆开卖",
+            "主推",
+            "后补",
+            "只发到县",
+            "不发到门牌",
+            "家里人号",
+            "备注",
+        }
+        self.complaint_kws = {
+            "投诉",
+            "维权",
+            "假地址",
+            "不给全",
+            "只给",
+            "怀疑",
+            "重复卖",
+            "拉黑",
+            "不发到门牌",
+            "售后",
         }
 
     def is_system_message(self, text: str) -> bool:
@@ -87,9 +134,24 @@ class TextMiner:
                 l2_risk_score += min(len(hits) * 25, 80)
                 l2_evidence.append(f"命中高风险词: {hits}")
 
+            direct_hits = [k for k in self.high_risk_kws if k in text]
+            if direct_hits and not hits:
+                l2_risk_score += min(12 + len(direct_hits) * 5, 70)
+                l2_evidence.append(f"命中高风险短语: {direct_hits[:8]}")
+
+            implicit_trade_hits = [k for k in self.implicit_trade_kws if k in text]
+            if implicit_trade_hits:
+                l2_risk_score += min(10 + len(implicit_trade_hits) * 4, 35)
+                l2_evidence.append(f"命中隐式交易线索: {implicit_trade_hits[:8]}")
+
+            complaint_hits = [k for k in self.complaint_kws if k in text]
+            if complaint_hits:
+                l2_risk_score += min(8 + len(complaint_hits) * 4, 28)
+                l2_evidence.append(f"命中投诉/售后线索: {complaint_hits[:8]}")
+
             if any(x in text for x in ["?", "？", "怎么", "为何", "为什么"]):
                 l2_evidence.append("疑问/求助语气")
-            if any(x in text for x in ["卡号", "户名", "下发", "速度", "查收", "进场", "收款地址", "三要素", "查档"]):
+            if any(x in text for x in ["卡号", "户名", "下发", "速度", "查收", "进场", "收款地址", "三要素", "查档", "尾号", "开头", "全量", "半套"]):
                 l2_evidence.append("操作/指令语气")
 
             if len(text) > 50:

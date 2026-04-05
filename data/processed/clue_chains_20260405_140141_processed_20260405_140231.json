@@ -1,0 +1,53 @@
+[
+    {
+        "clue_type": "wallet",
+        "clue_value": "TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt",
+        "chain_type": "cross_group_correlation",
+        "confidence": "low",
+        "inference": "同一线索在多个账号/群出现，建议继续人工核验。",
+        "groups": [
+            "1_augmented",
+            "2",
+            "3"
+        ],
+        "mentions_count": 3,
+        "points_to": {
+            "victims": [
+                "dongshuicha"
+            ],
+            "suspects": [],
+            "irrelevant": []
+        },
+        "soft_identity_candidates": [],
+        "mentions": [
+            {
+                "source_group": "1_augmented",
+                "username": "dongshuicha",
+                "msg_index": 842,
+                "text_excerpt": "人工补单还是这个U地址 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，问机主别刷屏。",
+                "self_claim": false,
+                "role_hint": "victim",
+                "cluster_id": "C188"
+            },
+            {
+                "source_group": "2",
+                "username": "victim_hebei07",
+                "msg_index": 3,
+                "text_excerpt": "钱是打到 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注 6533，对接的是 @yinuo_qingcha。",
+                "self_claim": false,
+                "role_hint": "other",
+                "cluster_id": "C189"
+            },
+            {
+                "source_group": "3",
+                "username": "dongshuicha",
+                "msg_index": 4,
+                "text_excerpt": "收U还是 TQ7hM9YpL2kV8sNc4RwEa6UzfJxCb3DnQt，备注写 6533 或 0860，别写真名。",
+                "self_claim": false,
+                "role_hint": "scammer",
+                "cluster_id": "C188"
+            }
+        ],
+        "chain_id": "L001"
+    }
+]

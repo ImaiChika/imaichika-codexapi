@@ -45,6 +45,25 @@ class ReasoningContextMixin:
         kws = []
         kws.extend(msg.get("nlp_keywords", []) or [])
         kws.extend(msg.get("preliminary_topics", []) or [])
+
+        pii_details = msg.get("pii_details", {})
+        if isinstance(pii_details, dict):
+            for values in pii_details.values():
+                if not isinstance(values, list):
+                    continue
+                for value in values:
+                    token = str(value or "").strip()
+                    if token and len(token) <= 24:
+                        kws.append(token)
+
+        text = str(msg.get("text", "") or "")
+        for cue in [
+            "尾号", "开头", "结尾", "前六", "尾四", "半套", "别发全", "全量", "模糊定位",
+            "统一口径", "重复卖", "拆开卖", "主推", "售后", "假地址", "家里人号",
+        ]:
+            if cue in text:
+                kws.append(cue)
+
         return [str(k).strip() for k in kws if str(k).strip()]
 
     def _calc_keyword_overlap(self, a: List[str], b: List[str]) -> float:

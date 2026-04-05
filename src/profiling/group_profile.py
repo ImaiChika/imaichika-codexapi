@@ -48,18 +48,24 @@ class GroupProfiler:
         self.victim_keywords = [
             "被骗", "骗子", "还钱", "没到账", "没到帐", "求助", "救命", "报警", "报案", "拉黑", "退钱", "投诉", "维权",
             "兼职", "刷单", "待审核", "审核好了吗", "不理我", "充值", "提现", "还要钱", "我转了",
+            "不给全", "只给", "假地址", "不发到门牌", "重复卖", "售后",
+            "我买的", "我下的", "只给我", "只说", "完整号码不给", "我问", "我怀疑", "更离谱", "只发到县", "半截",
         ]
         self.loss_keywords = [
             "没到账", "没到帐", "提现", "还要钱", "拉黑", "不理我", "被骗了", "退钱", "投诉", "维权", "骗子", "报案", "报警",
+            "不给全", "只给", "假地址", "不发到门牌", "重复卖",
+            "我买的", "我下的", "只给我", "只说", "完整号码不给", "我问", "我怀疑", "更离谱", "只发到县", "半截",
         ]
         self.scammer_keywords = [
             "卡号", "户名", "下发", "车队", "待命", "保证金", "开后台", "进二群", "内部通道", "换卡", "新卡",
             "收U", "四件套", "白户", "实名", "高仿", "包邮", "踢", "滚", "反诈",
             "拆开卖", "重复卖", "挂外群", "主推", "模糊定位", "口径统一", "补家谱", "收款地址",
+            "尾号", "开头", "结尾", "前六", "尾四", "半套", "别发全", "别全名", "全量", "后补", "家里人号", "备注写",
         ]
         self.manager_keywords = [
             "车队", "待命", "保证金", "开后台", "新卡", "换卡", "下发", "卡号", "户名", "内部通道", "进二群", "收U", "四件套", "白户",
             "拆开卖", "重复卖", "挂外群", "主推", "模糊定位", "口径统一", "收款地址",
+            "尾号", "开头", "结尾", "前六", "尾四", "半套", "别发全", "别全名", "全量", "后补",
         ]
         self.noise_keywords = {"签到", "滴滴", "打卡", "路过", "冒泡"}
         self.casual_keywords = ["天气", "专业", "羡慕", "看看", "围观", "聊天"]
@@ -103,6 +109,51 @@ class GroupProfiler:
     def _contains_any(haystack: str, needles: List[str]) -> bool:
         return any(n in haystack for n in needles)
 
+    def _has_instruction_context(self, text: str) -> bool:
+        return self._contains_any(
+            str(text or ""),
+            [
+                "就按", "只写", "统一说", "别让", "备注写", "别发", "主推", "另议", "后补",
+                "单独收", "继续用", "别全名", "别写真名", "继续按", "继续做", "先给", "先上",
+                "外面只挂", "别带", "拆开算", "维持", "照这个口径", "按口径", "统一叫", "免得对上",
+                "最稳", "混着卖", "先让", "统一收",
+            ],
+        )
+
+    def _has_complaint_context(self, text: str) -> bool:
+        t = str(text or "")
+        unambiguous = self._contains_any(
+            t,
+            [
+                "被骗", "没到账", "还钱", "求助", "报警", "报案", "拉黑", "退钱", "投诉", "维权",
+                "我买的", "我下的", "我昨晚", "我还在等", "我听到的是", "我想确认", "我问", "我怀疑",
+                "更离谱", "到现在", "完整号码不给", "只给我", "只给了", "只给了个县", "只给了半截",
+                "只发了", "只发了个县", "只回了", "只验了", "还是假的", "对接的是", "钱是打到",
+                "后面说", "他们只回", "不止卖了一轮", "另外算", "另算",
+            ],
+        )
+        ambiguous = self._contains_any(t, ["不给全", "假地址", "不发到门牌", "重复卖", "只说", "只发到县"])
+        explicit_complaint = self._contains_any(t, self.victim_keywords + self.loss_keywords)
+        receive_context = self._contains_any(
+            t,
+            [
+                "我买的", "我下的", "我昨晚", "我还在等", "我听到的是", "我想确认", "我问", "我怀疑",
+                "更离谱", "到现在", "只给我", "只说", "完整号码不给", "只给了", "只给了个县",
+                "只给了半截", "只发了", "只发了个县", "只回了", "只验了", "还是假的", "对接的是",
+                "钱是打到", "后面说", "他们只回", "不止卖了一轮",
+            ],
+        )
+        instruction_context = self._has_instruction_context(t)
+        if not (unambiguous or ambiguous or explicit_complaint or receive_context):
+            return False
+        if instruction_context and not unambiguous and not self._is_first_person_text(t):
+            return False
+        if unambiguous:
+            return True
+        if self._is_first_person_text(t):
+            return True
+        return any(x in t for x in ["他们", "后面说", "还是假的", "只发了", "只回了", "到现在", "钱是打到", "对接的是", "另外算", "另算"])
+
     def _group_bias_from_message(self, message: Dict) -> str:
         group_name = str(message.get("source_group", "") or "")
         file_name = str(message.get("source_file", "") or "")
@@ -122,15 +173,23 @@ class GroupProfiler:
         t = str(text or "")
 
         if "phone" in k or "mobile" in k:
+            if "fragment" in k or "masked" in k:
+                return "手机号片段"
             return "手机号"
         if "qq" in k:
             return "QQ号"
         if "id" in k:
+            if "fragment" in k or "masked" in k:
+                return "身份证片段"
             return "身份证"
         if "mail" in k:
             return "邮箱"
         if "payment" in k or "wallet" in k or "usdt" in k:
             return "收款地址"
+        if "alias" in k:
+            return "代称线索"
+        if "address_hint" in k:
+            return "模糊地址"
         if "name_en" in k:
             return "英文名"
         if "name" in k:
@@ -163,22 +222,31 @@ class GroupProfiler:
             return
 
         first_person = self._is_first_person_text(t)
-        victim_hit = any(k in t for k in self.victim_keywords)
+        complaint_context = self._has_complaint_context(t)
+        victim_hit = any(k in t for k in self.victim_keywords) or complaint_context
         loss_hit = any(k in t for k in self.loss_keywords) and first_person
-        scammer_hit = any(k in t for k in self.scammer_keywords)
-        manager_hit = any(k in t for k in self.manager_keywords)
+        scammer_hit = any(k in t for k in self.scammer_keywords) and not complaint_context
+        manager_hit = any(k in t for k in self.manager_keywords) and not complaint_context
         suspect_context_hit = any(k in t for k in self.suspect_context_keywords)
+        instruction_context = self._has_instruction_context(t)
+
+        if instruction_context and any(k in t for k in self.scammer_keywords + self.manager_keywords):
+            scammer_hit = True
+            manager_hit = True
 
         if self._has_long_number(t) and any(x in t for x in ["卡号", "户名", "银行", "下发", "新卡", "换卡"]):
             scammer_hit = True
             manager_hit = True
 
         self_leak_cue = first_person and any(
-            x in t for x in ["我的电话", "我电话", "身份证号", "我的身份证", "我的住址", "我住", "我家", "照片都发了", "我这就拍", "我的QQ", "我QQ"]
+            x in t for x in ["我的电话", "我电话", "身份证号", "我的身份证", "我的住址", "我住", "我家", "照片都发了", "我这就拍", "我的QQ", "我QQ", "我的手机号"]
         )
         if self_leak_cue and (group_bias != "suspect" or loss_hit or victim_hit):
             rec["victim_signal"] += 1
             rec["self_pii_leak"] += 1
+
+        if complaint_context:
+            rec["victim_signal"] += 1
 
         if (loss_hit and first_person) or (victim_hit and "你们" in t):
             rec["victim_signal"] += 1
@@ -226,16 +294,18 @@ class GroupProfiler:
             pii_details = {}
 
         first_person = self._is_first_person_text(text)
-        victim_text_context = any(x in text for x in (self.victim_keywords + self.loss_keywords))
+        complaint_context = self._has_complaint_context(text)
+        victim_text_context = complaint_context or any(x in text for x in (self.victim_keywords + self.loss_keywords))
         self_leak_context = first_person and any(
             x in text for x in ["我的电话", "我电话", "我的手机号", "身份证号", "我的身份证", "我的住址", "我住", "我家", "照片都发了", "我这就拍", "我是学生", "我的QQ", "我QQ"]
         )
         allow_self_leak = self_leak_context and (group_bias != "suspect" or victim_text_context)
+        allow_victim_context = allow_self_leak or complaint_context
         op_context = any(
             x in text
-            for x in ["卡号", "户名", "银行", "下发", "新卡", "换卡", "收款", "手续费", "资料", "三要素", "家谱", "户籍", "拆开卖", "重复卖", "挂外群", "模糊定位"]
+            for x in ["卡号", "户名", "银行", "下发", "新卡", "换卡", "收款", "手续费", "资料", "三要素", "家谱", "户籍", "拆开卖", "重复卖", "挂外群", "模糊定位", "尾号", "开头", "结尾", "前六", "尾四", "半套", "全量", "别发全", "后补", "家里人号", "U地址", "收款地址", "钱包地址", "机主", "备注"]
         )
-        suspect_op_context = group_bias == "suspect" and (
+        suspect_op_context = not complaint_context and group_bias == "suspect" and (
             op_context
             or rec.get("manager_signal", 0) > 0
             or rec.get("scammer_signal", 0) > 0
@@ -253,15 +323,16 @@ class GroupProfiler:
                 label = self._guess_pii_label(key, text, content)
 
                 rec["pii_count"] += 1
-                if label in {"银行卡", "收款地址"} and (op_context or suspect_op_context) and not allow_self_leak:
+                if label in {"银行卡", "收款地址"} and (op_context or suspect_op_context) and not allow_victim_context:
                     rec["bank_card_posts"] += 1
                     rec["pii_ops_signal"] += 1
-                if label in {"手机号", "身份证", "姓名", "英文名", "地址", "QQ号"} and suspect_op_context and not allow_self_leak:
+                if label in {"手机号", "身份证", "姓名", "英文名", "地址", "QQ号", "手机号片段", "身份证片段", "代称线索", "模糊地址"} and suspect_op_context and not allow_victim_context:
                     rec["pii_ops_signal"] += 1
                 if label == "身份证":
                     rec["id_posts"] += 1
-                if allow_self_leak:
+                if allow_self_leak or (complaint_context and first_person):
                     rec["self_pii_leak"] += 1
+                if allow_victim_context:
                     rec["victim_signal"] += 1
 
                 dedupe_key = (username, label, content)
@@ -406,6 +477,8 @@ class GroupProfiler:
                 or (suspect_group_dominant and (manager_signal > 0 or rec.get("scammer_signal", 0) > 0))
                 or (suspect_group_dominant and (suspect_group_signal >= 1 or pii_ops_signal >= 1) and msg_count >= 5)
             )
+            if victim_signal >= 2 and (loss_signal > 0 or self_pii_leak > 0):
+                has_hard_scammer_behavior = False
             if has_hard_scammer_behavior and scammer_score >= max(2.0, victim_score + 0.8):
                 suspects.add(username)
                 continue
